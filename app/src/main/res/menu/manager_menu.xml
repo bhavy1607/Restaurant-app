@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Manager">
+        <menu>
+            <item android:title="Home"
+                android:id="@+id/home"
+                android:icon="@drawable/ic_home"/>
+
+            <item android:title="Add Cook"
+                android:id="@+id/add_cook"
+                android:icon="@drawable/ic_baseline_addperson"/>
+
+            <item android:title="View Cook"
+                android:id="@+id/view_cook"
+                android:icon="@drawable/ic_baseline_viewperson"/>
+
+            <item android:title="Add Waiter"
+                android:id="@+id/add_waiter"
+                android:icon="@drawable/ic_baseline_addperson"/>
+
+            <item android:title="View Waiter"
+                android:id="@+id/view_waiter"
+                android:icon="@drawable/ic_baseline_viewperson"/>
+
+
+            <item android:title="View Order"
+                android:id="@+id/view_order"
+                android:icon="@drawable/ic_baseline_order"/>
+
+            <item android:title="View Payment"
+                android:id="@+id/view_payment"
+                android:icon="@drawable/ic_baseline_payment_24"/>
+
+
+        </menu>
+    </item>
+    <item android:title="App">
+        <menu>
+
+            <item android:title=" View Feedback"
+                android:id="@+id/feedback"
+                android:icon="@drawable/ic_baseline_rate_review_24"/>
+
+            <item android:title="Logout"
+                android:id="@+id/logout"
+                android:icon="@drawable/ic_logout"/>
+
+        </menu>
+    </item>
+</menu>

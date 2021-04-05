@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.restaurant_app">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Restaurant_App"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".WaiterForgotPassword"></activity>
+        <activity android:name=".CookForgotPassword" />
+        <activity android:name=".ManagerForgotPassword" />
+        <activity android:name=".AdminForgotPassword" />
+        <activity android:name=".UserForgetPassword" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".UserLogin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserRegister"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserHome"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AdminLogin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ManagerLogin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BookTable"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Cart"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Feedback"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Menu"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ManagerHome"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AddCook"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewPayment"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewOrder"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewWaiter"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AddWaiter"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewCook"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AdminHome"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AdminShowFeedback"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AdminShowCart"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AdminStaffDetails"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AdminAddManager"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CookLogin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CookHome"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".cook_update_stock"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".cook_receive_order"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".cook_pending_order"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".cook_complete_order"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".cook_redy_for_serve"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WaiterLogin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".waiter_home"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".waiter_take_order"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".waiter_sent_order"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".waiter_ready_to_serve"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

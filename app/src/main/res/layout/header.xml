@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="@color/Yellow">
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/image"
+        android:src="@drawable/ic_baseline_add_photo_alternate_24"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/t1"
+        android:text="Name"
+        android:paddingLeft="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#000000"
+        android:layout_below="@+id/image"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/t2"
+        android:text="Email"
+        android:paddingLeft="10dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#000000"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/t1"
+        />
+</RelativeLayout>

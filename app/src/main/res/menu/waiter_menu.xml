@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Waiter">
+        <menu>
+            <item android:title="Home"
+                android:id="@+id/home"
+                android:icon="@drawable/ic_home"/>
+
+            <item android:title="Take Order"
+                android:id="@+id/to"
+                android:icon="@drawable/update_stock"/>
+
+            <item android:title="Sent Order"
+                android:id="@+id/so"
+                android:icon="@drawable/sendorder"/>
+            <item android:title="Ready To Serve"
+                android:id="@+id/rts"
+                android:icon="@drawable/readytoserve"/>
+        </menu>
+    </item>
+    <item android:title="App">
+        <menu>
+            <item android:title="Logout"
+                android:id="@+id/logout"
+                android:icon="@drawable/ic_logout"/>
+
+        </menu>
+    </item>
+</menu>
+
+
