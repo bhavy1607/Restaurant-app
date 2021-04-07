@@ -2,8 +2,14 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ViewCook">
 
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="vertical">
     <TextView
         android:id="@+id/tname"
         android:layout_width="match_parent"
@@ -12,21 +18,19 @@
         android:text="name"
         />
     <TextView
-        android:id="@+id/temail"
+        android:id="@+id/tid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tname"
         android:textSize="20sp"
-        android:text="email"
+        android:text="id"
         />
     <TextView
-        android:id="@+id/tphone"
+        android:id="@+id/tdec"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/temail"
         android:textSize="20sp"
-        android:text="phone"
+        android:text="dec"
         />
-
+ </LinearLayout>
 
 </RelativeLayout>
