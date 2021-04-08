@@ -57,7 +57,7 @@ public interface RetrofitInterface {
     Call<Menu> executeMenu(@Body HashMap<String,String>map);
 
     //view cook
-    @GET("cars_list.json")
+    @GET("/cook/getcook/6067d44f8452911a7862ccf4")
     Call<List<cookdetails>> Getdata();
 
 }

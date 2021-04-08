@@ -7,6 +7,7 @@
     tools:context=".ViewCook">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:background="@color/Yellow"
         android:layout_height="50dp">
@@ -14,6 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal">
+
             <Button
                 android:id="@+id/btnback"
                 android:layout_width="35dp"
@@ -35,22 +37,21 @@
 
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
-    <TextView
-        android:id="@+id/view_cook_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Click Here to view Cook list"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:gravity="center_horizontal"/>
+<!--    <TextView-->
+<!--        android:id="@+id/view_cook_list"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        android:text="Click Here to view Cook list"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:gravity="center_horizontal"/>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/view_cook_list">
-
+        android:layout_below="@+id/appbar">
 
     </androidx.recyclerview.widget.RecyclerView>
 </RelativeLayout>

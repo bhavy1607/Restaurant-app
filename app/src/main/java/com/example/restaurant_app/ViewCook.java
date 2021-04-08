@@ -38,8 +38,8 @@ public class ViewCook extends AppCompatActivity {
 
 //        viewcook = (TextView)findViewById(R.id.view_cook_list);
         recycle = (RecyclerView)findViewById(R.id.recycle);
-        recycle.setHasFixedSize(true);
-        recycle.setLayoutManager(new LinearLayoutManager(this));
+//        recycle.setHasFixedSize(true);
+//        recycle.setLayoutManager(new LinearLayoutManager(this));
 
         LinearLayoutManager manager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false);
         recycle.setLayoutManager(manager);
@@ -66,17 +66,18 @@ public class ViewCook extends AppCompatActivity {
         Retrofit retrofitclient = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface =  retrofitclient.create(RetrofitInterface.class);
 
-        Call<List<cookdetails>> listingdata = retrofitInterface.Getdata();
+        Call<List<cookdetails>> listing = retrofitInterface.Getdata();
 
-        listingdata.enqueue(new Callback<List<cookdetails>>() {
+        listing.enqueue(new Callback<List<cookdetails>>() {
             @Override
             public void onResponse(Call<List<cookdetails>> call, Response<List<cookdetails>> response) {
-                if(response.code() == 200){
-
-                    List<cookdetails> list = response.body();
-                    recycleadapter recycleadapter = new recycleadapter(ViewCook.this, list);
-                    recycle.setAdapter(recycleadapter);
+                if(response.isSuccessful()){
+                    Toast.makeText(getApplicationContext(),response.code(),Toast.LENGTH_SHORT).show();
+                    return;
                 }
+                List<cookdetails> list = response.body();
+                recycleAdapter recycleadapter = new recycleAdapter(ViewCook.this, list);
+                recycle.setAdapter(recycleadapter);
             }
 
             @Override
@@ -86,29 +87,29 @@ public class ViewCook extends AppCompatActivity {
         });
     }
 
-    class recycleadapter extends RecyclerView.Adapter<recycleadapter.MyViewHolder>{
+    class recycleAdapter extends RecyclerView.Adapter<recycleAdapter.MyViewHolder>{
 
         List<cookdetails>  list;
         Context context;
 
-        public recycleadapter(Context context, List<cookdetails> list){
+        public recycleAdapter(Context context, List<cookdetails> list){
             this.list = list;
             this.context = context;
         }
 
         @NonNull
         @Override
-        public recycleadapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardlayout,parent,false);
-            recycleadapter.MyViewHolder viewHolder = new recycleadapter.MyViewHolder(view);
+        public recycleAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(context).inflate(R.layout.cardlayout,parent,false);
+            recycleAdapter.MyViewHolder viewHolder = new recycleAdapter.MyViewHolder(view);
             return viewHolder;
         }
 
         @Override
-        public void onBindViewHolder(@NonNull recycleadapter.MyViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull recycleAdapter.MyViewHolder holder, int position) {
             holder.tname.setText(list.get(position).getName());
-            holder.tid.setText(list.get(position).getId());
-            holder.tdec.setText(list.get(position).getDesc());
+            holder.temail.setText(list.get(position).getEmail());
+            holder.tphone.setText(list.get(position).getPhone());
         }
 
         @Override
@@ -117,14 +118,14 @@ public class ViewCook extends AppCompatActivity {
         }
         class MyViewHolder extends RecyclerView.ViewHolder{
 
-            TextView tname,tid,tdec;
+            TextView tname,temail,tphone;
 
             public MyViewHolder(@NonNull View itemView) {
                 super(itemView);
 
                 tname = itemView.findViewById(R.id.tname);
-                tid = itemView.findViewById(R.id.tid);
-                tdec = itemView.findViewById(R.id.tdec);
+                temail = itemView.findViewById(R.id.temail);
+                tphone = itemView.findViewById(R.id.tphone);
             }
         }
     }

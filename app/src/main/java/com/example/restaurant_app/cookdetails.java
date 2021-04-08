@@ -5,25 +5,25 @@ import com.google.gson.annotations.SerializedName;
 
 public class cookdetails {
 
-    @SerializedName("id")
+    @SerializedName("email")
     @Expose
-    private String id;
+    private String email;
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("desc")
+    @SerializedName("phone")
     @Expose
-    private String desc;
+    private String phone;
 //    @SerializedName("image")
 //    @Expose
 //    private String image;
 
-    public String getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getName() {
@@ -34,12 +34,12 @@ public class cookdetails {
         this.name = name;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
 //    public String getImage() {
