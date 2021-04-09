@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Restaurant_App"
         android:usesCleartextTraffic="true">
-        <activity android:name=".WaiterForgotPassword"></activity>
+
+        <activity android:name=".WaiterForgotPassword"/>
         <activity android:name=".CookForgotPassword" />
         <activity android:name=".ManagerForgotPassword" />
         <activity android:name=".AdminForgotPassword" />

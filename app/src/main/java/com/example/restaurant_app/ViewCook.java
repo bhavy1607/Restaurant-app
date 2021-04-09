@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
 
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
@@ -38,8 +39,8 @@ public class ViewCook extends AppCompatActivity {
 
 //        viewcook = (TextView)findViewById(R.id.view_cook_list);
         recycle = (RecyclerView)findViewById(R.id.recycle);
-//        recycle.setHasFixedSize(true);
-//        recycle.setLayoutManager(new LinearLayoutManager(this));
+        recycle.setHasFixedSize(true);
+        recycle.setLayoutManager(new LinearLayoutManager(this));
 
         LinearLayoutManager manager = new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false);
         recycle.setLayoutManager(manager);
@@ -66,18 +67,19 @@ public class ViewCook extends AppCompatActivity {
         Retrofit retrofitclient = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface =  retrofitclient.create(RetrofitInterface.class);
 
-        Call<List<cookdetails>> listing = retrofitInterface.Getdata();
+        HashMap<String, String> map = new HashMap<>();
+        Call<List<cookdetails>> listing = retrofitInterface.Getdata(map);
 
         listing.enqueue(new Callback<List<cookdetails>>() {
             @Override
             public void onResponse(Call<List<cookdetails>> call, Response<List<cookdetails>> response) {
                 if(response.isSuccessful()){
-                    Toast.makeText(getApplicationContext(),response.code(),Toast.LENGTH_SHORT).show();
-                    return;
+//                    Toast.makeText(getApplicationContext(),response.code(),Toast.LENGTH_SHORT).show();
+//                    return;
+                    List<cookdetails> list = response.body();
+                    recycleAdapter recycleadapter = new recycleAdapter(ViewCook.this, list);
+                    recycle.setAdapter(recycleadapter);
                 }
-                List<cookdetails> list = response.body();
-                recycleAdapter recycleadapter = new recycleAdapter(ViewCook.this, list);
-                recycle.setAdapter(recycleadapter);
             }
 
             @Override

@@ -39,14 +39,14 @@ public interface RetrofitInterface {
     Call<Void> executeCookRegister(@Body HashMap<String, String> map);
 
     @POST("/cook/login")
-    Call<LoginResult> executeCookLogin(@Body HashMap<String, String> map);
+    Call<LoginResult> executeCookLogin(@Body HashMap<String,String> map);
 
     //Manager register & login
     @PUT("/manage/addmanager")
-    Call<Void> executeAddManagerRegister(@Body HashMap<String ,String>map);
+    Call<Void> executeAddManagerRegister(@Body HashMap<String,String>map);
 
     @POST("/manage/login")
-    Call<LoginResult> executeManagerLogin(@Body HashMap<String ,String>map);
+    Call<LoginResult> executeManagerLogin(@Body HashMap<String,String>map);
 
     //User Forgot password
     @POST("/auth/forgot")
@@ -58,6 +58,7 @@ public interface RetrofitInterface {
 
     //view cook
     @GET("/cook/getcook/6067d44f8452911a7862ccf4")
-    Call<List<cookdetails>> Getdata();
+//    @GET("cars_list.json")
+    Call<List<cookdetails>> Getdata(@Body HashMap<String,String>map);
 
 }
