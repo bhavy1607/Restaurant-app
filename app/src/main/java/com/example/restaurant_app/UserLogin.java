@@ -119,7 +119,7 @@ public class UserLogin extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<LoginResult> call, Throwable t) {
-                        Toast.makeText(UserLogin.this, "Please! Check Network of Your Device",
+                        Toast.makeText(UserLogin.this, ""+t.getLocalizedMessage(),
                                 Toast.LENGTH_LONG).show();
                     }
                 });
