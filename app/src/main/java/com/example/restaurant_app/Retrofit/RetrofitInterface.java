@@ -3,6 +3,8 @@ package com.example.restaurant_app.Retrofit;
 import com.example.restaurant_app.ForgotResult;
 import com.example.restaurant_app.LoginResult;
 import com.example.restaurant_app.Menu;
+import com.example.restaurant_app.model.Cook;
+import com.example.restaurant_app.model.Cookdetails;
 
 import java.util.HashMap;
 
@@ -55,8 +57,19 @@ public interface RetrofitInterface {
     Call<Menu> executeMenu(@Body HashMap<String,String>map);
 
     //view cook
-//    @GET("/cook/getcook/6067d44f8452911a7862ccf4")
-////    @GET("cars_list.json")
-//    Call<List<cookdetails>> Getdata();
+    @GET("/cook/getcook")
+    Call<Cookdetails> Getcook();
+
+    //view waiter
+    @GET("/waiter/getwaiters")
+    Call<Cook> Getwaiter();
+
+    //view order
+    @GET("/order/getorders")
+    Call<Cook> Getorder();
+
+    //view payment
+    @GET("/cart/getcart")
+    Call<Cook> Getpayment();
 
 }
