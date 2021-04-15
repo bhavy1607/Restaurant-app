@@ -67,9 +67,6 @@
             android:name=".ViewPayment"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ViewOrder"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ViewWaiter"
             android:screenOrientation="portrait" />
         <activity
@@ -129,6 +126,9 @@
         <activity
             android:name=".waiter_ready_to_serve"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewOrder"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
