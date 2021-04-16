@@ -23,10 +23,11 @@
                 android:background="@drawable/ic_back"
                 android:textColor="#000000"
                 />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="View Payment"
+                android:text="View Feedback"
                 android:textSize="25dp"
                 android:paddingLeft="20dp"
                 android:layout_gravity="center"
@@ -37,11 +38,10 @@
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/appbar">
+   <GridView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/gridview"
+       android:layout_below="@+id/appbar"/>
 
-    </androidx.recyclerview.widget.RecyclerView>
 </RelativeLayout>

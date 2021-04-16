@@ -3,7 +3,9 @@ package com.example.restaurant_app.Retrofit;
 import com.example.restaurant_app.ForgotResult;
 import com.example.restaurant_app.LoginResult;
 import com.example.restaurant_app.Menu;
+import com.example.restaurant_app.model.Avaragerating;
 import com.example.restaurant_app.model.Cookdetails;
+import com.example.restaurant_app.model.Feedbackdetails;
 import com.example.restaurant_app.model.Orderdetails;
 import com.example.restaurant_app.model.Waiterdetails;
 
@@ -69,8 +71,12 @@ public interface RetrofitInterface {
     @GET("/order/getorders")
     Call<Orderdetails> Getorder();
 
-//    //view payment
-//    @GET("/cart/getcart")
-//    Call<Cook> Getpayment();
+    //view feedback
+    @GET("/feedback/feedbacks")
+    Call<Feedbackdetails> Getfeedback();
+
+    //view avaragerating
+    @GET("/feedback/average")
+    Call<Avaragerating> Getavaragerating();
 
 }

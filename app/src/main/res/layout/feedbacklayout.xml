@@ -6,6 +6,7 @@
     >
 
 <androidx.cardview.widget.CardView
+    android:id="@+id/cardview"
     android:layout_margin="20dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -14,28 +15,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/tname"
+            android:id="@+id/tid"
             android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="name"
+            android:text="id"
             />
         <TextView
-            android:id="@+id/temail"
+            android:id="@+id/trating"
             android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="email"
+            android:text="rating"
             />
         <TextView
-            android:id="@+id/tpaymentmethod"
+            android:id="@+id/ttitle"
             android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="paymentmethod"
+            android:text="title"
+            />
+        <TextView
+            android:id="@+id/tmessage"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="message"
             />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

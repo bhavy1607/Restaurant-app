@@ -105,11 +105,11 @@ public class ViewOrder extends AppCompatActivity {
 
             TextView tname = convertView.findViewById(R.id.tname);
             TextView temail = convertView.findViewById(R.id.temail);
-            TextView tphone = convertView.findViewById(R.id.tphone);
+            TextView tpayment = convertView.findViewById(R.id.tpaymentmethod);
 
             tname.setText(orders.get(position).getName());
             temail.setText(orders.get(position).getEmail());
-            tphone.setText(orders.get(position).getPaymentMethod());
+            tpayment.setText(orders.get(position).getPaymentMethod());
 
             return convertView;
         }

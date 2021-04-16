@@ -64,7 +64,7 @@
             android:name=".AddCook"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ViewPayment"
+            android:name=".Viewfeedback"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ViewWaiter"

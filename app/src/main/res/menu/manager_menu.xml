@@ -27,8 +27,8 @@
                 android:id="@+id/view_order"
                 android:icon="@drawable/ic_baseline_order"/>
 
-            <item android:title="View Payment"
-                android:id="@+id/view_payment"
+            <item android:title="View feedback"
+                android:id="@+id/view_feedback"
                 android:icon="@drawable/ic_baseline_payment_24"/>
 
 
