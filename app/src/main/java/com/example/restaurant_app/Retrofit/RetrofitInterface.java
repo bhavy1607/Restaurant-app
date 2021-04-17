@@ -6,6 +6,7 @@ import com.example.restaurant_app.Menu;
 import com.example.restaurant_app.model.Avaragerating;
 import com.example.restaurant_app.model.Cookdetails;
 import com.example.restaurant_app.model.Feedbackdetails;
+import com.example.restaurant_app.model.Menudetails;
 import com.example.restaurant_app.model.Orderdetails;
 import com.example.restaurant_app.model.Waiterdetails;
 
@@ -78,5 +79,8 @@ public interface RetrofitInterface {
     //view avaragerating
     @GET("/feedback/average")
     Call<Avaragerating> Getavaragerating();
+
+    @GET("/feed/getposts")
+    Call<Menudetails> Getshowmenu();
 
 }

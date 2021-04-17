@@ -4,7 +4,7 @@
     package="com.example.restaurant_app">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -15,8 +15,9 @@
         android:theme="@style/Theme.Restaurant_App"
         android:usesCleartextTraffic="true"
         tools:ignore="UnusedAttribute">
-
-        <activity android:name=".WaiterForgotPassword"/>
+        <activity android:name=".clickeditem"></activity>
+        <activity android:name=".Manage_menu" />
+        <activity android:name=".WaiterForgotPassword" />
         <activity android:name=".CookForgotPassword" />
         <activity android:name=".ManagerForgotPassword" />
         <activity android:name=".AdminForgotPassword" />
@@ -128,7 +129,10 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ViewOrder"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RatingAvarage"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

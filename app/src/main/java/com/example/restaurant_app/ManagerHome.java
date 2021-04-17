@@ -59,9 +59,12 @@ public class ManagerHome extends AppCompatActivity {
                         startActivity(view_waiter);
                         break;
                     case R.id.view_order:
-
                         Intent view_order = new Intent(ManagerHome.this,ViewOrder.class);
                         startActivity(view_order);
+                        break;
+                    case R.id.manage_menu:
+                        Intent manage_menu = new Intent(ManagerHome.this,Manage_menu.class);
+                        startActivity(manage_menu);
                         break;
                     case R.id.view_feedback:
                         Intent view_payment = new Intent(ManagerHome.this, Viewfeedback.class);

@@ -2,11 +2,13 @@ package com.example.restaurant_app;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,7 +32,7 @@ public class Viewfeedback extends AppCompatActivity {
 
 //    private Button backbtn;
     GridView gridView;
-
+    Button btnAvarage;
 
     Feedbackdetails feedbackdetails = new Feedbackdetails();
     List<Feedback> feedbacks = new ArrayList<>();
@@ -41,7 +43,7 @@ public class Viewfeedback extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_feedback);
         gridView = (GridView)findViewById(R.id.gridview);
-
+        btnAvarage = (Button)findViewById(R.id.btnavarage);
 
         listingdata();
 
@@ -53,6 +55,14 @@ public class Viewfeedback extends AppCompatActivity {
 //                startActivity(intent);
 //            }
 //        });
+
+        btnAvarage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Viewfeedback.this,RatingAvarage.class);
+                startActivity(intent);
+            }
+        });
 
     }
     private void listingdata(){
