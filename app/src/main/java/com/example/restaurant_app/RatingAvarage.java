@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
-import com.example.restaurant_app.model.Avaragerating;
+import com.example.restaurant_app.modelmanager.Avaragerating;
 
 import retrofit2.Call;
 import retrofit2.Callback;

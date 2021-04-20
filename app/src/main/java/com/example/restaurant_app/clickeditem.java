@@ -2,21 +2,24 @@ package com.example.restaurant_app;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
-import com.example.restaurant_app.model.Menudetails;
-import com.example.restaurant_app.model.Product;
+import com.example.restaurant_app.modelmanager.Menudetails;
+import com.example.restaurant_app.modelmanager.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,16 +35,26 @@ public class clickeditem extends AppCompatActivity {
     Menudetails menudetails = new Menudetails();
     List<Product> products = new ArrayList<>();
     String id;
+    Button btn1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clickeditem);
 
+        btn1 = (Button)findViewById(R.id.btn1);
         gridView = (GridView)findViewById(R.id.gridview);
         id = getIntent().getStringExtra("_id");
 
         clickeddata();
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(clickeditem.this,Itemavailable.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void clickeddata(){
@@ -108,14 +121,26 @@ public class clickeditem extends AppCompatActivity {
                 convertView = lInflater.inflate(R.layout.clickeditemlayout, null);
             }
 
+            CardView cardView = convertView.findViewById(R.id.cardview);
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String get = products.get(position).getId();
+                    Intent intent = new Intent(clickeditem.this, Itemavailable.class);
+                    intent.putExtra("_id",products.get(position).getId());
+                    startActivity(intent);
+                }
+            });
+
+
             TextView tname = convertView.findViewById(R.id.tname);
             TextView tdec = convertView.findViewById(R.id.tdec);
-            TextView tprice = convertView.findViewById(R.id.price);
+           // TextView tprice = convertView.findViewById(R.id.price);
             TextView tid = convertView.findViewById(R.id.id);
 
             tname.setText(products.get(position).getName());
             tdec.setText(products.get(position).getDescription());
-            tprice.setText(products.get(position).getPrice());
+        //    tprice.setText(products.get(position).getPrice());
             tid.setText(products.get(position).getId());
 
             return convertView;

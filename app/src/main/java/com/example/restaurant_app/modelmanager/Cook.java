@@ -1,19 +1,25 @@
 
-package com.example.restaurant_app.model;
+package com.example.restaurant_app.modelmanager;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Waiter {
+public class Cook {
 
     @SerializedName("otps")
     @Expose
-    private List<Object> otps = null;
+    private List<String> otps = null;
+    @SerializedName("posts")
+    @Expose
+    private List<Object> posts = null;
     @SerializedName("_id")
     @Expose
     private String id;
+    @SerializedName("name")
+    @Expose
+    private String name;
     @SerializedName("email")
     @Expose
     private String email;
@@ -23,19 +29,30 @@ public class Waiter {
     @SerializedName("password")
     @Expose
     private String password;
-    @SerializedName("name")
+    @SerializedName("created_At")
     @Expose
-    private String name;
+    private String createdAt;
+    @SerializedName("updated_At")
+    @Expose
+    private String updatedAt;
     @SerializedName("__v")
     @Expose
     private Integer v;
 
-    public List<Object> getOtps() {
+    public List<String> getOtps() {
         return otps;
     }
 
-    public void setOtps(List<Object> otps) {
+    public void setOtps(List<String> otps) {
         this.otps = otps;
+    }
+
+    public List<Object> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Object> posts) {
+        this.posts = posts;
     }
 
     public String getId() {
@@ -44,6 +61,14 @@ public class Waiter {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -70,12 +95,20 @@ public class Waiter {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public Integer getV() {

@@ -17,8 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
-import com.example.restaurant_app.model.Feedback;
-import com.example.restaurant_app.model.Feedbackdetails;
+import com.example.restaurant_app.modelmanager.Feedback;
+import com.example.restaurant_app.modelmanager.Feedbackdetails;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -128,7 +128,7 @@ public class Viewfeedback extends AppCompatActivity {
                 convertView = LayoutInflater.from(context).inflate(R.layout.feedbacklayout,parent,false);
                 LayoutInflater lInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
                 convertView = lInflater.inflate(R.layout.feedbacklayout, null);
-            }
+                }
 
             TextView tid = convertView.findViewById(R.id.tid);
             TextView ttitle = convertView.findViewById(R.id.ttitle);

@@ -70,6 +70,10 @@ public class ManagerHome extends AppCompatActivity {
                         Intent view_payment = new Intent(ManagerHome.this, Viewfeedback.class);
                         startActivity(view_payment);
                         break;
+                    case R.id.manage_complate:
+                        Intent manage_complate = new Intent(ManagerHome.this,Manage_complate.class);
+                        startActivity(manage_complate);
+                        break;
                     case R.id.logout:
                         SharedPreferences preferences = getSharedPreferences("checked",MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();

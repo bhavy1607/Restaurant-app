@@ -5,8 +5,8 @@ import android.widget.GridView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.restaurant_app.model.Feedback;
-import com.example.restaurant_app.model.Feedbackdetails;
+import com.example.restaurant_app.modelmanager.Feedback;
+import com.example.restaurant_app.modelmanager.Feedbackdetails;
 
 import java.util.ArrayList;
 import java.util.List;

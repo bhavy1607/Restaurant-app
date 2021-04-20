@@ -1,38 +1,26 @@
-package com.example.restaurant_app.model;
+
+package com.example.restaurant_app.modelmanager;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
+public class Complaint {
 
-public class Feedback {
-
-    @SerializedName("user")
-    @Expose
-    private List<String> user = null;
     @SerializedName("_id")
     @Expose
     private String id;
-    @SerializedName("rating")
-    @Expose
-    private Integer rating;
     @SerializedName("title")
     @Expose
     private String title;
     @SerializedName("message")
     @Expose
     private String message;
+    @SerializedName("orderId")
+    @Expose
+    private String orderId;
     @SerializedName("__v")
     @Expose
     private Integer v;
-
-    public List<String> getUser() {
-        return user;
-    }
-
-    public void setUser(List<String> user) {
-        this.user = user;
-    }
 
     public String getId() {
         return id;
@@ -40,14 +28,6 @@ public class Feedback {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Integer getRating() {
-        return rating;
-    }
-
-    public void setRating(Integer rating) {
-        this.rating = rating;
     }
 
     public String getTitle() {
@@ -64,6 +44,14 @@ public class Feedback {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
     public Integer getV() {

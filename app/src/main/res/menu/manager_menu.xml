@@ -27,21 +27,22 @@
                 android:id="@+id/view_order"
                 android:icon="@drawable/ic_baseline_order"/>
 
-            <item android:title="View feedback"
-                android:id="@+id/view_feedback"
-                android:icon="@drawable/ic_baseline_payment_24"/>
-
             <item android:title="Manage Menu"
                 android:id="@+id/manage_menu"
                 android:icon="@drawable/ic_baseline_payment_24"/>
 
+            <item android:title="Manage complate"
+                android:id="@+id/manage_complate"
+                android:icon="@drawable/ic_baseline_order"/>
 
         </menu>
     </item>
     <item android:title="App">
         <menu>
 
-
+            <item android:title="View feedback"
+                android:id="@+id/view_feedback"
+                android:icon="@drawable/ic_baseline_payment_24"/>
             <item android:title="Logout"
                 android:id="@+id/logout"
                 android:icon="@drawable/ic_logout"/>

@@ -15,7 +15,9 @@
         android:theme="@style/Theme.Restaurant_App"
         android:usesCleartextTraffic="true"
         tools:ignore="UnusedAttribute">
-        <activity android:name=".clickeditem"></activity>
+        <activity android:name=".Manage_complate"></activity>
+        <activity android:name=".Itemavailable" />
+        <activity android:name=".clickeditem" />
         <activity android:name=".Manage_menu" />
         <activity android:name=".WaiterForgotPassword" />
         <activity android:name=".CookForgotPassword" />

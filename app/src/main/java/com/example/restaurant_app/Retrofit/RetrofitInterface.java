@@ -3,12 +3,15 @@ package com.example.restaurant_app.Retrofit;
 import com.example.restaurant_app.ForgotResult;
 import com.example.restaurant_app.LoginResult;
 import com.example.restaurant_app.Menu;
-import com.example.restaurant_app.model.Avaragerating;
-import com.example.restaurant_app.model.Cookdetails;
-import com.example.restaurant_app.model.Feedbackdetails;
-import com.example.restaurant_app.model.Menudetails;
-import com.example.restaurant_app.model.Orderdetails;
-import com.example.restaurant_app.model.Waiterdetails;
+import com.example.restaurant_app.modeladmin.Staffdetails;
+import com.example.restaurant_app.modelmanager.Availableitem;
+import com.example.restaurant_app.modelmanager.Avaragerating;
+import com.example.restaurant_app.modelmanager.Cookdetails;
+import com.example.restaurant_app.modelmanager.Feedbackdetails;
+import com.example.restaurant_app.modelmanager.Getcomplate;
+import com.example.restaurant_app.modelmanager.Menudetails;
+import com.example.restaurant_app.modelmanager.Orderdetails;
+import com.example.restaurant_app.modelmanager.Waiterdetails;
 
 import java.util.HashMap;
 
@@ -80,7 +83,19 @@ public interface RetrofitInterface {
     @GET("/feedback/average")
     Call<Avaragerating> Getavaragerating();
 
+    //show menu
     @GET("/feed/getposts")
     Call<Menudetails> Getshowmenu();
 
+    //item available
+    @GET("/feed/getmenu")
+    Call<Availableitem> GetitemAvailable();
+
+    //show staff details
+    @GET("/all/geteveryone")
+    Call<Staffdetails> Getshowstaffdetails();
+
+    //show complate
+    @GET("/complaint/complaints")
+    Call<Getcomplate> Getcomplate();
 }

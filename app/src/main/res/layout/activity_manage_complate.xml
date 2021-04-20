@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserFeedback">
+    tools:context=".Manage_complate">
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
@@ -22,10 +23,11 @@
                 android:background="@drawable/ic_back"
                 android:textColor="#000000"
                 />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Show Feedback"
+                android:text="Manage Complate"
                 android:textSize="25dp"
                 android:paddingLeft="20dp"
                 android:layout_gravity="center"
@@ -35,10 +37,11 @@
 
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
+
     <GridView
-        android:id="@+id/gridview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/gridview"
         android:layout_below="@+id/appbar"/>
 
 </RelativeLayout>

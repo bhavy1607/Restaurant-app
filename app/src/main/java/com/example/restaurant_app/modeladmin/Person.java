@@ -1,22 +1,40 @@
 
-package com.example.restaurant_app.model;
+package com.example.restaurant_app.modeladmin;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Cook {
+public class Person {
 
     @SerializedName("otps")
     @Expose
-    private List<String> otps = null;
+    private List<Object> otps = null;
     @SerializedName("posts")
     @Expose
     private List<Object> posts = null;
+    @SerializedName("feedbacks")
+    @Expose
+    private List<String> feedbacks = null;
+    @SerializedName("orders")
+    @Expose
+    private List<String> orders = null;
+    @SerializedName("activerole")
+    @Expose
+    private String activerole;
+    @SerializedName("roles")
+    @Expose
+    private List<String> roles = null;
+    @SerializedName("restaurantId")
+    @Expose
+    private List<String> restaurantId = null;
     @SerializedName("_id")
     @Expose
     private String id;
+    @SerializedName("cart")
+    @Expose
+    private Cart cart;
     @SerializedName("name")
     @Expose
     private String name;
@@ -39,11 +57,11 @@ public class Cook {
     @Expose
     private Integer v;
 
-    public List<String> getOtps() {
+    public List<Object> getOtps() {
         return otps;
     }
 
-    public void setOtps(List<String> otps) {
+    public void setOtps(List<Object> otps) {
         this.otps = otps;
     }
 
@@ -55,12 +73,60 @@ public class Cook {
         this.posts = posts;
     }
 
+    public List<String> getFeedbacks() {
+        return feedbacks;
+    }
+
+    public void setFeedbacks(List<String> feedbacks) {
+        this.feedbacks = feedbacks;
+    }
+
+    public List<String> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<String> orders) {
+        this.orders = orders;
+    }
+
+    public String getActiverole() {
+        return activerole;
+    }
+
+    public void setActiverole(String activerole) {
+        this.activerole = activerole;
+    }
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
+    }
+
+    public List<String> getRestaurantId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantId(List<String> restaurantId) {
+        this.restaurantId = restaurantId;
+    }
+
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
     public String getName() {

@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
         android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -31,13 +32,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <TextView
-            android:id="@+id/price"
-            android:layout_margin="5dp"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+<!--        <TextView-->
+<!--            android:id="@+id/price"-->
+<!--            android:layout_margin="5dp"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"/>-->
 
         <TextView
             android:id="@+id/id"
