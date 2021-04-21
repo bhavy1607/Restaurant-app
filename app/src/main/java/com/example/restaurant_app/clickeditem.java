@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
@@ -121,16 +120,16 @@ public class clickeditem extends AppCompatActivity {
                 convertView = lInflater.inflate(R.layout.clickeditemlayout, null);
             }
 
-            CardView cardView = convertView.findViewById(R.id.cardview);
-            cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String get = products.get(position).getId();
-                    Intent intent = new Intent(clickeditem.this, Itemavailable.class);
-                    intent.putExtra("_id",products.get(position).getId());
-                    startActivity(intent);
-                }
-            });
+//            CardView cardView = convertView.findViewById(R.id.cardview);
+//            cardView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    String get = products.get(position).getId();
+//                    Intent intent = new Intent(clickeditem.this, Itemavailable.class);
+//                    intent.putExtra("_id",products.get(position).getId());
+//                    startActivity(intent);
+//                }
+//            });
 
 
             TextView tname = convertView.findViewById(R.id.tname);

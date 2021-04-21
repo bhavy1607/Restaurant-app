@@ -30,7 +30,7 @@ public class Itemavailable extends AppCompatActivity {
 
     GridView gridView;
     Availableitem availableitem = new Availableitem();
-    List<Menu> menu = new ArrayList<>();
+    List<Menu> menus = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,13 +54,13 @@ public class Itemavailable extends AppCompatActivity {
             public void onResponse(Call<Availableitem> call, Response<Availableitem> response) {
                 if(response.isSuccessful()){
 
-                   availableitem = response.body();
-                   menu = availableitem.getMenu();
+                  availableitem = response.body();
+                  menus = availableitem.getMenu();
 
-                    CustomAdepter customAdepter = new CustomAdepter(menu, Itemavailable.this);
-                    gridView.setAdapter(customAdepter);
+                   CustomAdepter customAdepter = new CustomAdepter(menus, Itemavailable.this);
+                   gridView.setAdapter(customAdepter);
 
-                    Toast.makeText(Itemavailable.this, "Available Item", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(Itemavailable.this, "Available Item", Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(Itemavailable.this, ""+response.message(), Toast.LENGTH_SHORT).show();
                 }
@@ -75,17 +75,17 @@ public class Itemavailable extends AppCompatActivity {
 
     class CustomAdepter extends BaseAdapter {
 
-        List<Menu> menu;
+        List<Menu> menus;
         Context context;
 
         public CustomAdepter(List<Menu> menus, Itemavailable itemavailable) {
-            this.menu = menus;
+            this.menus = menus;
             this.context = itemavailable;
         }
 
         @Override
         public int getCount() {
-            return menu.size();
+            return menus.size();
         }
 
         @Override
@@ -112,9 +112,9 @@ public class Itemavailable extends AppCompatActivity {
             TextView tdec = convertView.findViewById(R.id.tdec);
             TextView tid = convertView.findViewById(R.id.id);
 
-            tname.setText(menu.get(position).getName());
-            tdec.setText(menu.get(position).getDescription());
-            tid.setText(menu.get(position).getId());
+            tname.setText(menus.get(position).getName());
+            tdec.setText(menus.get(position).getDescription());
+            tid.setText(menus.get(position).getId());
 
             return convertView;
         }

@@ -15,7 +15,8 @@
         android:theme="@style/Theme.Restaurant_App"
         android:usesCleartextTraffic="true"
         tools:ignore="UnusedAttribute">
-        <activity android:name=".Manage_complate"></activity>
+        <activity android:name=".Viewingrediant"></activity>
+        <activity android:name=".Manage_complate" />
         <activity android:name=".Itemavailable" />
         <activity android:name=".clickeditem" />
         <activity android:name=".Manage_menu" />
@@ -85,7 +86,7 @@
             android:name=".AdminShowFeedback"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AdminShowCart"
+            android:name=".Adminvieworder"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AdminStaffDetails"

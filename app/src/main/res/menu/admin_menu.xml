@@ -14,8 +14,8 @@
                 android:id="@+id/Sdetails"
                 android:icon="@drawable/ic_staffdetails"/>
 
-            <item android:title="Show Cart"
-                android:id="@+id/Showcart"
+            <item android:title="View Order"
+                android:id="@+id/vieworder"
                 android:icon="@drawable/ic_cart"/>
 
 

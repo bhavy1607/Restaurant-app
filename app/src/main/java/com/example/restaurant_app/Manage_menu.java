@@ -131,5 +131,4 @@ public class Manage_menu extends AppCompatActivity {
             return convertView;
         }
     }
-
 }

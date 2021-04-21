@@ -11,7 +11,6 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
@@ -27,62 +26,70 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class ViewOrder extends AppCompatActivity {
+public class Adminvieworder extends AppCompatActivity {
 
     GridView gridView;
 
     Orderdetails orderdetails = new Orderdetails();
     List<Order> orders = new ArrayList<>();
 
+    // Button backbtn;
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_order);
+        setContentView(R.layout.admin_show_cart);
 
         gridView = (GridView)findViewById(R.id.gridview);
 
         listingdata();
 
+//        backbtn = (Button)findViewById(R.id.btnback);
+//        backbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(Adminvieworder.this, AdminHome.class);
+//                startActivity(intent);
+//            }
+//        });
     }
     private void listingdata(){
-
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        Call<Orderdetails> listing = retrofitInterface.Getorder();
+        Call<Orderdetails> call = retrofitInterface.Getorder();
 
-        listing.enqueue(new Callback<Orderdetails>() {
+        call.enqueue(new Callback<Orderdetails>() {
             @Override
             public void onResponse(Call<Orderdetails> call, Response<Orderdetails> response) {
                 if(response.isSuccessful()){
 
-                orderdetails = response.body();
-                orders = orderdetails.getOrders();
+                    orderdetails = response.body();
+                    orders = orderdetails.getOrders();
 
-                CustomAdepter customAdepter = new CustomAdepter(orders,ViewOrder.this);
-                gridView.setAdapter(customAdepter);
+                    CustomAdepter customAdepter = new CustomAdepter(orders,Adminvieworder.this);
+                    gridView.setAdapter(customAdepter);
 
-                Toast.makeText(ViewOrder.this, "Succes", Toast.LENGTH_SHORT).show();
-            }else {
-                    Toast.makeText(ViewOrder.this, ""+response.code(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Adminvieworder.this, "Succes", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(Adminvieworder.this, ""+response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Orderdetails> call, Throwable t) {
-                Toast.makeText(ViewOrder.this, "Failure", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Adminvieworder.this, "Failure", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    class CustomAdepter extends BaseAdapter{
+    class CustomAdepter extends BaseAdapter {
 
         List<Order> orders;
         Context context;
 
-        public CustomAdepter(List<Order> orders, ViewOrder viewOrder) {
+        public CustomAdepter(List<Order> orders, Adminvieworder adminvieworder) {
             this.orders = orders;
-            this.context = viewOrder;
+            this.context = adminvieworder;
         }
 
         @Override

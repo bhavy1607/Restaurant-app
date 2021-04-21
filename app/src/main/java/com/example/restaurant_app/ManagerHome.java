@@ -62,6 +62,10 @@ public class ManagerHome extends AppCompatActivity {
                         Intent view_order = new Intent(ManagerHome.this,ViewOrder.class);
                         startActivity(view_order);
                         break;
+                    case R.id.view_ingrediant:
+                        Intent intent = new Intent(ManagerHome.this,Viewingrediant.class);
+                        startActivity(intent);
+                        break;
                     case R.id.manage_menu:
                         Intent manage_menu = new Intent(ManagerHome.this,Manage_menu.class);
                         startActivity(manage_menu);
@@ -81,7 +85,6 @@ public class ManagerHome extends AppCompatActivity {
                         editor.apply();
                         finish();
                         break;
-
 
                 }
                 return true;

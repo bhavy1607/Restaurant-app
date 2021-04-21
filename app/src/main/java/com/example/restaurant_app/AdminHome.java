@@ -51,8 +51,8 @@ public class AdminHome extends AppCompatActivity {
                         Intent sdetails = new Intent(AdminHome.this, AdminStaffDetails.class);
                         startActivity(sdetails);
                         break;
-                    case R.id.Showcart:
-                        Intent cart = new Intent(AdminHome.this, AdminShowCart.class);
+                    case R.id.vieworder:
+                        Intent cart = new Intent(AdminHome.this, Adminvieworder.class);
                         startActivity(cart);
                         break;
                     case R.id.Showfeedback:

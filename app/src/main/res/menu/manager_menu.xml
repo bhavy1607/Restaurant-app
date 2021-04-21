@@ -31,15 +31,18 @@
                 android:id="@+id/manage_menu"
                 android:icon="@drawable/ic_baseline_payment_24"/>
 
-            <item android:title="Manage complate"
-                android:id="@+id/manage_complate"
-                android:icon="@drawable/ic_baseline_order"/>
+            <item android:title="View_ingrediant"
+                android:id="@+id/view_ingrediant"
+                android:icon="@drawable/ic_baseline_payment_24"/>
 
         </menu>
     </item>
     <item android:title="App">
         <menu>
 
+            <item android:title="Manage complate"
+                android:id="@+id/manage_complate"
+                android:icon="@drawable/ic_baseline_order"/>
             <item android:title="View feedback"
                 android:id="@+id/view_feedback"
                 android:icon="@drawable/ic_baseline_payment_24"/>

@@ -9,6 +9,7 @@ import com.example.restaurant_app.modelmanager.Avaragerating;
 import com.example.restaurant_app.modelmanager.Cookdetails;
 import com.example.restaurant_app.modelmanager.Feedbackdetails;
 import com.example.restaurant_app.modelmanager.Getcomplate;
+import com.example.restaurant_app.modelmanager.Getingredients;
 import com.example.restaurant_app.modelmanager.Menudetails;
 import com.example.restaurant_app.modelmanager.Orderdetails;
 import com.example.restaurant_app.modelmanager.Waiterdetails;
@@ -41,17 +42,19 @@ public interface RetrofitInterface {
     @POST("/waiter/login")
     Call<LoginResult> executeWaiterLogin(@Body HashMap<String, String> map);
 
-    //Cook register & login
+    //Cook register
     @PUT("/cook/addcook")
     Call<Void> executeCookRegister(@Body HashMap<String, String> map);
 
+    //cook login
     @POST("/cook/login")
     Call<LoginResult> executeCookLogin(@Body HashMap<String,String> map);
 
-    //Manager register & login
+    //Manager register
     @PUT("/manage/addmanager")
     Call<Void> executeAddManagerRegister(@Body HashMap<String,String>map);
 
+    //manager login
     @POST("/manage/login")
     Call<LoginResult> executeManagerLogin(@Body HashMap<String,String>map);
 
@@ -98,4 +101,8 @@ public interface RetrofitInterface {
     //show complate
     @GET("/complaint/complaints")
     Call<Getcomplate> Getcomplate();
+
+    //view ingrediants
+    @GET("/ingredient/getingredients")
+    Call<Getingredients> Getingrediants();
 }
