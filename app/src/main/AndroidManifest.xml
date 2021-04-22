@@ -15,7 +15,10 @@
         android:theme="@style/Theme.Restaurant_App"
         android:usesCleartextTraffic="true"
         tools:ignore="UnusedAttribute">
-        <activity android:name=".Viewingrediant"></activity>
+        <activity android:name=".View_manager"></activity>
+        <activity android:name=".Adminshowmenu" />
+        <activity android:name=".Viewrevenue" />
+        <activity android:name=".Viewingrediant" />
         <activity android:name=".Manage_complate" />
         <activity android:name=".Itemavailable" />
         <activity android:name=".clickeditem" />

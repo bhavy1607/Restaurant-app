@@ -10,6 +10,10 @@
                 android:id="@+id/AddManager"
                 android:icon="@drawable/ic_addmanager"/>
 
+            <item android:title="View Manager"
+                android:id="@+id/Viewmanager"
+                android:icon="@drawable/ic_cart"/>
+
             <item android:title="Staff Details"
                 android:id="@+id/Sdetails"
                 android:icon="@drawable/ic_staffdetails"/>
@@ -18,6 +22,9 @@
                 android:id="@+id/vieworder"
                 android:icon="@drawable/ic_cart"/>
 
+            <item android:title="Show Menu"
+                android:id="@+id/show_menu"
+                android:icon="@drawable/ic_cart"/>
 
         </menu>
     </item>

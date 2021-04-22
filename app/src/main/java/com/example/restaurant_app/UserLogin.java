@@ -114,7 +114,6 @@ public class UserLogin extends AppCompatActivity {
                             Toast.makeText(UserLogin.this, "Wrong Credentials",
                                     Toast.LENGTH_LONG).show();
                         }
-
                     }
 
                     @Override

@@ -87,7 +87,6 @@ public class AdminAddManager extends AppCompatActivity {
                             Toast.makeText(AdminAddManager.this,
                                     "Already registered", Toast.LENGTH_LONG).show();
                         }
-
                     }
 
                     @Override

@@ -30,18 +30,17 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class Manage_menu extends AppCompatActivity {
+public class Adminshowmenu extends AppCompatActivity {
 
     GridView gridView;
 
     Menudetails menudetails = new Menudetails();
     List<Product> products = new ArrayList<>();
-    public static String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage_menu);
+        setContentView(R.layout.activity_adminshowmenu);
 
         gridView = (GridView)findViewById(R.id.gridview);
 
@@ -62,7 +61,7 @@ public class Manage_menu extends AppCompatActivity {
                     menudetails = response.body();
                     products = menudetails.getProducts();
 
-                    CustomAdepter customAdepter = new CustomAdepter(products,Manage_menu.this);
+                    CustomAdepter customAdepter = new CustomAdepter(products,Adminshowmenu.this);
                     gridView.setAdapter(customAdepter);
 
                     Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
@@ -83,9 +82,9 @@ public class Manage_menu extends AppCompatActivity {
         List<Product> products;
         Context context;
 
-        public CustomAdepter(List<Product> products, Manage_menu manage_menu) {
+        public CustomAdepter(List<Product> products, Adminshowmenu adminshowmenu) {
             this.products = products;
-            this.context = manage_menu;
+            this.context = adminshowmenu;
         }
 
         @Override
@@ -119,16 +118,16 @@ public class Manage_menu extends AppCompatActivity {
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(Manage_menu.this,Viewingrediant.class);
+                    Intent intent = new Intent(Adminshowmenu.this,Viewingrediant.class);
                     startActivity(intent);
                 }
             });
-
+//
 //            imageView.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
 //                    String get = products.get(position).getId();
-//                    Intent intent = new Intent(Manage_menu.this,clickeditem.class);
+//                    Intent intent = new Intent(Adminshowmenu.this,clickeditem.class);
 //                    intent.putExtra("_id",products.get(position).getId());
 //                    startActivity(intent);
 //                }
@@ -136,7 +135,7 @@ public class Manage_menu extends AppCompatActivity {
 
             t1.setText(products.get(position).getName());
 
-            Picasso.with(Manage_menu.this).load(products.get(position).getImageUrl()).into(imageView);
+            Picasso.with(Adminshowmenu.this).load(products.get(position).getImageUrl()).into(imageView);
 
             return convertView;
         }

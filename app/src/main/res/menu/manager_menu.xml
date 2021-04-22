@@ -31,8 +31,8 @@
                 android:id="@+id/manage_menu"
                 android:icon="@drawable/ic_baseline_payment_24"/>
 
-            <item android:title="View_ingrediant"
-                android:id="@+id/view_ingrediant"
+            <item android:title="View revenue"
+                android:id="@+id/view_revenue"
                 android:icon="@drawable/ic_baseline_payment_24"/>
 
         </menu>

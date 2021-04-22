@@ -3,6 +3,7 @@ package com.example.restaurant_app.Retrofit;
 import com.example.restaurant_app.ForgotResult;
 import com.example.restaurant_app.LoginResult;
 import com.example.restaurant_app.Menu;
+import com.example.restaurant_app.modeladmin.Getmanager;
 import com.example.restaurant_app.modeladmin.Staffdetails;
 import com.example.restaurant_app.modelmanager.Availableitem;
 import com.example.restaurant_app.modelmanager.Avaragerating;
@@ -73,6 +74,10 @@ public interface RetrofitInterface {
     //view waiter
     @GET("/waiter/getwaiters")
     Call<Waiterdetails> Getwaiter();
+
+    //view manager
+    @GET("/manage/getmanagers")
+    Call<Getmanager> Getmanager();
 
     //view order
     @GET("/order/getorders")

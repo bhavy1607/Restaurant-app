@@ -15,8 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
-import com.example.restaurant_app.modelmanager.Cook;
-import com.example.restaurant_app.modelmanager.Cookdetails;
+import com.example.restaurant_app.modeladmin.Getmanager;
+import com.example.restaurant_app.modeladmin.Manager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,69 +26,66 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class ViewCook extends AppCompatActivity {
+public class View_manager extends AppCompatActivity {
 
     GridView gridView;
 
-    Cookdetails cookdetails = new Cookdetails();
-    List<Cook> cooks = new ArrayList<>();
+    Getmanager getmanager = new Getmanager();
+    List<Manager> managers = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_cook);
+        setContentView(R.layout.activity_view_manager);
 
         gridView = (GridView)findViewById(R.id.gridview);
 
-        listingdata();
+        showmanager();
     }
 
-    private void listingdata() {
-
+    private void showmanager(){
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        Call<Cookdetails> listing = retrofitInterface.Getcook();
+        Call<Getmanager> call = retrofitInterface.Getmanager();
 
-        listing.enqueue(new Callback<Cookdetails>() {
+        call.enqueue(new Callback<Getmanager>() {
             @Override
-            public void onResponse(Call<Cookdetails> call, Response<Cookdetails> response) {
-                if (response.isSuccessful()) {
+            public void onResponse(Call<Getmanager> call, Response<Getmanager> response) {
+                if(response.isSuccessful()){
 
-                    cookdetails = response.body();
-                    cooks = cookdetails.getCooks();
+                    getmanager = response.body();
+                    managers = getmanager.getManagers();
 
-                    CustomAdepter customAdepter = new CustomAdepter(cooks,ViewCook.this);
+                    CustomAdepter customAdepter = new CustomAdepter(View_manager.this,managers);
                     gridView.setAdapter(customAdepter);
 
-                    Toast.makeText(ViewCook.this, "Success", Toast.LENGTH_SHORT).show();
-
-                } else {
-
-                    Toast.makeText(ViewCook.this, "" + response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(getApplicationContext(), ""+response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<Cookdetails> call, Throwable t) {
+            public void onFailure(Call<Getmanager> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Failure", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-static class CustomAdepter extends BaseAdapter {
+    static class CustomAdepter extends BaseAdapter {
 
-        List<Cook> cooks;
+        List<Manager> managers;
         Context context;
 
-    public CustomAdepter(List<Cook> cooks, ViewCook context) {
-        this.context = context;
-        this.cooks = cooks;
-    }
+        public CustomAdepter(View_manager view_manager, List<Manager> managers) {
+            this.context = view_manager;
+            this.managers = managers;
+        }
 
-    @Override
+        @Override
         public int getCount() {
-            return   cooks.size();
+            return   managers.size();
         }
 
         @Override
@@ -113,9 +110,9 @@ static class CustomAdepter extends BaseAdapter {
             TextView temail = view.findViewById(R.id.temail);
             TextView tphone = view.findViewById(R.id.tphone);
 
-            tname.setText(cooks.get(i).getName());
-            temail.setText(cooks.get(i).getEmail());
-            tphone.setText(cooks.get(i).getPhone());
+            tname.setText(managers.get(i).getName());
+            temail.setText(managers.get(i).getEmail());
+            tphone.setText(managers.get(i).getPhone());
 
             return view;
         }

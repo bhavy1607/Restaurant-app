@@ -104,12 +104,6 @@ public class AddCook extends AppCompatActivity {
             }
         });
 
-        backbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AddCook.this, ManagerHome.class);
-                startActivity(intent);
-            }
-        });
+
     }
 }

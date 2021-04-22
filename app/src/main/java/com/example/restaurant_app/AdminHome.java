@@ -47,6 +47,10 @@ public class AdminHome extends AppCompatActivity {
                         Intent addmanager = new Intent(AdminHome.this, AdminAddManager.class);
                         startActivity(addmanager);
                         break;
+                    case R.id.Viewmanager:
+                        Intent intent1 = new Intent(AdminHome.this,View_manager.class);
+                        startActivity(intent1);
+                        break;
                     case R.id.Sdetails:
                         Intent sdetails = new Intent(AdminHome.this, AdminStaffDetails.class);
                         startActivity(sdetails);
@@ -58,6 +62,10 @@ public class AdminHome extends AppCompatActivity {
                     case R.id.Showfeedback:
                         Intent feedback = new Intent(AdminHome.this, AdminShowFeedback.class);
                         startActivity(feedback);
+                        break;
+                    case R.id.show_menu:
+                        Intent intent = new Intent(AdminHome.this,Adminshowmenu.class);
+                        startActivity(intent);
                         break;
                     case R.id.logout:
                         Intent logout = new Intent(AdminHome.this, MainActivity.class);
