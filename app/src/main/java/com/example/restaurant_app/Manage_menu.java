@@ -124,15 +124,15 @@ public class Manage_menu extends AppCompatActivity {
                 }
             });
 
-//            imageView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    String get = products.get(position).getId();
-//                    Intent intent = new Intent(Manage_menu.this,clickeditem.class);
-//                    intent.putExtra("_id",products.get(position).getId());
-//                    startActivity(intent);
-//                }
-//            });
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String get = products.get(position).getId();
+                    Intent intent = new Intent(Manage_menu.this,clickeditem.class);
+                    intent.putExtra("_id",products.get(position).getId());
+                    startActivity(intent);
+                }
+            });
 
             t1.setText(products.get(position).getName());
 

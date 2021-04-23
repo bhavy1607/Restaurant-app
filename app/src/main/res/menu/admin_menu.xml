@@ -31,6 +31,10 @@
     <item android:title="App">
         <menu>
 
+            <item android:title="Show Complate"
+                android:id="@+id/showcomplate"
+                android:icon="@drawable/ic_baseline_rate_review_24"/>
+
             <item android:title="Show Feedback"
                 android:id="@+id/Showfeedback"
                 android:icon="@drawable/ic_baseline_rate_review_24"/>

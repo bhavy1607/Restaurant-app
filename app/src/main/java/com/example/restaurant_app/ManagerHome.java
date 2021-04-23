@@ -75,7 +75,7 @@ public class ManagerHome extends AppCompatActivity {
                         startActivity(view_payment);
                         break;
                     case R.id.manage_complate:
-                        Intent manage_complate = new Intent(ManagerHome.this,Manage_complate.class);
+                        Intent manage_complate = new Intent(ManagerHome.this, Manage_complain.class);
                         startActivity(manage_complate);
                         break;
                     case R.id.logout:

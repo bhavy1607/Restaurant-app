@@ -67,6 +67,10 @@ public class AdminHome extends AppCompatActivity {
                         Intent intent = new Intent(AdminHome.this,Adminshowmenu.class);
                         startActivity(intent);
                         break;
+                    case R.id.showcomplate:
+                        Intent intent2 = new Intent(AdminHome.this, AdminShowComplain.class);
+                        startActivity(intent2);
+                        break;
                     case R.id.logout:
                         Intent logout = new Intent(AdminHome.this, MainActivity.class);
                         startActivity(logout);

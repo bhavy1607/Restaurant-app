@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".Manage_complain">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
@@ -26,7 +27,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="View RatingAvarage"
+                android:text="show Complain"
                 android:textSize="25dp"
                 android:paddingLeft="20dp"
                 android:layout_gravity="center"
@@ -37,13 +38,10 @@
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
-        android:id="@+id/tv_ava_rating"
-        android:layout_below="@id/appbar"
+    <GridView
         android:layout_width="match_parent"
-        android:layout_margin="50dp"
-        android:textSize="25sp"
-        android:layout_height="112dp"/>
-
+        android:layout_height="wrap_content"
+        android:id="@+id/gridview"
+        android:layout_below="@+id/appbar"/>
 
 </RelativeLayout>

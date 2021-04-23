@@ -61,6 +61,7 @@ public class Viewfeedback extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Viewfeedback.this,RatingAvarage.class);
                 startActivity(intent);
+
             }
         });
 

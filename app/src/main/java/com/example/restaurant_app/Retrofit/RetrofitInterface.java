@@ -96,7 +96,7 @@ public interface RetrofitInterface {
     Call<Menudetails> Getshowmenu();
 
     //item available
-    @GET("/feed/getmenu")
+    @POST("/feed/getmenu")
     Call<Availableitem> GetitemAvailable();
 
     //show staff details

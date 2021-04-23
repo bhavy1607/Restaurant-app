@@ -22,7 +22,6 @@
                 android:id="@+id/view_waiter"
                 android:icon="@drawable/ic_baseline_viewperson"/>
 
-
             <item android:title="View Order"
                 android:id="@+id/view_order"
                 android:icon="@drawable/ic_baseline_order"/>

@@ -26,7 +26,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class Manage_complate extends AppCompatActivity {
+public class Manage_complain extends AppCompatActivity {
 
     GridView gridView;
 
@@ -36,7 +36,7 @@ public class Manage_complate extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage_complate);
+        setContentView(R.layout.activity_manage_complain);
 
         gridView = (GridView)findViewById(R.id.gridview);
 
@@ -58,13 +58,13 @@ public class Manage_complate extends AppCompatActivity {
                     getcomplate = response.body();
                     complaints = getcomplate.getComplaints();
 
-                    CustomAdepter customAdepter = new CustomAdepter(Manage_complate.this,complaints);
+                    CustomAdepter customAdepter = new CustomAdepter(Manage_complain.this,complaints);
                     gridView.setAdapter(customAdepter);
 
 
-                    Toast.makeText(Manage_complate.this, "Succes", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Manage_complain.this, "Succes", Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(Manage_complate.this, ""+response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Manage_complain.this, ""+response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -80,7 +80,7 @@ public class Manage_complate extends AppCompatActivity {
         List<Complaint> complaints;
         Context context;
 
-        public CustomAdepter(Manage_complate manage_complate, List<Complaint> complaints) {
+        public CustomAdepter(Manage_complain manage_complate, List<Complaint> complaints) {
             this.complaints = complaints;
             this.context = manage_complate;
         }
