@@ -21,7 +21,6 @@
             android:layout_height="50dp"
             >
 
-
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -31,8 +30,14 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-
     </LinearLayout>
+
+    <GridView
+        android:id="@+id/gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        />
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
@@ -44,5 +49,6 @@
         tools:ignore="MissingConstraints"
         />
 
-
 </androidx.drawerlayout.widget.DrawerLayout>
+
+

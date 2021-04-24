@@ -13,6 +13,8 @@ import com.example.restaurant_app.modelmanager.Getcomplate;
 import com.example.restaurant_app.modelmanager.Getingredients;
 import com.example.restaurant_app.modelmanager.Menudetails;
 import com.example.restaurant_app.modelmanager.Orderdetails;
+import com.example.restaurant_app.modelmanager.Showrevenue;
+import com.example.restaurant_app.modelmanager.Sumrevenue;
 import com.example.restaurant_app.modelmanager.Waiterdetails;
 
 import java.util.HashMap;
@@ -110,4 +112,12 @@ public interface RetrofitInterface {
     //view ingrediants
     @GET("/ingredient/getingredients")
     Call<Getingredients> Getingrediants();
+
+    //view totalrevenue
+    @GET("/revenue/sum")
+    Call<Sumrevenue> GetTotalRevenue();
+
+    //view showrevenue
+    @GET("/revenue/year")
+    Call<Showrevenue> GetShowRevenue();
 }

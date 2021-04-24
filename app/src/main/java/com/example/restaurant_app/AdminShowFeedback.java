@@ -2,11 +2,13 @@ package com.example.restaurant_app;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +31,7 @@ import retrofit2.Retrofit;
 public class AdminShowFeedback extends AppCompatActivity {
 
     GridView gridView;
+    Button  btn;
 
     Feedbackdetails feedbackdetails = new Feedbackdetails();
     List<Feedback> feedbacks = new ArrayList<>();
@@ -39,6 +42,15 @@ public class AdminShowFeedback extends AppCompatActivity {
         setContentView(R.layout.admin_show_feedback);
 
         gridView = (GridView)findViewById(R.id.gridview);
+        btn = (Button)findViewById(R.id.btnavarageRating);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),RatingAvarage.class);
+                startActivity(intent);
+            }
+        });
 
         listingdata();
 
