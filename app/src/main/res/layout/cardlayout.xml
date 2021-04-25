@@ -45,7 +45,7 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/Yellow">
+            android:background="@drawable/buttons">
             <TextView
                 android:id="@+id/tname"
                 android:padding="5dp"
