@@ -67,7 +67,7 @@
         android:layout_marginEnd="20dp"/>
 
     <TextView
-        android:id="@+id/t1"
+        android:id="@+id/tshowrevenue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et3"
@@ -78,7 +78,7 @@
 
 
     <LinearLayout
-        android:layout_below="@id/t1"
+        android:layout_below="@id/tshowrevenue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">

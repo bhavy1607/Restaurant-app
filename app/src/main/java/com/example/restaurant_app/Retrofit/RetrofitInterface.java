@@ -119,5 +119,6 @@ public interface RetrofitInterface {
 
     //view showrevenue
     @GET("/revenue/year")
+    //Call<Showrevenue> GetShowRevenue(@Body HashMap<String,String>map);
     Call<Showrevenue> GetShowRevenue();
 }

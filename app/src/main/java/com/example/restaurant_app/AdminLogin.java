@@ -23,6 +23,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class AdminLogin extends AppCompatActivity {
+
     Button login_btn;
     EditText email, password;
     RetrofitInterface retrofitInterface;
@@ -35,7 +36,6 @@ public class AdminLogin extends AppCompatActivity {
 
         Retrofit retrofitClient = RetrofitClient.getInstance();
         retrofitInterface = retrofitClient.create(RetrofitInterface.class);
-
 
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
@@ -82,7 +82,6 @@ public class AdminLogin extends AppCompatActivity {
                             Toast.makeText(AdminLogin.this, "Wrong Credentials",
                                     Toast.LENGTH_LONG).show();
                         }
-
                     }
 
                     @Override

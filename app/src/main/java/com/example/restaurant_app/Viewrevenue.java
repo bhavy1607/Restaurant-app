@@ -37,7 +37,9 @@ public class Viewrevenue extends AppCompatActivity {
         et2 = (EditText)findViewById(R.id.et2);
         btnshowrevenue = (Button)findViewById(R.id.showrevenue);
         btntotal = (Button)findViewById(R.id.totalsum);
-        t1 = (TextView)findViewById(R.id.t1);
+        t1 = (TextView)findViewById(R.id.ttotal);
+        t2 = (TextView)findViewById(R.id.tshowrevenue);
+
 
         btntotal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +50,8 @@ public class Viewrevenue extends AppCompatActivity {
         btnshowrevenue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showRevenue();
+               showrevenue();
+               // Toast.makeText(Viewrevenue.this, "......", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -65,8 +68,8 @@ public class Viewrevenue extends AppCompatActivity {
                 if(response.isSuccessful()){
 
                     sumrevenue = response.body();
-                    t2 = (TextView) findViewById(R.id.ttotal);
-                    t2.setText(sumrevenue.getGrandtotal()+"");
+                    t1 = (TextView) findViewById(R.id.ttotal);
+                    t1.setText(sumrevenue.getGrandtotal()+"");
 
                     Toast.makeText(Viewrevenue.this, "Succes", Toast.LENGTH_SHORT).show();
 
@@ -81,7 +84,37 @@ public class Viewrevenue extends AppCompatActivity {
         });
     }
 
-    private void showRevenue(){
+//    private void showRevenue(){
+//        Retrofit retrofit = RetrofitClient.getInstance();
+//        RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
+//
+//        //HashMap<String, String> map = new HashMap<>();
+//
+//       // map.put("year",et1.getText().toString());
+//        Call<Showrevenue> call = retrofitInterface.GetShowRevenue();
+//
+//        call.enqueue(new Callback<Showrevenue>() {
+//            @Override
+//            public void onResponse(Call<Showrevenue> call, Response<Showrevenue> response) {
+//                if(response.isSuccessful()){
+//
+//
+//                    showrevenue = (Showrevenue) response.body();
+//                    t1.setText(showrevenue.getSum()+"");
+//
+//                    Toast.makeText(Viewrevenue.this, "Succes", Toast.LENGTH_SHORT).show();
+//                }else {
+//                    Toast.makeText(Viewrevenue.this, ""+response.code(), Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//            @Override
+//            public void onFailure(Call<Showrevenue> call, Throwable t) {
+//                Toast.makeText(Viewrevenue.this, "Failure", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
+
+    private void showrevenue(){
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
@@ -93,10 +126,11 @@ public class Viewrevenue extends AppCompatActivity {
                 if(response.isSuccessful()){
 
                     showrevenue = response.body();
-                    t1.setText(showrevenue.getId()+"");
-
+                    t2 = (TextView) findViewById(R.id.tshowrevenue);
+                    t2.setText(sumrevenue.getGrandtotal()+"");
 
                     Toast.makeText(Viewrevenue.this, "Succes", Toast.LENGTH_SHORT).show();
+
                 }else {
                     Toast.makeText(Viewrevenue.this, ""+response.code(), Toast.LENGTH_SHORT).show();
                 }
@@ -107,4 +141,5 @@ public class Viewrevenue extends AppCompatActivity {
             }
         });
     }
+
 }
