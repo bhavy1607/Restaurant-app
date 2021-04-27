@@ -13,9 +13,9 @@ import com.example.restaurant_app.modelmanager.Getcomplate;
 import com.example.restaurant_app.modelmanager.Getingredients;
 import com.example.restaurant_app.modelmanager.Menudetails;
 import com.example.restaurant_app.modelmanager.Orderdetails;
-import com.example.restaurant_app.modelmanager.Showrevenue;
 import com.example.restaurant_app.modelmanager.Sumrevenue;
 import com.example.restaurant_app.modelmanager.Waiterdetails;
+import com.example.restaurant_app.modelmanager.showrevenuemodel.Showrevenue;
 
 import java.util.HashMap;
 
@@ -24,12 +24,13 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Query;
 
 public interface RetrofitInterface {
 
     //Admin Login
     @POST("/admin/login")
-    Call<LoginResult> executeAdminLogin(@Body HashMap<String,String>map);
+    Call<LoginResult> executeAdminLogin(@Body HashMap<String, String> map);
 
     //User register & login
     @PUT("/auth/register")
@@ -51,23 +52,23 @@ public interface RetrofitInterface {
 
     //cook login
     @POST("/cook/login")
-    Call<LoginResult> executeCookLogin(@Body HashMap<String,String> map);
+    Call<LoginResult> executeCookLogin(@Body HashMap<String, String> map);
 
     //Manager register
     @PUT("/manage/addmanager")
-    Call<Void> executeAddManagerRegister(@Body HashMap<String,String>map);
+    Call<Void> executeAddManagerRegister(@Body HashMap<String, String> map);
 
     //manager login
     @POST("/manage/login")
-    Call<LoginResult> executeManagerLogin(@Body HashMap<String,String>map);
+    Call<LoginResult> executeManagerLogin(@Body HashMap<String, String> map);
 
     //User Forgot password
     @POST("/auth/forgot")
-    Call<ForgotResult> executeforgotpass(@Body HashMap<String,String>map);
+    Call<ForgotResult> executeforgotpass(@Body HashMap<String, String> map);
 
     //Menu
     @GET("/feed/menu")
-    Call<Menu> executeMenu(@Body HashMap<String,String>map);
+    Call<Menu> executeMenu(@Body HashMap<String, String> map);
 
     //view cook
     @GET("/cook/getcooks")
@@ -118,7 +119,9 @@ public interface RetrofitInterface {
     Call<Sumrevenue> GetTotalRevenue();
 
     //view showrevenue
-    @GET("/revenue/year")
-    //Call<Showrevenue> GetShowRevenue(@Body HashMap<String,String>map);
-    Call<Showrevenue> GetShowRevenue();
+    @POST("/revenue/year")
+    Call<Showrevenue> showRevenue(@Query("sum") String sum);
+
+//    @POST("/revenue/year")
+//    Call<List<Showrevenue>> Get(@Body HashMap<String,String>map);
 }
