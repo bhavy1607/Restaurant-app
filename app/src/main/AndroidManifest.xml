@@ -15,12 +15,12 @@
         android:theme="@style/Theme.Restaurant_App"
         android:usesCleartextTraffic="true"
         tools:ignore="UnusedAttribute">
-        <activity android:name=".AdminShowComplain"></activity>
+        <activity android:name=".Manage_complain"></activity>
+        <activity android:name=".AdminShowComplain" />
         <activity android:name=".View_manager" />
         <activity android:name=".Adminshowmenu" />
         <activity android:name=".Viewrevenue" />
         <activity android:name=".Viewingrediant" />
-        <activity android:name=".Manage_complain" />
         <activity android:name=".Itemavailable" />
         <activity android:name=".clickeditem" />
         <activity android:name=".Manage_menu" />

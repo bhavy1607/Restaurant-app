@@ -15,8 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
-import com.example.restaurant_app.modelmanager.Complaint;
-import com.example.restaurant_app.modelmanager.Getcomplate;
+import com.example.restaurant_app.modelmanager.managecomplain.Complaint;
+import com.example.restaurant_app.modelmanager.managecomplain.Getcomplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ import retrofit2.Retrofit;
 public class Manage_complain extends AppCompatActivity {
 
     GridView gridView;
-
+    
     Getcomplate getcomplate = new Getcomplate();
     List<Complaint> complaints = new ArrayList<>();
 
@@ -40,15 +40,14 @@ public class Manage_complain extends AppCompatActivity {
 
         gridView = (GridView)findViewById(R.id.gridview);
 
-        manageComplate();
-
+        Showcomplain();
     }
-    private void manageComplate(){
 
+    private void Showcomplain(){
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        Call<Getcomplate> call = retrofitInterface.Getcomplate();
+        Call<Getcomplate> call = retrofitInterface.GetComplate();
 
         call.enqueue(new Callback<Getcomplate>() {
             @Override
@@ -61,7 +60,6 @@ public class Manage_complain extends AppCompatActivity {
                     CustomAdepter customAdepter = new CustomAdepter(Manage_complain.this,complaints);
                     gridView.setAdapter(customAdepter);
 
-
                     Toast.makeText(Manage_complain.this, "Succes", Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(Manage_complain.this, ""+response.message(), Toast.LENGTH_SHORT).show();
@@ -70,19 +68,18 @@ public class Manage_complain extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Getcomplate> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Failure", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Manage_complain.this, "Failure", Toast.LENGTH_SHORT).show();
             }
         });
     }
-
     class CustomAdepter extends BaseAdapter {
 
         List<Complaint> complaints;
         Context context;
 
-        public CustomAdepter(Manage_complain manage_complate, List<Complaint> complaints) {
+        public CustomAdepter(Manage_complain manage_complain, List<Complaint> complaints) {
             this.complaints = complaints;
-            this.context = manage_complate;
+            this.context = manage_complain;
         }
 
         @Override

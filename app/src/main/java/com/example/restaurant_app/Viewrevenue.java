@@ -14,6 +14,8 @@ import com.example.restaurant_app.Retrofit.RetrofitInterface;
 import com.example.restaurant_app.modelmanager.Sumrevenue;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Showrevenue;
 
+import java.util.HashMap;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,15 +30,13 @@ public class Viewrevenue extends AppCompatActivity {
     Sumrevenue sumrevenue;
     Showrevenue showrevenue = new Showrevenue();
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewrevenue);
 
         et1 = (EditText)findViewById(R.id.et1);
-        et2 = (EditText)findViewById(R.id.et2);
+       // et2 = (EditText)findViewById(R.id.et2);
         btnshowrevenue = (Button)findViewById(R.id.showrevenue);
         btntotal = (Button)findViewById(R.id.totalsum);
         t1 = (TextView)findViewById(R.id.ttotal);
@@ -53,7 +53,6 @@ public class Viewrevenue extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                showrevenue();
-
             }
         });
     }
@@ -120,13 +119,17 @@ public class Viewrevenue extends AppCompatActivity {
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        Call<Showrevenue> call = retrofitInterface.showRevenue("sum");
+        HashMap<String, Integer> map = new HashMap<>();
+
+        map.put("years", et1.getText().toString().length());
+
+        Call<Showrevenue> call = retrofitInterface.showRevenue(map);
         call.enqueue(new Callback<Showrevenue>() {
             @Override
             public void onResponse(Call<Showrevenue> call, Response<Showrevenue> response) {
                 if (response.isSuccessful()){
 
-                    Toast.makeText(Viewrevenue.this, "here it is", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Viewrevenue.this, "Succes", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(Viewrevenue.this, ""+response.message(), Toast.LENGTH_SHORT).show();
                 }
@@ -134,7 +137,7 @@ public class Viewrevenue extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Showrevenue> call, Throwable t) {
-                Toast.makeText(Viewrevenue.this, ""+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Viewrevenue.this, "Failure", Toast.LENGTH_SHORT).show();
 
             }
         });

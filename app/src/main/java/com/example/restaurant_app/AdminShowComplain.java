@@ -15,8 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
-import com.example.restaurant_app.modelmanager.Complaint;
-import com.example.restaurant_app.modelmanager.Getcomplate;
+import com.example.restaurant_app.modelmanager.managecomplain.Complaint;
+import com.example.restaurant_app.modelmanager.managecomplain.Getcomplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class AdminShowComplain extends AppCompatActivity {
 
     GridView  gridView;
 
-    Getcomplate  getcomplate = new Getcomplate();
+    Getcomplate getcomplate = new Getcomplate();
     List<Complaint> complaints = new ArrayList<>();
 
     @Override
@@ -77,7 +77,7 @@ private void manageComplate(){
     Retrofit retrofit = RetrofitClient.getInstance();
     RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-    Call<Getcomplate> call = retrofitInterface.Getcomplate();
+    Call<Getcomplate> call = retrofitInterface.GetComplate();
 
     call.enqueue(new Callback<Getcomplate>() {
         @Override

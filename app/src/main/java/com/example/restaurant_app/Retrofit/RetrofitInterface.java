@@ -9,12 +9,12 @@ import com.example.restaurant_app.modelmanager.Availableitem;
 import com.example.restaurant_app.modelmanager.Avaragerating;
 import com.example.restaurant_app.modelmanager.Cookdetails;
 import com.example.restaurant_app.modelmanager.Feedbackdetails;
-import com.example.restaurant_app.modelmanager.Getcomplate;
 import com.example.restaurant_app.modelmanager.Getingredients;
 import com.example.restaurant_app.modelmanager.Menudetails;
 import com.example.restaurant_app.modelmanager.Orderdetails;
 import com.example.restaurant_app.modelmanager.Sumrevenue;
 import com.example.restaurant_app.modelmanager.Waiterdetails;
+import com.example.restaurant_app.modelmanager.managecomplain.Getcomplate;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Showrevenue;
 
 import java.util.HashMap;
@@ -24,7 +24,6 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
-import retrofit2.http.Query;
 
 public interface RetrofitInterface {
 
@@ -108,7 +107,7 @@ public interface RetrofitInterface {
 
     //show complate
     @GET("/complaint/complaints")
-    Call<Getcomplate> Getcomplate();
+    Call<Getcomplate> GetComplate();
 
     //view ingrediants
     @GET("/ingredient/getingredients")
@@ -120,7 +119,7 @@ public interface RetrofitInterface {
 
     //view showrevenue
     @POST("/revenue/year")
-    Call<Showrevenue> showRevenue(@Query("sum") String sum);
+    Call<Showrevenue> showRevenue(@Body HashMap<String, Integer> map);
 
 //    @POST("/revenue/year")
 //    Call<List<Showrevenue>> Get(@Body HashMap<String,String>map);

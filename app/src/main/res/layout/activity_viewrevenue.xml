@@ -42,35 +42,35 @@
         android:id="@+id/et1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Days"
+        android:hint="years"
         android:layout_marginTop="150dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:inputType="datetime"/>
 
-    <EditText
-        android:id="@+id/et2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="monthly"
-        android:layout_marginTop="200dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"/>
+<!--    <EditText-->
+<!--        android:id="@+id/et2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="monthly"-->
+<!--        android:layout_marginTop="200dp"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginEnd="20dp"/>-->
 
-    <EditText
-        android:id="@+id/et3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="yearly"
-        android:layout_marginTop="250dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"/>
+<!--    <EditText-->
+<!--        android:id="@+id/et3"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="yearly"-->
+<!--        android:layout_marginTop="250dp"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginEnd="20dp"/>-->
 
     <TextView
         android:id="@+id/tshowrevenue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et3"
+        android:layout_below="@+id/et1"
         android:layout_marginTop="80dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
