@@ -74,6 +74,10 @@ public class ManagerHome extends AppCompatActivity {
                         Intent view_payment = new Intent(ManagerHome.this, Viewfeedback.class);
                         startActivity(view_payment);
                         break;
+                    case R.id.booktable:
+                        Intent booktable = new Intent(ManagerHome.this,Book_table.class);
+                        startActivity(booktable);
+                        break;
                     case R.id.manage_complate:
                         Intent manage_complate = new Intent(ManagerHome.this, Manage_complain.class);
                         startActivity(manage_complate);

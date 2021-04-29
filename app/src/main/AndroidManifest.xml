@@ -15,7 +15,9 @@
         android:theme="@style/Theme.Restaurant_App"
         android:usesCleartextTraffic="true"
         tools:ignore="UnusedAttribute">
-        <activity android:name=".Manage_complain"></activity>
+        <activity android:name=".Book_table"></activity>
+        <activity android:name=".ComplainReply" />
+        <activity android:name=".Manage_complain" />
         <activity android:name=".AdminShowComplain" />
         <activity android:name=".View_manager" />
         <activity android:name=".Adminshowmenu" />
@@ -52,9 +54,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ManagerLogin"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".BookTable"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Cart"

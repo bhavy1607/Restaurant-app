@@ -32,6 +32,10 @@
 
             <item android:title="View revenue"
                 android:id="@+id/view_revenue"
+                android:icon="@drawable/ic_baseline_order"/>
+
+            <item android:title="Book Table"
+                android:id="@+id/booktable"
                 android:icon="@drawable/ic_baseline_payment_24"/>
 
         </menu>

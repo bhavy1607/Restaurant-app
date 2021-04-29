@@ -64,10 +64,10 @@ public class UserHome extends AppCompatActivity {
                         Intent menu = new Intent(UserHome.this, Menu.class);
                         startActivity(menu);
                         break;
-                    case R.id.booktable:
-                        Intent booktable = new Intent(UserHome.this, BookTable.class);
-                        startActivity(booktable);
-                        break;
+//                    case R.id.booktable:
+//                        Intent booktable = new Intent(UserHome.this, BookTable.class);
+//                        startActivity(booktable);
+//                        break;
                     case R.id.cart:
                         Intent cart = new Intent(UserHome.this, Cart.class);
                         startActivity(cart);
