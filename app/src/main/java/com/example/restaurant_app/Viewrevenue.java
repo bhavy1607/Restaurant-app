@@ -23,12 +23,12 @@ import retrofit2.Retrofit;
 
 public class Viewrevenue extends AppCompatActivity {
 
-    EditText et1,et2;
+    EditText et1;
     Button btntotal,btnshowrevenue;
     TextView t1,t2;
 
     Sumrevenue sumrevenue;
-    Showrevenue showrevenue = new Showrevenue();
+    //Showrevenue showrevenue = new Showrevenue();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,15 +119,19 @@ public class Viewrevenue extends AppCompatActivity {
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        HashMap<String, Integer> map = new HashMap<>();
+        HashMap<String, String> map = new HashMap<>();
 
-        map.put("years", et1.getText().toString().length());
+        map.put("years", et1.getText().toString());
 
         Call<Showrevenue> call = retrofitInterface.showRevenue(map);
         call.enqueue(new Callback<Showrevenue>() {
             @Override
             public void onResponse(Call<Showrevenue> call, Response<Showrevenue> response) {
                 if (response.isSuccessful()){
+
+                    Showrevenue showrevenue = response.body();
+
+                    t2.setText("years: "+showrevenue.getSum());
 
                     Toast.makeText(Viewrevenue.this, "Succes", Toast.LENGTH_SHORT).show();
                 }else{

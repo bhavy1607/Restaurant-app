@@ -24,6 +24,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Query;
 
 public interface RetrofitInterface {
 
@@ -119,7 +120,7 @@ public interface RetrofitInterface {
 
     //view showrevenue
     @POST("/revenue/year")
-    Call<Showrevenue> showRevenue(@Body HashMap<String, Integer> map);
+    Call<Showrevenue> showRevenue(@Query("q") HashMap<String, String> years);
 
 //    @POST("/revenue/year")
 //    Call<List<Showrevenue>> Get(@Body HashMap<String,String>map);
