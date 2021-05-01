@@ -7,4 +7,23 @@
     android:layout_height="match_parent"
     tools:context=".ComplainReply">
 
+    <EditText
+        android:id="@+id/etreply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="40dp"
+        android:hint="complain reply"/>
+
+    <Button
+        android:id="@+id/btnreply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etreply"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp"
+        android:text="reply for user"/>
+
 </RelativeLayout>

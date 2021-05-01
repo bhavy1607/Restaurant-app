@@ -124,28 +124,44 @@ public class Viewrevenue extends AppCompatActivity {
         map.put("years", et1.getText().toString());
 
         Call<Showrevenue> call = retrofitInterface.showRevenue(map);
+//        call.enqueue(new Callback<Showrevenue>() {
+//            @Override
+//            public void onResponse(Call<Showrevenue> call, Response<Showrevenue> response) {
+//                if (response.isSuccessful()){
+//
+//                    Showrevenue showrevenue = response.body();
+//
+//                    t2.setText("years: "+showrevenue.getSum());
+//
+//                    Toast.makeText(Viewrevenue.this, "Succes", Toast.LENGTH_SHORT).show();
+//                }else{
+//                    Toast.makeText(Viewrevenue.this, ""+response.message(), Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Showrevenue> call, Throwable t) {
+//                Toast.makeText(Viewrevenue.this, "Failure", Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
+
         call.enqueue(new Callback<Showrevenue>() {
             @Override
             public void onResponse(Call<Showrevenue> call, Response<Showrevenue> response) {
-                if (response.isSuccessful()){
-
-                    Showrevenue showrevenue = response.body();
-
-                    t2.setText("years: "+showrevenue.getSum());
-
+                if(response.isSuccessful()){
                     Toast.makeText(Viewrevenue.this, "Succes", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(Viewrevenue.this, ""+response.message(), Toast.LENGTH_SHORT).show();
+                }else {
+
                 }
+
             }
 
             @Override
             public void onFailure(Call<Showrevenue> call, Throwable t) {
-                Toast.makeText(Viewrevenue.this, "Failure", Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(Viewrevenue.this, "...", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
 

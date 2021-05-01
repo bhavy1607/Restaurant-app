@@ -15,7 +15,8 @@
         android:theme="@style/Theme.Restaurant_App"
         android:usesCleartextTraffic="true"
         tools:ignore="UnusedAttribute">
-        <activity android:name=".Book_table"></activity>
+        <activity android:name=".vieworderlist"></activity>
+        <activity android:name=".Book_table" />
         <activity android:name=".ComplainReply" />
         <activity android:name=".Manage_complain" />
         <activity android:name=".AdminShowComplain" />

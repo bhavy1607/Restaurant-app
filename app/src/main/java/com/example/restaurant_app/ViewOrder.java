@@ -2,6 +2,7 @@ package com.example.restaurant_app;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
@@ -113,6 +115,15 @@ public class ViewOrder extends AppCompatActivity {
             TextView temail = convertView.findViewById(R.id.temail);
             TextView tpayment = convertView.findViewById(R.id.tpaymentmethod);
             TextView tid = convertView.findViewById(R.id.tid);
+            CardView cardView = convertView.findViewById(R.id.cardview);
+
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(),vieworderlist.class);
+                    startActivity(intent);
+                }
+            });
 
             tname.setText(orders.get(position).getName());
             temail.setText(orders.get(position).getEmail());

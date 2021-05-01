@@ -15,6 +15,7 @@ import com.example.restaurant_app.modelmanager.Orderdetails;
 import com.example.restaurant_app.modelmanager.Sumrevenue;
 import com.example.restaurant_app.modelmanager.Waiterdetails;
 import com.example.restaurant_app.modelmanager.managecomplain.Getcomplate;
+import com.example.restaurant_app.modelmanager.setdiscount.Order;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Showrevenue;
 
 import java.util.HashMap;
@@ -24,7 +25,6 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
-import retrofit2.http.Query;
 
 public interface RetrofitInterface {
 
@@ -120,8 +120,10 @@ public interface RetrofitInterface {
 
     //view showrevenue
     @POST("/revenue/year")
-    Call<Showrevenue> showRevenue(@Query("q") HashMap<String, String> years);
+    Call<Showrevenue> showRevenue(@Body HashMap<String, String> years);
 
-//    @POST("/revenue/year")
-//    Call<List<Showrevenue>> Get(@Body HashMap<String,String>map);
+    //view set discount
+    @PUT("/order/setdiscount/60813fc1bd08352ee06de526")
+    Call<Order> setdiscount(@Body HashMap<String, String> years);
+
 }
