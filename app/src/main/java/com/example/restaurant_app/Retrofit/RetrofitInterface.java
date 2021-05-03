@@ -120,10 +120,10 @@ public interface RetrofitInterface {
 
     //view showrevenue
     @POST("/revenue/year")
-    Call<Showrevenue> showRevenue(@Body HashMap<String, String> years);
+    Call<Showrevenue> showRevenue(@Body HashMap<String, String> map);
 
     //view set discount
     @PUT("/order/setdiscount/60813fc1bd08352ee06de526")
-    Call<Order> setdiscount(@Body HashMap<String, String> years);
+    Call<Order> setdiscount(@Body HashMap<String, String> map);
 
 }

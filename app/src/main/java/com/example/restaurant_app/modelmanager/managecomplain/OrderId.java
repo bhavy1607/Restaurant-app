@@ -44,6 +44,9 @@ public class OrderId {
     @SerializedName("__v")
     @Expose
     private Integer v;
+    @SerializedName("OrderReceivedAt")
+    @Expose
+    private String orderReceivedAt;
 
     public Integer getGrandTotal() {
         return grandTotal;
@@ -139,6 +142,14 @@ public class OrderId {
 
     public void setV(Integer v) {
         this.v = v;
+    }
+
+    public String getOrderReceivedAt() {
+        return orderReceivedAt;
+    }
+
+    public void setOrderReceivedAt(String orderReceivedAt) {
+        this.orderReceivedAt = orderReceivedAt;
     }
 
 }

@@ -1,3 +1,4 @@
+
 package com.example.restaurant_app.modelmanager.managecomplain;
 
 import com.google.gson.annotations.Expose;
@@ -19,7 +20,7 @@ public class Complaint {
     private OrderId orderId;
     @SerializedName("userId")
     @Expose
-    private String userId;
+    private UserId userId;
     @SerializedName("__v")
     @Expose
     private Integer v;
@@ -56,11 +57,11 @@ public class Complaint {
         this.orderId = orderId;
     }
 
-    public String getUserId() {
+    public UserId getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(UserId userId) {
         this.userId = userId;
     }
 
