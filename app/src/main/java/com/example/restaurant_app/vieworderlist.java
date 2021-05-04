@@ -66,6 +66,7 @@ public class vieworderlist extends AppCompatActivity {
 
         map.put("discount", editText.getText().toString());
 
+
         Call<Order> call = retrofitInterface.setdiscount(map);
 
         call.enqueue(new Callback<Order>() {
@@ -97,8 +98,6 @@ public class vieworderlist extends AppCompatActivity {
 
         List<Item> items;
         Context context;
-
-
 
         public CustomAdepter(vieworderlist vieworderlist, List<Item> items) {
             this.context = vieworderlist;
@@ -134,15 +133,7 @@ public class vieworderlist extends AppCompatActivity {
             TextView tpriority = convertView.findViewById(R.id.tpriority);
             TextView ttotal = convertView.findViewById(R.id.ttotal);
             TextView tid = convertView.findViewById(R.id.tid);
-           // CardView cardView = convertView.findViewById(R.id.cardview);
 
-//            cardView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent = new Intent(getApplicationContext(),vieworderlist.class);
-//                    startActivity(intent);
-//                }
-//            });
 
             tqty.setText(items.get(position).getQty().intValue());
             tpriority.setText(items.get(position).getPriority().intValue());

@@ -73,6 +73,7 @@ public class View_manager extends AppCompatActivity {
         });
     }
 
+
     static class CustomAdepter extends BaseAdapter {
 
         List<Manager> managers;

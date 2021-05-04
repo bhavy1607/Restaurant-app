@@ -14,6 +14,7 @@ import com.example.restaurant_app.modelmanager.Menudetails;
 import com.example.restaurant_app.modelmanager.Orderdetails;
 import com.example.restaurant_app.modelmanager.Sumrevenue;
 import com.example.restaurant_app.modelmanager.Waiterdetails;
+import com.example.restaurant_app.modelmanager.booktable.BookTable;
 import com.example.restaurant_app.modelmanager.managecomplain.Getcomplate;
 import com.example.restaurant_app.modelmanager.setdiscount.Order;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Showrevenue;
@@ -125,5 +126,9 @@ public interface RetrofitInterface {
     //view set discount
     @PUT("/order/setdiscount/60813fc1bd08352ee06de526")
     Call<Order> setdiscount(@Body HashMap<String, String> map);
+
+    //booktable
+    @GET("/table/tables")
+    Call<BookTable> showtable();
 
 }
