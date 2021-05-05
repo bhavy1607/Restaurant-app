@@ -1,19 +1,18 @@
-
-package com.example.restaurant_app.modelmanager;
+package com.example.restaurant_app.modelmanager.feedback;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Waiterdetails {
+public class Feedbackdetails {
 
     @SerializedName("message")
     @Expose
     private String message;
-    @SerializedName("waiters")
+    @SerializedName("feedbacks")
     @Expose
-    private List<Waiter> waiters = null;
+    private List<Feedback> feedbacks = null;
     @SerializedName("totalItems")
     @Expose
     private Integer totalItems;
@@ -26,12 +25,12 @@ public class Waiterdetails {
         this.message = message;
     }
 
-    public List<Waiter> getWaiters() {
-        return waiters;
+    public List<Feedback> getFeedbacks() {
+        return feedbacks;
     }
 
-    public void setWaiters(List<Waiter> waiters) {
-        this.waiters = waiters;
+    public void setFeedbacks(List<Feedback> feedbacks) {
+        this.feedbacks = feedbacks;
     }
 
     public Integer getTotalItems() {

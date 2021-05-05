@@ -26,6 +26,15 @@
                 android:id="@+id/show_menu"
                 android:icon="@drawable/ic_cart"/>
 
+            <item android:title="View revenue"
+                android:id="@+id/view_revenue"
+                android:icon="@drawable/ic_cart"/>
+
+            <item android:title="book table"
+                android:id="@+id/booktable"
+                android:icon="@drawable/ic_cart"/>
+
+
         </menu>
     </item>
     <item android:title="App">

@@ -16,8 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
-import com.example.restaurant_app.modelmanager.Getingredients;
-import com.example.restaurant_app.modelmanager.Ingredient;
+import com.example.restaurant_app.modelmanager.getingrediants.Getingredients;
+import com.example.restaurant_app.modelmanager.getingrediants.Ingredient;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
