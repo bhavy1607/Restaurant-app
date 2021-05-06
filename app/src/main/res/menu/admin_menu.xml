@@ -12,7 +12,7 @@
 
             <item android:title="View Manager"
                 android:id="@+id/Viewmanager"
-                android:icon="@drawable/ic_cart"/>
+                android:icon="@drawable/ic_baseline_viewperson"/>
 
             <item android:title="Staff Details"
                 android:id="@+id/Sdetails"
@@ -24,7 +24,7 @@
 
             <item android:title="Show Menu"
                 android:id="@+id/show_menu"
-                android:icon="@drawable/ic_cart"/>
+                android:icon="@drawable/ic_baseline_restaurant_menu"/>
 
             <item android:title="View revenue"
                 android:id="@+id/view_revenue"
@@ -32,7 +32,7 @@
 
             <item android:title="book table"
                 android:id="@+id/booktable"
-                android:icon="@drawable/ic_cart"/>
+                android:icon="@drawable/ic_baseline_table_chart"/>
 
 
         </menu>
@@ -42,7 +42,7 @@
 
             <item android:title="Show Complate"
                 android:id="@+id/showcomplate"
-                android:icon="@drawable/ic_baseline_rate_review_24"/>
+                android:icon="@drawable/ic_baseline_payment_24"/>
 
             <item android:title="Show Feedback"
                 android:id="@+id/Showfeedback"
