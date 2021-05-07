@@ -2,11 +2,13 @@ package com.example.restaurant_app;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -140,6 +142,16 @@ private void manageComplate(){
             TextView tid = convertView.findViewById(R.id.tid);
             TextView ttitle = convertView.findViewById(R.id.ttitle);
             TextView tmessage = convertView.findViewById(R.id.tmessage);
+
+            Button btnreply = convertView.findViewById(R.id.btnreply);
+
+            btnreply.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(),ComplainReply.class);
+                    startActivity(intent);
+                }
+            });
 
             tid.setText(complaints.get(position).getId());
             ttitle.setText(complaints.get(position).getTitle());
