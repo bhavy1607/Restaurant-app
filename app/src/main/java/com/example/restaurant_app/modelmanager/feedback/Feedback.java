@@ -1,4 +1,4 @@
-package com.example.restaurant_app.modelmanager;
+package com.example.restaurant_app.modelmanager.feedback;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

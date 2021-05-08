@@ -26,7 +26,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class Book_table extends AppCompatActivity {
+public class Adminbooktable extends AppCompatActivity {
 
     GridView gridView;
 
@@ -36,16 +36,17 @@ public class Book_table extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_table);
+        setContentView(R.layout.activity_adminbooktable);
 
         gridView = (GridView)findViewById(R.id.gridview);
 
         booktable();
     }
 
+
     private void booktable(){
         Retrofit retrofit = RetrofitClient.getInstance();
-        RetrofitInterface  retrofitInterface = retrofit.create(RetrofitInterface.class);
+        RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
         Call<BookTable> call = retrofitInterface.showtable();
 
@@ -55,37 +56,36 @@ public class Book_table extends AppCompatActivity {
                 if(response.isSuccessful()){
 
                     bookTable = response.body();
-                        tables = bookTable.getTables();
+                    tables = bookTable.getTables();
 
 
-                    CustomAdepter customAdepter = new CustomAdepter(Book_table.this,tables);
+                    CustomAdepter customAdepter = new CustomAdepter(Adminbooktable.this,tables);
                     gridView.setAdapter(customAdepter);
 
-                    Toast.makeText(Book_table.this, "Succes", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Adminbooktable.this, "Succes", Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(Book_table.this, ""+response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Adminbooktable.this, ""+response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<BookTable> call, Throwable t) {
-                Toast.makeText(Book_table.this, "Failure", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Adminbooktable.this, "Failure", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-     class CustomAdepter extends BaseAdapter {
+    class CustomAdepter extends BaseAdapter {
 
         List<Table> tables;
         Context context;
 
-         public CustomAdepter(Book_table book_table, List<Table> tables) {
-             this.context = book_table;
-             this.tables = tables;
+        public CustomAdepter(Adminbooktable adminbooktable, List<Table> tables) {
+            this.context = adminbooktable;
+            this.tables = tables;
+        }
 
-         }
-
-         @Override
+        @Override
         public int getCount() {
             return   tables.size();
         }
@@ -109,20 +109,19 @@ public class Book_table extends AppCompatActivity {
             }
 
             TextView tid = view.findViewById(R.id.tid);
-           TextView ttable = view.findViewById(R.id.ttable);
+            TextView ttable = view.findViewById(R.id.ttable);
             TextView tsize = view.findViewById(R.id.tsize);
             TextView tstatus = view.findViewById(R.id.tstatus);
-           // TextView twaiting = view.findViewById(R.id.twaiting);
+            // TextView twaiting = view.findViewById(R.id.twaiting);
 
             tid.setText(tables.get(i).getId());
             ttable.setText(tables.get(i).getTable().toString());
             tsize.setText(tables.get(i).getSize().toString());
             tstatus.setText(tables.get(i).getStatus());
-          //  twaiting.setText(tables.get(i).getWaiting());
+            //  twaiting.setText(tables.get(i).getWaiting());
 
 
             return view;
         }
     }
-
 }

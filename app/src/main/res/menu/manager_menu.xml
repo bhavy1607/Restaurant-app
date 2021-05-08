@@ -28,7 +28,7 @@
 
             <item android:title="Manage Menu"
                 android:id="@+id/manage_menu"
-                android:icon="@drawable/ic_baseline_payment_24"/>
+                android:icon="@drawable/ic_baseline_restaurant_menu"/>
 
             <item android:title="View revenue"
                 android:id="@+id/view_revenue"
@@ -36,7 +36,7 @@
 
             <item android:title="Book Table"
                 android:id="@+id/booktable"
-                android:icon="@drawable/ic_baseline_payment_24"/>
+                android:icon="@drawable/ic_baseline_table_chart"/>
 
         </menu>
     </item>

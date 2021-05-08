@@ -35,6 +35,15 @@
             android:layout_gravity="center_horizontal"
             app:srcCompat="@drawable/logo" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welcome Admin.."
+            android:textSize="30dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginTop="40dp"/>
+
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView

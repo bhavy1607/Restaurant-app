@@ -16,8 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
-import com.example.restaurant_app.modelmanager.Getingredients;
-import com.example.restaurant_app.modelmanager.Ingredient;
+import com.example.restaurant_app.modelmanager.getingrediants.Getingredients;
+import com.example.restaurant_app.modelmanager.getingrediants.Ingredient;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -111,12 +111,12 @@ public class Viewingrediant extends AppCompatActivity {
 
             TextView tname = convertView.findViewById(R.id.tname);
             TextView tdec = convertView.findViewById(R.id.dec);
-            TextView tid = convertView.findViewById(R.id.id);
+          //  TextView tid = convertView.findViewById(R.id.id);
             ImageView imageView = convertView.findViewById(R.id.I1);
 
             tname.setText(ingredients.get(position).getIngredientName());
             tdec.setText(ingredients.get(position).getDescription());
-            tid.setText(ingredients.get(position).getId());
+          //  tid.setText(ingredients.get(position).getId());
 
             Picasso.with(Viewingrediant.this).load(ingredients.get(position).getImageUrl()).into(imageView);
 

@@ -17,8 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
-import com.example.restaurant_app.modelmanager.Feedback;
-import com.example.restaurant_app.modelmanager.Feedbackdetails;
+import com.example.restaurant_app.modelmanager.feedback.Feedback;
+import com.example.restaurant_app.modelmanager.feedback.Feedbackdetails;
 
 import java.util.ArrayList;
 import java.util.List;

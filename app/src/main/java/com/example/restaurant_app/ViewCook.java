@@ -15,8 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
-import com.example.restaurant_app.modelmanager.Cook;
-import com.example.restaurant_app.modelmanager.Cookdetails;
+import com.example.restaurant_app.modelmanager.cookdetails.Cook;
+import com.example.restaurant_app.modelmanager.cookdetails.Cookdetails;
 
 import java.util.ArrayList;
 import java.util.List;

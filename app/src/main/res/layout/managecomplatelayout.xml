@@ -45,13 +45,15 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/buttons">
+            android:background="@drawable/buttons"
+            >
 
             <TextView
                 android:id="@+id/tid"
@@ -76,8 +78,6 @@
 
 
         </LinearLayout>
-
-
 
     </androidx.cardview.widget.CardView>
 
