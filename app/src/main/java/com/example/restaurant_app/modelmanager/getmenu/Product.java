@@ -1,9 +1,8 @@
+
 package com.example.restaurant_app.modelmanager.getmenu;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
 
 public class Product {
 
@@ -16,9 +15,6 @@ public class Product {
     @SerializedName("_id")
     @Expose
     private String id;
-    @SerializedName("category")
-    @Expose
-    private List<Object> category = null;
     @SerializedName("categoryId")
     @Expose
     private String categoryId;
@@ -28,9 +24,12 @@ public class Product {
     @SerializedName("description")
     @Expose
     private String description;
-    @SerializedName("price")
+    @SerializedName("originalPrice")
     @Expose
-    private String price;
+    private Integer originalPrice;
+    @SerializedName("offerPrice")
+    @Expose
+    private Integer offerPrice;
     @SerializedName("imageUrl")
     @Expose
     private String imageUrl;
@@ -68,14 +67,6 @@ public class Product {
         this.id = id;
     }
 
-    public List<Object> getCategory() {
-        return category;
-    }
-
-    public void setCategory(List<Object> category) {
-        this.category = category;
-    }
-
     public String getCategoryId() {
         return categoryId;
     }
@@ -100,12 +91,20 @@ public class Product {
         this.description = description;
     }
 
-    public String getPrice() {
-        return price;
+    public Integer getOriginalPrice() {
+        return originalPrice;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public void setOriginalPrice(Integer originalPrice) {
+        this.originalPrice = originalPrice;
+    }
+
+    public Integer getOfferPrice() {
+        return offerPrice;
+    }
+
+    public void setOfferPrice(Integer offerPrice) {
+        this.offerPrice = offerPrice;
     }
 
     public String getImageUrl() {

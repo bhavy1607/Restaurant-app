@@ -113,6 +113,8 @@ public class Manage_menu extends AppCompatActivity {
             }
 
             TextView t1 = convertView.findViewById(R.id.textview);
+            TextView t2 = convertView.findViewById(R.id.txtprice);
+
             ImageView imageView = convertView.findViewById(R.id.image);
             Button btn = convertView.findViewById(R.id.btnadd);
 
@@ -135,6 +137,7 @@ public class Manage_menu extends AppCompatActivity {
             });
 
             t1.setText(products.get(position).getName());
+            t2.setText(products.get(position).getOfferPrice());
 
             Picasso.with(Manage_menu.this).load(products.get(position).getImageUrl()).into(imageView);
 

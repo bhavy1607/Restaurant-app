@@ -24,7 +24,7 @@
 
             <item android:title="Show Menu"
                 android:id="@+id/show_menu"
-                android:icon="@drawable/ic_baseline_restaurant_menu"/>
+                android:icon="@drawable/ic_staffdetails"/>
 
             <item android:title="View revenue"
                 android:id="@+id/view_revenue"
@@ -32,7 +32,7 @@
 
             <item android:title="book table"
                 android:id="@+id/booktable"
-                android:icon="@drawable/ic_baseline_table_chart"/>
+                android:icon="@drawable/ic_addmanager"/>
 
 
         </menu>
