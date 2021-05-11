@@ -5,15 +5,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
@@ -34,26 +38,50 @@ public class clickeditem extends AppCompatActivity {
     Menudetails menudetails = new Menudetails();
     List<Product> products = new ArrayList<>();
     String id;
-    Button btn1;
+    Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clickeditem);
 
-        btn1 = (Button)findViewById(R.id.btn1);
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        //btn1 = (Button)findViewById(R.id.btn1);
         gridView = (GridView)findViewById(R.id.gridview);
         id = getIntent().getStringExtra("_id");
 
         clickeddata();
 
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(clickeditem.this,Itemavailable.class);
+//        btn1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(clickeditem.this,Itemavailable.class);
+//                startActivity(intent);
+//            }
+//        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.itemselected,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.Available:
+
+               // Toast.makeText(this, "........", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(clickeditem.this, Itemavailable.class);
                 startActivity(intent);
-            }
-        });
+                break;
+
+        }
+        return true;
     }
 
     private void clickeddata(){
