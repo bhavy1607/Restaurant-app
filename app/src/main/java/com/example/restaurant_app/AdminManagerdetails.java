@@ -1,5 +1,6 @@
 package com.example.restaurant_app;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,8 +9,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
@@ -24,25 +26,19 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class AdminManagerFragment extends  Fragment {
-
+public class AdminManagerdetails extends AppCompatActivity {
     GridView gridView;
 
     Getmanager getmanager = new Getmanager();
     List<Manager> managers = new ArrayList<>();
-
-
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_admin_managerdetails);
 
-        View rootview = inflater.inflate(R.layout.fragment_admin_manager, container, false);
-        gridView = (GridView)rootview.findViewById(R.id.gridview);
-
+        gridView = (GridView)findViewById(R.id.gridview);
 
         showmanager();
-        return rootview;
     }
 
     private void showmanager(){
@@ -59,36 +55,33 @@ public class AdminManagerFragment extends  Fragment {
                     getmanager = response.body();
                     managers = getmanager.getManagers();
 
-                    CustomAdepter customAdepter = new CustomAdepter(AdminManagerFragment.this,managers);
+                    CustomAdepter customAdepter = new CustomAdepter(AdminManagerdetails.this,managers);
                     gridView.setAdapter(customAdepter);
 
-
+                    Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
                 }else {
-                    //Toast.makeText(getApplicationContext(), ""+response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), ""+response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Getmanager> call, Throwable t) {
-                //Toast.makeText(getApplicationContext(), "Failure", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Failure", Toast.LENGTH_SHORT).show();
             }
         });
     }
-
 
 
     static class CustomAdepter extends BaseAdapter {
 
         List<Manager> managers;
         Context context;
-        LayoutInflater inflater;
 
 
-
-        public CustomAdepter(AdminManagerFragment adminManagerFragment, List<Manager> managers) {
-            this.context = context;
+        public CustomAdepter(AdminManagerdetails adminManagerdetails, List<Manager> managers) {
+            this.context = adminManagerdetails;
             this.managers = managers;
-            inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);        }
+        }
 
         @Override
         public int getCount() {
@@ -108,21 +101,22 @@ public class AdminManagerFragment extends  Fragment {
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
             if (view == null) {
-                view = inflater.inflate(R.layout.cardlayout, null);
+                view = LayoutInflater.from(context).inflate(R.layout.cardlayout,viewGroup,false);
+                LayoutInflater lInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+                view = lInflater.inflate(R.layout.cardlayout, null);
             }
 
             TextView tname = view.findViewById(R.id.tname);
-           // TextView temail = view.findViewById(R.id.temail);
+            TextView temail = view.findViewById(R.id.temail);
             TextView tphone = view.findViewById(R.id.tphone);
 
             tname.setText(managers.get(i).getName());
-           // temail.setText(managers.get(i).getEmail());
+            temail.setText(managers.get(i).getEmail());
             tphone.setText(managers.get(i).getPhone());
 
             return view;
         }
     }
-
 
 
 }

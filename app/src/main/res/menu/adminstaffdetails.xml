@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Manager details"
+        android:id="@+id/Manager"
+        android:icon="@drawable/ic_baseline_viewperson"
+        />
+
+    <item android:title="Cook details"
+        android:id="@+id/Cook"
+        android:icon="@drawable/ic_baseline_viewperson"/>
+
+    <item android:title="Waiter details"
+        android:id="@+id/Waiter"
+        android:icon="@drawable/ic_baseline_viewperson"/>
+
+</menu>

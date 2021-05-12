@@ -8,77 +8,90 @@
     android:orientation="vertical"
     tools:context=".UserFeedback">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
-        android:layout_width="match_parent"
-        android:background="@color/Yellow"
-        android:layout_height="50dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/btnback"
-                android:layout_width="35dp"
-                android:layout_height="25dp"
-                android:layout_gravity="center"
-                android:background="@drawable/ic_back"
-                android:textColor="#000000"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Staff Details"
-                android:textSize="25dp"
-                android:paddingLeft="20dp"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
-                android:textColor="#000000"
-                />
-
-        </LinearLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-
-<!--    <GridView-->
-<!--        android:id="@+id/gridview"-->
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:id="@+id/appbar"-->
 <!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_below="@+id/appbar"/>-->
+<!--        android:background="@color/Yellow"-->
+<!--        android:layout_height="50dp"-->
+<!--        >-->
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_layout"
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:background="@color/Yellow"
+            app:menu="@menu/adminstaffdetails"
+            app:title="Staff Details"
+            app:titleMarginStart="40dp"
+            />
+
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:orientation="horizontal">-->
+<!--            <Button-->
+<!--                android:id="@+id/btnback"-->
+<!--                android:layout_width="35dp"-->
+<!--                android:layout_height="25dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:background="@drawable/ic_back"-->
+<!--                android:textColor="#000000"-->
+<!--                />-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Staff Details"-->
+<!--                android:textSize="25dp"-->
+<!--                android:paddingLeft="20dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_margin="5dp"-->
+<!--                android:textColor="#000000"-->
+<!--                />-->
+
+<!--        </LinearLayout>-->
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
+
+    <GridView
+        android:id="@+id/gridview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/Yellow"
-        app:tabTextColor="@color/black"
-        app:tabSelectedTextColor="@color/white"
-        app:tabIndicatorColor="@color/white">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appbar"/>
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tab1"
-            android:text="Manager"/>
+<!--    <com.google.android.material.tabs.TabLayout-->
+<!--        android:id="@+id/tab_layout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/Yellow"-->
+<!--        app:tabTextColor="@color/black"-->
+<!--        app:tabSelectedTextColor="@color/white"-->
+<!--        app:tabIndicatorColor="@color/white">-->
+
+<!--        <com.google.android.material.tabs.TabItem-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/tab1"-->
+<!--            android:text="Manager"/>-->
 
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tab2"
-            android:text="Cook"/>
+<!--        <com.google.android.material.tabs.TabItem-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/tab2"-->
+<!--            android:text="Cook"/>-->
 
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tab3"
-            android:text="Waiter"/>
+<!--        <com.google.android.material.tabs.TabItem-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/tab3"-->
+<!--            android:text="Waiter"/>-->
 
-    </com.google.android.material.tabs.TabLayout>
+<!--    </com.google.android.material.tabs.TabLayout>-->
 
-   <androidx.viewpager.widget.ViewPager
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:id="@+id/viewpager"/>
+<!--   <androidx.viewpager.widget.ViewPager-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="match_parent"-->
+<!--       android:id="@+id/viewpager"/>-->
 
 </LinearLayout>
