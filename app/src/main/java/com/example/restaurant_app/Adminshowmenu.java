@@ -112,6 +112,7 @@ public class Adminshowmenu extends AppCompatActivity {
             }
 
             TextView t1 = convertView.findViewById(R.id.textview);
+            TextView t2 = convertView.findViewById(R.id.txtprice);
             ImageView imageView = convertView.findViewById(R.id.image);
             Button btn = convertView.findViewById(R.id.btnadd);
 
@@ -134,6 +135,7 @@ public class Adminshowmenu extends AppCompatActivity {
             });
 
             t1.setText(products.get(position).getName());
+            t2.setText(products.get(position).getOriginalPrice()+""+" ₹");
 
             Picasso.with(Adminshowmenu.this).load(products.get(position).getImageUrl()).into(imageView);
 

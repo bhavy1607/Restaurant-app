@@ -137,7 +137,9 @@ public class Manage_menu extends AppCompatActivity {
             });
 
             t1.setText(products.get(position).getName());
-           // t2.setText(products.get(position).getOriginalPrice());
+
+            t2.setText(products.get(position).getOriginalPrice()+""+" ₹");
+
 
             Picasso.with(Manage_menu.this).load(products.get(position).getImageUrl()).into(imageView);
 

@@ -86,6 +86,8 @@ static class CustomAdepter extends BaseAdapter {
         this.cooks = cooks;
     }
 
+
+
     @Override
         public int getCount() {
             return   cooks.size();
