@@ -30,6 +30,10 @@
                 android:id="@+id/manage_menu"
                 android:icon="@drawable/ic_baseline_viewperson"/>
 
+            <item android:title="Categories"
+                android:id="@+id/categories"
+                android:icon="@drawable/ic_menu"/>
+
             <item android:title="View revenue"
                 android:id="@+id/view_revenue"
                 android:icon="@drawable/ic_baseline_order"/>

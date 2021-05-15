@@ -42,20 +42,20 @@
         android:id="@+id/et1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="years"
+        android:hint=""
         android:layout_marginTop="150dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:inputType="datetime"/>
 
-<!--    <EditText-->
-<!--        android:id="@+id/et2"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:hint="monthly"-->
-<!--        android:layout_marginTop="200dp"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginEnd="20dp"/>-->
+    <EditText
+        android:id="@+id/et2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=""
+        android:layout_marginTop="200dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
 
 <!--    <EditText-->
 <!--        android:id="@+id/et3"-->

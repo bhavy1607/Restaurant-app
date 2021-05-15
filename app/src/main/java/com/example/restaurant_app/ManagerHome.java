@@ -70,6 +70,10 @@ public class ManagerHome extends AppCompatActivity {
                         Intent manage_menu = new Intent(ManagerHome.this,Manage_menu.class);
                         startActivity(manage_menu);
                         break;
+                    case R.id.categories:
+                        Intent intent1 = new Intent(ManagerHome.this,Categories.class);
+                        startActivity(intent1);
+                        break;
                     case R.id.view_feedback:
                         Intent view_payment = new Intent(ManagerHome.this, Viewfeedback.class);
                         startActivity(view_payment);

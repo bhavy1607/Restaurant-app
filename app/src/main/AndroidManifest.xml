@@ -15,7 +15,8 @@
         android:theme="@style/Theme.Restaurant_App"
         android:usesCleartextTraffic="true"
         tools:ignore="UnusedAttribute">
-        <activity android:name=".AdminWaiterdetails"></activity>
+        <activity android:name=".Categories"></activity>
+        <activity android:name=".AdminWaiterdetails" />
         <activity android:name=".AdminCookdetails" />
         <activity android:name=".AdminManagerdetails" />
         <activity android:name=".Adminbooktable" />

@@ -120,7 +120,7 @@ public interface RetrofitInterface {
     Call<Sumrevenue> GetTotalRevenue();
 
     //view showrevenue
-    @POST("/revenue/year")
+    @POST("/revenue/dates")
     Call<Showrevenue> showRevenue(@Body HashMap<String, String> map);
 
     //view set discount

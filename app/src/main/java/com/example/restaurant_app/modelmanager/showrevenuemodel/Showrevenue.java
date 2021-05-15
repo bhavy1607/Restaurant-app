@@ -4,29 +4,21 @@ package com.example.restaurant_app.modelmanager.showrevenuemodel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
+
 public class Showrevenue {
 
-    @SerializedName("_id")
+    @SerializedName("result")
     @Expose
-    private Id id;
-    @SerializedName("sum")
-    @Expose
-    private Integer sum;
+    private List<Result> result = null;
 
-    public Id getId() {
-        return id;
+    public List<Result> getResult() {
+        return result;
     }
 
-    public void setId(Id id) {
-        this.id = id;
-    }
-
-    public Integer getSum() {
-        return sum;
-    }
-
-    public void setSum(Integer sum) {
-        this.sum = sum;
+    public void setResult(List<Result> result) {
+        this.result = result;
     }
 
 }
