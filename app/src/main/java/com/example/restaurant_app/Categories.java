@@ -1,26 +1,41 @@
 package com.example.restaurant_app;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
-import android.provider.MediaStore;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import com.example.restaurant_app.Retrofit.RetrofitClient;
+import com.example.restaurant_app.Retrofit.RetrofitInterface;
+import com.example.restaurant_app.modelmanager.showCategories.Categorypost;
+import com.example.restaurant_app.modelmanager.showCategories.ShowCategories;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class Categories extends AppCompatActivity {
 
     EditText et1,et2;
     Button button;
-    private static final int PICK_IMAGE = 1;
-    Uri imageuri;
+    GridView gridView;
+
+    ShowCategories showCategories = new ShowCategories();
+    List<Categorypost> categoryposts = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,33 +45,83 @@ public class Categories extends AppCompatActivity {
         et1 = (EditText)findViewById(R.id.et1);
         et2 = (EditText)findViewById(R.id.et2);
         button = (Button) findViewById(R.id.btn);
+        gridView = (GridView)findViewById(R.id.gridview);
 
-        et2.setOnClickListener(new View.OnClickListener() {
+        showcategories();
+
+
+    }
+
+    private void showcategories(){
+        Retrofit retrofit = RetrofitClient.getInstance();
+        RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
+
+        Call<ShowCategories> call = retrofitInterface.showCategories();
+
+        call.enqueue(new Callback<ShowCategories>() {
             @Override
-            public void onClick(View v) {
-                Intent gallery = new Intent();
-                gallery.setType("image/*");
-                gallery.setAction(Intent.ACTION_GET_CONTENT);
+            public void onResponse(Call<ShowCategories> call, Response<ShowCategories> response) {
 
-                startActivityForResult(Intent.createChooser(gallery,"Select Picture"),PICK_IMAGE);
+                if(response.isSuccessful()){
+
+                    showCategories = response.body();
+                    categoryposts = showCategories.getCategoryposts();
+
+                    CustomAdepter customAdepter = new CustomAdepter(Categories.this,categoryposts);
+                    gridView.setAdapter(customAdepter);
+
+
+                    Toast.makeText(Categories.this, "Succes", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(Categories.this, ""+response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ShowCategories> call, Throwable t) {
+                Toast.makeText(Categories.this, "Failure", Toast.LENGTH_SHORT).show();
             }
         });
     }
+    class CustomAdepter extends BaseAdapter {
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+        List<Categorypost> categoryposts;
+        Context context;
 
-        if(requestCode == PICK_IMAGE && resultCode == RESULT_OK){
-            imageuri = data.getData();
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),imageuri);
+        public CustomAdepter(Categories categories, List<Categorypost> categoryposts) {
+            this.context = categories;
+            this.categoryposts = categoryposts;
+        }
 
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
+
+        @Override
+        public int getCount() {
+            return categoryposts.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            if (convertView == null) {
+                convertView = LayoutInflater.from(context).inflate(R.layout.ingrediantlayout,parent,false);
+                LayoutInflater lInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+                convertView = lInflater.inflate(R.layout.ingrediantlayout, null);
             }
+
+            TextView t1 = convertView.findViewById(R.id.catename);
+
+            t1.setText(categoryposts.get(position).getCategoryName());
+            return convertView;
         }
     }
 }
