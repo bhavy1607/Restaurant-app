@@ -1,9 +1,19 @@
 package com.example.restaurant_app;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,7 +23,19 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.restaurant_app.Retrofit.RetrofitClient;
+import com.example.restaurant_app.Retrofit.RetrofitInterface;
+import com.example.restaurant_app.modelmanager.showCategories.Categorypost;
+import com.example.restaurant_app.modelmanager.showCategories.ShowCategories;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class ManagerHome extends AppCompatActivity {
     private DrawerLayout drawer;
@@ -21,11 +43,20 @@ public class ManagerHome extends AppCompatActivity {
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
 
+    GridView gridView;
+
+    ShowCategories showCategories = new ShowCategories();
+    List<Categorypost> categoryposts = new ArrayList<>();
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manager_home);
 
+        showcategories();
+
+        gridView = (GridView)findViewById(R.id.gridview);
         drawer = findViewById(R.id.drawer);
         navigationView = findViewById(R.id.navigation);
         toolbar = findViewById(R.id.toolbar);
@@ -106,6 +137,83 @@ public class ManagerHome extends AppCompatActivity {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+        }
+    }
+
+    private void showcategories(){
+        Retrofit retrofit = RetrofitClient.getInstance();
+        RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
+
+        Call<ShowCategories> call = retrofitInterface.showCategories();
+
+        call.enqueue(new Callback<ShowCategories>() {
+            @Override
+            public void onResponse(Call<ShowCategories> call, Response<ShowCategories> response) {
+
+                if(response.isSuccessful()){
+
+                    showCategories = response.body();
+                    categoryposts = showCategories.getCategoryposts();
+
+                    CustomAdepter customAdepter = new CustomAdepter(ManagerHome.this,categoryposts);
+                    gridView.setAdapter(customAdepter);
+
+
+                    Toast.makeText(ManagerHome.this, "Succes", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(ManagerHome.this, ""+response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ShowCategories> call, Throwable t) {
+                Toast.makeText(ManagerHome.this, "Failure", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    class CustomAdepter extends BaseAdapter {
+
+        List<Categorypost> categoryposts;
+        Context context;
+
+
+
+        public CustomAdepter(ManagerHome managerHome, List<Categorypost> categoryposts) {
+            this.context = managerHome;
+            this.categoryposts = categoryposts;
+        }
+
+
+        @Override
+        public int getCount() {
+            return categoryposts.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            if (convertView == null) {
+                convertView = LayoutInflater.from(context).inflate(R.layout.ingrediantlayout,parent,false);
+                LayoutInflater lInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+                convertView = lInflater.inflate(R.layout.ingrediantlayout, null);
+            }
+
+            TextView t1 = convertView.findViewById(R.id.catename);
+            ImageView imageView = convertView.findViewById(R.id.cateimage);
+
+
+
+            return convertView;
         }
     }
 }

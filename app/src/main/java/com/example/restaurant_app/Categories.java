@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
 import com.example.restaurant_app.modelmanager.showCategories.Categorypost;
 import com.example.restaurant_app.modelmanager.showCategories.ShowCategories;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -119,8 +121,12 @@ public class Categories extends AppCompatActivity {
             }
 
             TextView t1 = convertView.findViewById(R.id.catename);
+            ImageView imageView = convertView.findViewById(R.id.cateimage);
 
             t1.setText(categoryposts.get(position).getCategoryName());
+
+            Picasso.with(Categories.this).load(categoryposts.get(position).getImageUrl()).into(imageView);
+
             return convertView;
         }
     }

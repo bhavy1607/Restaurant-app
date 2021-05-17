@@ -141,7 +141,7 @@ public class Viewrevenue extends AppCompatActivity {
                     results = showrevenue.getResult();
 
                     t2 = (TextView)findViewById(R.id.tshowrevenue);
-                    t2.setText(results.get(map.size()).getSum());
+                    t2.setText(results.get(Integer.parseInt(map.toString())).getSum());
 
 
                     Toast.makeText(Viewrevenue.this, "Succes", Toast.LENGTH_SHORT).show();
