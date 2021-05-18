@@ -31,6 +31,7 @@ import retrofit2.Retrofit;
 public class Viewingrediant extends AppCompatActivity {
 
     GridView gridView;
+
     Getingredients getingredients = new Getingredients();
     List<Ingredient> ingredients = new ArrayList<>();
 
@@ -111,12 +112,12 @@ public class Viewingrediant extends AppCompatActivity {
 
             TextView tname = convertView.findViewById(R.id.tname);
             TextView tdec = convertView.findViewById(R.id.dec);
-          //  TextView tid = convertView.findViewById(R.id.id);
+            TextView price = convertView.findViewById(R.id.price);
             ImageView imageView = convertView.findViewById(R.id.I1);
 
             tname.setText(ingredients.get(position).getIngredientName());
             tdec.setText(ingredients.get(position).getDescription());
-          //  tid.setText(ingredients.get(position).getId());
+            price.setText(ingredients.get(position).getPrice()+""+" ₹");
 
             Picasso.with(Viewingrediant.this).load(ingredients.get(position).getImageUrl()).into(imageView);
 

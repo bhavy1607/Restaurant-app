@@ -3,6 +3,8 @@ package com.example.restaurant_app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -19,11 +21,37 @@ public class AdminHome extends AppCompatActivity {
     private NavigationView navigationView;
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
+    Button btn1,btn2,btn3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_home);
+
+        btn1 = (Button)findViewById(R.id.btn1);
+        btn2 = (Button)findViewById(R.id.btn2);
+        btn3 = (Button)findViewById(R.id.btn3);
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHome.this,AdminShowFeedback.class);
+                startActivity(intent);
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHome.this,AdminShowComplain.class);
+                startActivity(intent);
+            }
+        });
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHome.this,Adminshowrevenue.class);
+                startActivity(intent);
+            }
+        });
 
         drawer = findViewById(R.id.drawer);
         navigationView = findViewById(R.id.navigation);
@@ -59,22 +87,22 @@ public class AdminHome extends AppCompatActivity {
                         Intent cart = new Intent(AdminHome.this, Adminvieworder.class);
                         startActivity(cart);
                         break;
-                    case R.id.Showfeedback:
-                        Intent feedback = new Intent(AdminHome.this, AdminShowFeedback.class);
-                        startActivity(feedback);
-                        break;
+//                    case R.id.Showfeedback:
+//                        Intent feedback = new Intent(AdminHome.this, AdminShowFeedback.class);
+//                        startActivity(feedback);
+//                        break;
                     case R.id.show_menu:
                         Intent intent = new Intent(AdminHome.this,Adminshowmenu.class);
                         startActivity(intent);
                         break;
-                    case R.id.showcomplate:
-                        Intent intent2 = new Intent(AdminHome.this, AdminShowComplain.class);
-                        startActivity(intent2);
-                        break;
-                    case R.id.view_revenue:
-                        Intent intent3 = new Intent(AdminHome.this, Adminshowrevenue.class);
-                        startActivity(intent3);
-                        break;
+//                    case R.id.showcomplate:
+//                        Intent intent2 = new Intent(AdminHome.this, AdminShowComplain.class);
+//                        startActivity(intent2);
+//                        break;
+//                    case R.id.view_revenue:
+//                        Intent intent3 = new Intent(AdminHome.this, Adminshowrevenue.class);
+//                        startActivity(intent3);
+//                        break;
                     case R.id.booktable:
                         Intent intent4 = new Intent(AdminHome.this, Adminbooktable.class);
                         startActivity(intent4);

@@ -123,7 +123,8 @@ public class Categories extends AppCompatActivity {
             TextView t1 = convertView.findViewById(R.id.catename);
             ImageView imageView = convertView.findViewById(R.id.cateimage);
 
-            t1.setText(categoryposts.get(position).getCategoryName());
+           // t1.setText(categoryposts.get(position).getId());
+                t1.setText(categoryposts.get(position).getCategoryName());
 
             Picasso.with(Categories.this).load(categoryposts.get(position).getImageUrl()).into(imageView);
 

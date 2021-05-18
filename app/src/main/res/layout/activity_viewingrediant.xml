@@ -36,11 +36,53 @@
 
 <!--        </LinearLayout>-->
 <!--    </com.google.android.material.appbar.AppBarLayout>-->
+    <TextView
+        android:id="@+id/t1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/appbar"
+        android:text="  Add Ingrediants :"
+        android:textSize="25sp"/>
+
+    <EditText
+        android:id="@+id/et1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t1"
+        android:layout_marginTop="20dp"
+        android:hint="Title"/>
+
+    <EditText
+        android:id="@+id/et2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et1"
+        android:layout_marginTop="10dp"
+        android:hint="Chooes Image"/>
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et2"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="ADD"/>
+
+    <TextView
+        android:id="@+id/t2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn"
+        android:layout_marginTop="20dp"
+        android:text=" Ingrediants :"
+        android:textSize="25sp"/>
 
     <GridView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/gridview"
-        android:layout_below="@+id/appbar"/>
+        android:layout_below="@+id/t2"/>
 
 </RelativeLayout>

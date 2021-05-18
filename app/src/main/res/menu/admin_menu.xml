@@ -26,9 +26,9 @@
                 android:id="@+id/show_menu"
                 android:icon="@drawable/ic_staffdetails"/>
 
-            <item android:title="View revenue"
-                android:id="@+id/view_revenue"
-                android:icon="@drawable/ic_cart"/>
+<!--            <item android:title="View revenue"-->
+<!--                android:id="@+id/view_revenue"-->
+<!--                android:icon="@drawable/ic_cart"/>-->
 
             <item android:title="book table"
                 android:id="@+id/booktable"
@@ -40,13 +40,13 @@
     <item android:title="App">
         <menu>
 
-            <item android:title="Show Complate"
-                android:id="@+id/showcomplate"
-                android:icon="@drawable/ic_baseline_payment_24"/>
+<!--            <item android:title="Show Complate"-->
+<!--                android:id="@+id/showcomplate"-->
+<!--                android:icon="@drawable/ic_baseline_payment_24"/>-->
 
-            <item android:title="Show Feedback"
-                android:id="@+id/Showfeedback"
-                android:icon="@drawable/ic_baseline_rate_review_24"/>
+<!--            <item android:title="Show Feedback"-->
+<!--                android:id="@+id/Showfeedback"-->
+<!--                android:icon="@drawable/ic_baseline_rate_review_24"/>-->
 
             <item android:title="Logout"
                 android:id="@+id/logout"
