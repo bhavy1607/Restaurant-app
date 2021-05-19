@@ -1,9 +1,15 @@
 package com.example.restaurant_app;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +35,7 @@ public class Viewrevenue extends AppCompatActivity {
     EditText et1,et2;
     Button btntotal,btnshowrevenue;
     TextView t1,t2;
+    GridView gridView;
 
     Sumrevenue sumrevenue;
     Showrevenue showrevenue = new Showrevenue();
@@ -44,7 +51,8 @@ public class Viewrevenue extends AppCompatActivity {
         btnshowrevenue = (Button)findViewById(R.id.showrevenue);
         btntotal = (Button)findViewById(R.id.totalsum);
         t1 = (TextView)findViewById(R.id.ttotal);
-        t2 = (TextView)findViewById(R.id.tshowrevenue);
+       // t2 = (TextView)findViewById(R.id.t2);
+        gridView = (GridView)findViewById(R.id.gridview);
 
 
         btntotal.setOnClickListener(new View.OnClickListener() {
@@ -136,19 +144,16 @@ public class Viewrevenue extends AppCompatActivity {
             public void onResponse(Call<Showrevenue> call, Response<Showrevenue> response) {
                 if(response.isSuccessful()){
 
-
                     showrevenue = response.body();
                     results = showrevenue.getResult();
 
-                    t2 = (TextView)findViewById(R.id.tshowrevenue);
-                    t2.setText(results.get(Integer.parseInt(map.toString())).getSum());
-
+                    CustomAdepter customAdepter = new CustomAdepter(Viewrevenue.this,results);
+                    gridView.setAdapter(customAdepter);
 
                     Toast.makeText(Viewrevenue.this, "Succes", Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(Viewrevenue.this, ""+response.message(), Toast.LENGTH_SHORT).show();
                 }
-
             }
 
             @Override
@@ -158,5 +163,46 @@ public class Viewrevenue extends AppCompatActivity {
         });
     }
 
+    class CustomAdepter extends BaseAdapter {
 
+        List<Result> results;
+        Context context;
+
+
+        public CustomAdepter(Viewrevenue viewrevenue, List<Result> results) {
+            this.results = results;
+            this.context = viewrevenue;
+        }
+
+        @Override
+        public int getCount() {
+            return results.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            if (convertView == null) {
+                convertView = LayoutInflater.from(context).inflate(R.layout.showrevenuelayout,parent,false);
+                LayoutInflater lInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+                convertView = lInflater.inflate(R.layout.showrevenuelayout, null);
+            }
+
+            TextView t1 = convertView.findViewById(R.id.textview);
+            t1.setText(results.get(position).getSum());
+
+
+            return convertView;
+        }
+    }
 }

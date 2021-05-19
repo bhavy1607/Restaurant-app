@@ -40,7 +40,7 @@
         android:id="@+id/t1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/appbar"
         android:text="  Add Ingrediants :"
         android:textSize="25sp"/>
@@ -50,8 +50,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/t1"
-        android:layout_marginTop="20dp"
-        android:hint="Title"/>
+        android:layout_marginTop="10dp"
+        android:hint="IngredientName"/>
 
     <EditText
         android:id="@+id/et2"
@@ -61,11 +61,27 @@
         android:layout_marginTop="10dp"
         android:hint="Chooes Image"/>
 
+    <EditText
+        android:id="@+id/et3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et2"
+        android:layout_marginTop="10dp"
+        android:hint="price"/>
+
+    <EditText
+        android:id="@+id/et4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et3"
+        android:layout_marginTop="10dp"
+        android:hint="description"/>
+
     <Button
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et2"
+        android:layout_below="@+id/et4"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:text="ADD"/>
@@ -75,7 +91,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btn"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text=" Ingrediants :"
         android:textSize="25sp"/>
 
