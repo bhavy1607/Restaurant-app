@@ -1,12 +1,7 @@
 package com.example.restaurant_app;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -51,7 +46,7 @@ public class Viewrevenue extends AppCompatActivity {
         btnshowrevenue = (Button)findViewById(R.id.showrevenue);
         btntotal = (Button)findViewById(R.id.totalsum);
         t1 = (TextView)findViewById(R.id.ttotal);
-       // t2 = (TextView)findViewById(R.id.t2);
+        t2 = (TextView)findViewById(R.id.t2);
         gridView = (GridView)findViewById(R.id.gridview);
 
 
@@ -147,8 +142,11 @@ public class Viewrevenue extends AppCompatActivity {
                     showrevenue = response.body();
                     results = showrevenue.getResult();
 
-                    CustomAdepter customAdepter = new CustomAdepter(Viewrevenue.this,results);
-                    gridView.setAdapter(customAdepter);
+                    t2 = (TextView)findViewById(R.id.t2);
+                    t2.setText(results.get(map.size()).getSum()+"");
+
+//                    CustomAdepter customAdepter = new CustomAdepter(Viewrevenue.this,results);
+//                    gridView.setAdapter(customAdepter);
 
                     Toast.makeText(Viewrevenue.this, "Succes", Toast.LENGTH_SHORT).show();
                 }else {
@@ -158,51 +156,51 @@ public class Viewrevenue extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Showrevenue> call, Throwable t) {
-                Toast.makeText(Viewrevenue.this, "...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Viewrevenue.this, "Failure", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    class CustomAdepter extends BaseAdapter {
-
-        List<Result> results;
-        Context context;
-
-
-        public CustomAdepter(Viewrevenue viewrevenue, List<Result> results) {
-            this.results = results;
-            this.context = viewrevenue;
-        }
-
-        @Override
-        public int getCount() {
-            return results.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-            if (convertView == null) {
-                convertView = LayoutInflater.from(context).inflate(R.layout.showrevenuelayout,parent,false);
-                LayoutInflater lInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-                convertView = lInflater.inflate(R.layout.showrevenuelayout, null);
-            }
-
-            TextView t1 = convertView.findViewById(R.id.textview);
-            t1.setText(results.get(position).getSum());
-
-
-            return convertView;
-        }
-    }
+//    class CustomAdepter extends BaseAdapter {
+//
+//        List<Result> results;
+//        Context context;
+//
+//
+//        public CustomAdepter(Viewrevenue viewrevenue, List<Result> results) {
+//            this.results = results;
+//            this.context = viewrevenue;
+//        }
+//
+//        @Override
+//        public int getCount() {
+//            return results.size();
+//        }
+//
+//        @Override
+//        public Object getItem(int position) {
+//            return null;
+//        }
+//
+//        @Override
+//        public long getItemId(int position) {
+//            return 0;
+//        }
+//
+//        @Override
+//        public View getView(int position, View convertView, ViewGroup parent) {
+//
+//            if (convertView == null) {
+//                convertView = LayoutInflater.from(context).inflate(R.layout.showrevenuelayout,parent,false);
+//                LayoutInflater lInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+//                convertView = lInflater.inflate(R.layout.showrevenuelayout, null);
+//            }
+//
+//            TextView t1 = convertView.findViewById(R.id.textview);
+//            t1.setText(results.get(position).getSum()+"");
+//
+//
+//            return convertView;
+//        }
+//    }
 }
