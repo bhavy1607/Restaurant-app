@@ -115,16 +115,18 @@ public class Categories extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
 
             if (convertView == null) {
-                convertView = LayoutInflater.from(context).inflate(R.layout.ingrediantlayout,parent,false);
+                convertView = LayoutInflater.from(context).inflate(R.layout.categorieslayout,parent,false);
                 LayoutInflater lInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-                convertView = lInflater.inflate(R.layout.ingrediantlayout, null);
+                convertView = lInflater.inflate(R.layout.categorieslayout, null);
             }
 
-            TextView t1 = convertView.findViewById(R.id.catename);
-            ImageView imageView = convertView.findViewById(R.id.cateimage);
+            TextView textView;
+            ImageView imageView;
 
-           // t1.setText(categoryposts.get(position).getId());
-                t1.setText(categoryposts.get(position).getCategoryName());
+            textView = (TextView)findViewById(R.id.name);
+            imageView = convertView.findViewById(R.id.image);
+
+            textView.setText(categoryposts.get(position).getCategoryName());
 
             Picasso.with(Categories.this).load(categoryposts.get(position).getImageUrl()).into(imageView);
 

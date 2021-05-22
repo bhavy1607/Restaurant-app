@@ -4,6 +4,8 @@ package com.example.restaurant_app.modelmanager.getmenu;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class Product {
 
     @SerializedName("availability")
@@ -29,7 +31,7 @@ public class Product {
     private Integer originalPrice;
     @SerializedName("offerPrice")
     @Expose
-    private Integer offerPrice;
+    private Double offerPrice;
     @SerializedName("imageUrl")
     @Expose
     private String imageUrl;
@@ -42,6 +44,9 @@ public class Product {
     @SerializedName("__v")
     @Expose
     private Integer v;
+    @SerializedName("ingredients")
+    @Expose
+    private List<String> ingredients = null;
 
     public Boolean getAvailability() {
         return availability;
@@ -99,11 +104,11 @@ public class Product {
         this.originalPrice = originalPrice;
     }
 
-    public Integer getOfferPrice() {
+    public Double getOfferPrice() {
         return offerPrice;
     }
 
-    public void setOfferPrice(Integer offerPrice) {
+    public void setOfferPrice(Double offerPrice) {
         this.offerPrice = offerPrice;
     }
 
@@ -137,6 +142,14 @@ public class Product {
 
     public void setV(Integer v) {
         this.v = v;
+    }
+
+    public List<String> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<String> ingredients) {
+        this.ingredients = ingredients;
     }
 
 }

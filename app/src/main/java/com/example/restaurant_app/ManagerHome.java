@@ -22,7 +22,7 @@ public class ManagerHome extends AppCompatActivity {
     private NavigationView navigationView;
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
-    Button btn1,btn2,btn3;
+    Button btn1,btn2,btn3,btn4;
 
 
     @Override
@@ -33,6 +33,7 @@ public class ManagerHome extends AppCompatActivity {
         btn1 = (Button)findViewById(R.id.btn1);
         btn2 = (Button)findViewById(R.id.btn2);
         btn3 = (Button)findViewById(R.id.btn3);
+        btn4 = (Button)findViewById(R.id.btn4);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +52,13 @@ public class ManagerHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ManagerHome.this,Viewrevenue.class);
+                startActivity(intent);
+            }
+        });
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ManagerHome.this,Book_table.class);
                 startActivity(intent);
             }
         });
@@ -91,10 +99,10 @@ public class ManagerHome extends AppCompatActivity {
                         Intent view_order = new Intent(ManagerHome.this,ViewOrder.class);
                         startActivity(view_order);
                         break;
-                    case R.id.view_revenue:
-                        Intent intent = new Intent(ManagerHome.this,Viewrevenue.class);
-                        startActivity(intent);
-                        break;
+//                    case R.id.view_revenue:
+//                        Intent intent = new Intent(ManagerHome.this,Viewrevenue.class);
+//                        startActivity(intent);
+//                        break;
                     case R.id.manage_menu:
                         Intent manage_menu = new Intent(ManagerHome.this,Manage_menu.class);
                         startActivity(manage_menu);
@@ -103,18 +111,18 @@ public class ManagerHome extends AppCompatActivity {
                         Intent intent1 = new Intent(ManagerHome.this,Categories.class);
                         startActivity(intent1);
                         break;
-                    case R.id.view_feedback:
-                        Intent view_payment = new Intent(ManagerHome.this, Viewfeedback.class);
-                        startActivity(view_payment);
-                        break;
-                    case R.id.booktable:
-                        Intent booktable = new Intent(ManagerHome.this,Book_table.class);
-                        startActivity(booktable);
-                        break;
-                    case R.id.manage_complate:
-                        Intent manage_complate = new Intent(ManagerHome.this, Manage_complain.class);
-                        startActivity(manage_complate);
-                        break;
+//                    case R.id.view_feedback:
+//                        Intent view_payment = new Intent(ManagerHome.this, Viewfeedback.class);
+//                        startActivity(view_payment);
+//                        break;
+//                    case R.id.booktable:
+//                        Intent booktable = new Intent(ManagerHome.this,Book_table.class);
+//                        startActivity(booktable);
+//                        break;
+//                    case R.id.manage_complate:
+//                        Intent manage_complate = new Intent(ManagerHome.this, Manage_complain.class);
+//                        startActivity(manage_complate);
+//                        break;
                     case R.id.logout:
                         SharedPreferences preferences = getSharedPreferences("checked",MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();

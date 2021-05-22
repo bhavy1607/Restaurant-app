@@ -9,6 +9,7 @@ import com.example.restaurant_app.modelmanager.Availableitem.Availableitem;
 import com.example.restaurant_app.modelmanager.Orderdetails;
 import com.example.restaurant_app.modelmanager.booktable.BookTable;
 import com.example.restaurant_app.modelmanager.cookdetails.Cookdetails;
+import com.example.restaurant_app.modelmanager.createIngrediants.Createingrediants;
 import com.example.restaurant_app.modelmanager.feedback.Avaragerating;
 import com.example.restaurant_app.modelmanager.feedback.Feedbackdetails;
 import com.example.restaurant_app.modelmanager.getingrediants.Getingredients;
@@ -115,6 +116,10 @@ public interface RetrofitInterface {
     //view ingrediants
     @GET("/ingredient/getingredients")
     Call<Getingredients> Getingrediants();
+
+    //Get Ingrediants
+    @POST("/ingredient/addIngredient")
+    Call<Createingrediants> AddIngrediants(@Body HashMap<String, String> map);
 
     //view totalrevenue
     @GET("/revenue/sum")

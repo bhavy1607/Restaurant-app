@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
+import com.example.restaurant_app.modelmanager.createIngrediants.Createingrediants;
 import com.example.restaurant_app.modelmanager.getingrediants.Getingredients;
 import com.example.restaurant_app.modelmanager.getingrediants.Ingredient;
 import com.squareup.picasso.Picasso;
@@ -29,6 +31,7 @@ import com.squareup.picasso.Picasso;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
@@ -41,18 +44,34 @@ public class Viewingrediant extends AppCompatActivity {
     int SELECT_PHOTO = 1;
     Uri uri;
     ImageView imageView;
-    Button button;
+    Button button,btn;
+    EditText et1,et3,et4;
 
     GridView gridView;
 
     Getingredients getingredients = new Getingredients();
     List<Ingredient> ingredients = new ArrayList<>();
 
+    Createingrediants createingrediants = new Createingrediants();
+    com.example.restaurant_app.modelmanager.createIngrediants.Ingredient ingredient = new com.example.restaurant_app.modelmanager.createIngrediants.Ingredient();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewingrediant);
 
+
+        btn = (Button)findViewById(R.id.btn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    AddIngrediants();
+            }
+        });
+
+        et1 = (EditText)findViewById(R.id.et1);
+        et3 = (EditText)findViewById(R.id.et3);
+        et4 = (EditText)findViewById(R.id.et4);
         button = (Button)findViewById(R.id.btnshowimage);
         imageView = (ImageView)findViewById(R.id.imageview);
 
@@ -127,6 +146,7 @@ public class Viewingrediant extends AppCompatActivity {
             this.ingredients = ingredients;
         }
 
+
         @Override
         public int getCount() {
             return ingredients.size();
@@ -165,4 +185,43 @@ public class Viewingrediant extends AppCompatActivity {
             return convertView;
         }
     }
+
+    private void AddIngrediants(){
+
+        Retrofit retrofit = RetrofitClient.getInstance();
+        RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
+
+        HashMap<String, String> map = new HashMap<>();
+
+        map.put("IngredientName", et1.getText().toString());
+        map.put("price", et3.getText().toString());
+        map.put("description", et4.getText().toString());
+        map.put("imageUrl", imageView.toString());
+
+        Call<Createingrediants> call = retrofitInterface.AddIngrediants(map);
+
+        call.enqueue(new Callback<Createingrediants>() {
+            @Override
+            public void onResponse(Call<Createingrediants> call, Response<Createingrediants> response) {
+                if(response.isSuccessful()){
+
+                    createingrediants = response.body();
+                    ingredient = createingrediants.getIngredient();
+
+//                    CustomAdepter customAdepter = new CustomAdepter(Viewingrediant.this,ingredient);
+//                    gridView.setAdapter(customAdepter);
+
+                    Toast.makeText(Viewingrediant.this, "Succes", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(Viewingrediant.this, ""+response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Createingrediants> call, Throwable t) {
+                Toast.makeText(Viewingrediant.this, "Failure", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 }

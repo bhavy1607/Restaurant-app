@@ -21,7 +21,7 @@ public class AdminHome extends AppCompatActivity {
     private NavigationView navigationView;
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
-    Button btn1,btn2,btn3;
+    Button btn1,btn2,btn3,btn4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,14 @@ public class AdminHome extends AppCompatActivity {
         btn1 = (Button)findViewById(R.id.btn1);
         btn2 = (Button)findViewById(R.id.btn2);
         btn3 = (Button)findViewById(R.id.btn3);
+        btn4 = (Button)findViewById(R.id.btn4);
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHome.this,Adminbooktable.class);
+                startActivity(intent);
+            }
+        });
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,10 +111,10 @@ public class AdminHome extends AppCompatActivity {
 //                        Intent intent3 = new Intent(AdminHome.this, Adminshowrevenue.class);
 //                        startActivity(intent3);
 //                        break;
-                    case R.id.booktable:
-                        Intent intent4 = new Intent(AdminHome.this, Adminbooktable.class);
-                        startActivity(intent4);
-                        break;
+//                    case R.id.booktable:
+//                        Intent intent4 = new Intent(AdminHome.this, Adminbooktable.class);
+//                        startActivity(intent4);
+//                        break;
                     case R.id.logout:
                         Intent logout = new Intent(AdminHome.this, MainActivity.class);
                         startActivity(logout);

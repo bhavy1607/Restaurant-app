@@ -20,6 +20,7 @@ import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
 import com.example.restaurant_app.modelmanager.getmenu.Menudetails;
 import com.example.restaurant_app.modelmanager.getmenu.Product;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -136,7 +137,7 @@ public class Adminshowmenu extends AppCompatActivity {
             t1.setText(products.get(position).getName());
             t2.setText(products.get(position).getOriginalPrice()+""+" ₹");
 
-          //  Picasso.with(Adminshowmenu.this).load(products.get(position).getImageUrl()).into(imageView);
+            Picasso.with(Adminshowmenu.this).load(products.get(position).getImageUrl()).into(imageView);
 
             return convertView;
         }

@@ -4,7 +4,6 @@ package com.example.restaurant_app.modelmanager.showCategories;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-
 public class Creator {
 
     @SerializedName("name")
