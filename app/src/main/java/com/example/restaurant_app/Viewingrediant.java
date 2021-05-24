@@ -208,8 +208,6 @@ public class Viewingrediant extends AppCompatActivity {
                     createingrediants = response.body();
                     ingredient = createingrediants.getIngredient();
 
-//                    CustomAdepter customAdepter = new CustomAdepter(Viewingrediant.this,ingredient);
-//                    gridView.setAdapter(customAdepter);
 
                     Toast.makeText(Viewingrediant.this, "Succes", Toast.LENGTH_SHORT).show();
                 }else {

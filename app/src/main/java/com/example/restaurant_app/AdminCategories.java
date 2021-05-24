@@ -7,8 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,10 +28,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class Categories extends AppCompatActivity {
+public class AdminCategories extends AppCompatActivity {
 
-    EditText et1,et2;
-    Button button;
     GridView gridView;
 
     ShowCategories showCategories = new ShowCategories();
@@ -42,17 +38,13 @@ public class Categories extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_categories);
+        setContentView(R.layout.activity_admim_categories);
 
-        et1 = (EditText)findViewById(R.id.et1);
-        et2 = (EditText)findViewById(R.id.et2);
-        button = (Button) findViewById(R.id.btn);
         gridView = (GridView)findViewById(R.id.gridview);
 
         showcategories();
 
     }
-
     private void showcategories(){
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
@@ -68,36 +60,36 @@ public class Categories extends AppCompatActivity {
                     showCategories = response.body();
                     categoryposts = showCategories.getCategoryposts();
 
-                    CustomAdepter customAdepter = new CustomAdepter(Categories.this,categoryposts);
+                    CustomAdepter customAdepter = new CustomAdepter(AdminCategories.this,categoryposts);
                     gridView.setAdapter(customAdepter);
 
-
-                    Toast.makeText(Categories.this, "Succes", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdminCategories.this, "Succes", Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(Categories.this, ""+response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdminCategories.this, ""+response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ShowCategories> call, Throwable t) {
-                Toast.makeText(Categories.this, "Failure", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdminCategories.this, "Failure", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
     class CustomAdepter extends BaseAdapter {
 
         List<Categorypost> categoryposts;
         Context context;
 
-        public CustomAdepter(Categories categories, List<Categorypost> categoryposts) {
-            this.context = categories;
+        public CustomAdepter(AdminCategories adminCategories, List<Categorypost> categoryposts) {
+            this.context = adminCategories;
             this.categoryposts = categoryposts;
         }
 
 
         @Override
         public int getCount() {
-            return categoryposts.size();
+            return   categoryposts.size();
         }
 
         @Override
@@ -111,25 +103,22 @@ public class Categories extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-            if (convertView == null) {
-                convertView = LayoutInflater.from(context).inflate(R.layout.categorieslayout,parent,false);
+        public View getView(int position, View view, ViewGroup viewGroup) {
+            if (view == null) {
+                view = LayoutInflater.from(context).inflate(R.layout.categorieslayout,viewGroup,false);
                 LayoutInflater lInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-                convertView = lInflater.inflate(R.layout.categorieslayout, null);
+                view = lInflater.inflate(R.layout.categorieslayout, null);
             }
 
-            TextView textView;
-            ImageView imageView;
-
-            textView = convertView.findViewById(R.id.name);
-            imageView = convertView.findViewById(R.id.image);
-
+            TextView textView = view.findViewById(R.id.name);
             textView.setText(categoryposts.get(position).getCategoryName());
 
-            Picasso.with(Categories.this).load(categoryposts.get(position).getImageUrl()).into(imageView);
+            ImageView imageView = view.findViewById(R.id.image);
 
-            return convertView;
+            Picasso.with(AdminCategories.this).load(categoryposts.get(position).getImageUrl()).into(imageView);
+
+
+            return view;
         }
     }
 }

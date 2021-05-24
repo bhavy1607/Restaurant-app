@@ -30,8 +30,8 @@
 <!--                android:id="@+id/view_revenue"-->
 <!--                android:icon="@drawable/ic_cart"/>-->
 
-            <item android:title="book table"
-                android:id="@+id/booktable"
+            <item android:title="Show Categories"
+                android:id="@+id/categories"
                 android:icon="@drawable/ic_addmanager"/>
 
 
