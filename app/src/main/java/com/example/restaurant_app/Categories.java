@@ -2,7 +2,11 @@ package com.example.restaurant_app;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
@@ -22,6 +27,8 @@ import com.example.restaurant_app.modelmanager.showCategories.Categorypost;
 import com.example.restaurant_app.modelmanager.showCategories.ShowCategories;
 import com.squareup.picasso.Picasso;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,9 +39,12 @@ import retrofit2.Retrofit;
 
 public class Categories extends AppCompatActivity {
 
+    int SELECT_PHOTO = 1;
+    Uri uri;
     EditText et1,et2;
-    Button button;
+    Button button,btnshowimage;
     GridView gridView;
+    ImageView imageView;
 
     ShowCategories showCategories = new ShowCategories();
     List<Categorypost> categoryposts = new ArrayList<>();
@@ -45,13 +55,41 @@ public class Categories extends AppCompatActivity {
         setContentView(R.layout.activity_categories);
 
         et1 = (EditText)findViewById(R.id.et1);
-        et2 = (EditText)findViewById(R.id.et2);
+        btnshowimage = (Button) findViewById(R.id.btnshowimage);
+        imageView = (ImageView)findViewById(R.id.imageview);
         button = (Button) findViewById(R.id.btn);
         gridView = (GridView)findViewById(R.id.gridview);
+
+
+        btnshowimage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent,SELECT_PHOTO);
+            }
+        });
 
         showcategories();
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == SELECT_PHOTO && resultCode == RESULT_OK && data != null && data.getData() != null){
+            uri = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),uri);
+                imageView.setImageBitmap(bitmap);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
     private void showcategories(){
         Retrofit retrofit = RetrofitClient.getInstance();

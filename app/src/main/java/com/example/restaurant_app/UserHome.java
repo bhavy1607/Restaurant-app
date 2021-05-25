@@ -72,10 +72,10 @@ public class UserHome extends AppCompatActivity {
                         Intent cart = new Intent(UserHome.this, Cart.class);
                         startActivity(cart);
                         break;
-                    case R.id.feedback:
-                        Intent feedback = new Intent(UserHome.this, Feedback.class);
-                        startActivity(feedback);
-                        break;
+//                    case R.id.feedback:
+//                        Intent feedback = new Intent(UserHome.this, Feedback.class);
+//                        startActivity(feedback);
+//                        break;
                     case R.id.logout:
                         SharedPreferences preferences = getSharedPreferences("checked",MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();

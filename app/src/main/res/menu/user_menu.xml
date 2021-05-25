@@ -26,9 +26,9 @@
     <item android:title="App">
         <menu>
 
-            <item android:title="Feedback"
-                android:id="@+id/feedback"
-                android:icon="@drawable/ic_feedback"/>
+<!--            <item android:title="Feedback"-->
+<!--                android:id="@+id/feedback"-->
+<!--                android:icon="@drawable/ic_feedback"/>-->
 
             <item android:title="Rate"
                 android:id="@+id/rate"
