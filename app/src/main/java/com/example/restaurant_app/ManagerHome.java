@@ -111,10 +111,10 @@ public class ManagerHome extends AppCompatActivity {
                         Intent intent1 = new Intent(ManagerHome.this,Categories.class);
                         startActivity(intent1);
                         break;
-//                    case R.id.view_feedback:
-//                        Intent view_payment = new Intent(ManagerHome.this, Viewfeedback.class);
-//                        startActivity(view_payment);
-//                        break;
+                    case R.id.orderhistory:
+                        Intent view_payment = new Intent(ManagerHome.this, ViewOrderHistory.class);
+                        startActivity(view_payment);
+                        break;
 //                    case R.id.booktable:
 //                        Intent booktable = new Intent(ManagerHome.this,Book_table.class);
 //                        startActivity(booktable);

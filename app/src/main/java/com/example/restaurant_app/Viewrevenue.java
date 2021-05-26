@@ -1,5 +1,6 @@
 package com.example.restaurant_app;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -128,13 +129,13 @@ public class Viewrevenue extends AppCompatActivity {
 
         HashMap<String, String> map = new HashMap<>();
 
-
         map.put("startdate", et1.getText().toString());
         map.put("enddate",et2.getText().toString());
 
         Call<Showrevenue> call = retrofitInterface.showRevenue(map);
 
         call.enqueue(new Callback<Showrevenue>() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(Call<Showrevenue> call, Response<Showrevenue> response) {
                 if(response.isSuccessful()){

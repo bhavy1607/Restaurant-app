@@ -34,9 +34,9 @@
                 android:id="@+id/categories"
                 android:icon="@drawable/ic_menu"/>
 
-<!--            <item android:title="View revenue"-->
-<!--                android:id="@+id/view_revenue"-->
-<!--                android:icon="@drawable/ic_baseline_order"/>-->
+            <item android:title="View order history"
+                android:id="@+id/orderhistory"
+                android:icon="@drawable/ic_baseline_order"/>
 
 <!--            <item android:title="Book Table"-->
 <!--                android:id="@+id/booktable"-->

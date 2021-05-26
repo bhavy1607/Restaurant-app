@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookTable">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:background="@color/Yellow"
+        android:layout_height="50dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnback"
+                android:layout_width="35dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_back"
+                android:textColor="#000000"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Order History"
+                android:textSize="25dp"
+                android:paddingLeft="20dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:textColor="#000000"
+                />
+
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gridview"
+        android:layout_below="@+id/appbar"/>
+
+</RelativeLayout>
