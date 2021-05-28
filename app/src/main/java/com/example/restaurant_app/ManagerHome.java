@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,7 +23,8 @@ public class ManagerHome extends AppCompatActivity {
     private NavigationView navigationView;
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
-    Button btn1,btn2,btn3,btn4;
+    Button btn,btn1,btn2,btn3,btn4,btn5;
+    ScrollView scrollView;
 
 
     @Override
@@ -30,10 +32,20 @@ public class ManagerHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manager_home);
 
+        scrollView = (ScrollView)findViewById(R.id.scrollview);
+        btn = (Button)findViewById(R.id.btn);
         btn1 = (Button)findViewById(R.id.btn1);
         btn2 = (Button)findViewById(R.id.btn2);
         btn3 = (Button)findViewById(R.id.btn3);
         btn4 = (Button)findViewById(R.id.btn4);
+        btn5 = (Button)findViewById(R.id.btn5);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ManagerHome.this,Categories.class);
+                startActivity(intent);
+            }
+        });
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,7 +56,7 @@ public class ManagerHome extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ManagerHome.this,Manage_complain.class);
+                Intent intent = new Intent(ManagerHome.this,ViewCook.class);
                 startActivity(intent);
             }
         });
@@ -59,6 +71,13 @@ public class ManagerHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ManagerHome.this,Book_table.class);
+                startActivity(intent);
+            }
+        });
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ManagerHome.this,ViewWaiter.class);
                 startActivity(intent);
             }
         });
@@ -83,22 +102,22 @@ public class ManagerHome extends AppCompatActivity {
                         Intent add_cook = new Intent(ManagerHome.this, AddCook.class);
                         startActivity(add_cook);
                         break;
-                    case R.id.view_cook:
-                        Intent view_cook = new Intent(ManagerHome.this, ViewCook.class);
-                        startActivity(view_cook);
-                        break;
+//                    case R.id.view_cook:
+//                        Intent view_cook = new Intent(ManagerHome.this, ViewCook.class);
+//                        startActivity(view_cook);
+//                        break;
                     case R.id.add_waiter:
                         Intent add_waiter = new Intent(ManagerHome.this, AddWaiter.class);
                         startActivity(add_waiter);
                         break;
-                    case R.id.view_waiter:
-                        Intent view_waiter = new Intent(ManagerHome.this, ViewWaiter.class);
-                        startActivity(view_waiter);
-                        break;
-                    case R.id.view_order:
-                        Intent view_order = new Intent(ManagerHome.this,ViewOrder.class);
-                        startActivity(view_order);
-                        break;
+//                    case R.id.view_waiter:
+//                        Intent view_waiter = new Intent(ManagerHome.this, ViewWaiter.class);
+//                        startActivity(view_waiter);
+//                        break;
+//                    case R.id.view_order:
+//                        Intent view_order = new Intent(ManagerHome.this,ViewOrder.class);
+//                        startActivity(view_order);
+//                        break;
 //                    case R.id.view_revenue:
 //                        Intent intent = new Intent(ManagerHome.this,Viewrevenue.class);
 //                        startActivity(intent);
@@ -107,10 +126,10 @@ public class ManagerHome extends AppCompatActivity {
                         Intent manage_menu = new Intent(ManagerHome.this,Manage_menu.class);
                         startActivity(manage_menu);
                         break;
-                    case R.id.categories:
-                        Intent intent1 = new Intent(ManagerHome.this,Categories.class);
-                        startActivity(intent1);
-                        break;
+//                    case R.id.categories:
+//                        Intent intent1 = new Intent(ManagerHome.this,Categories.class);
+//                        startActivity(intent1);
+//                        break;
                     case R.id.orderhistory:
                         Intent view_payment = new Intent(ManagerHome.this, ViewOrderHistory.class);
                         startActivity(view_payment);
@@ -119,10 +138,10 @@ public class ManagerHome extends AppCompatActivity {
 //                        Intent booktable = new Intent(ManagerHome.this,Book_table.class);
 //                        startActivity(booktable);
 //                        break;
-//                    case R.id.manage_complate:
-//                        Intent manage_complate = new Intent(ManagerHome.this, Manage_complain.class);
-//                        startActivity(manage_complate);
-//                        break;
+                    case R.id.manage_complate:
+                        Intent manage_complate = new Intent(ManagerHome.this, Manage_complain.class);
+                        startActivity(manage_complate);
+                        break;
                     case R.id.logout:
                         SharedPreferences preferences = getSharedPreferences("checked",MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();

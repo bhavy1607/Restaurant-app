@@ -10,29 +10,29 @@
                 android:id="@+id/add_cook"
                 android:icon="@drawable/ic_baseline_addperson"/>
 
-            <item android:title="View Cook"
-                android:id="@+id/view_cook"
-                android:icon="@drawable/ic_baseline_viewperson"/>
+<!--            <item android:title="View Cook"-->
+<!--                android:id="@+id/view_cook"-->
+<!--                android:icon="@drawable/ic_baseline_viewperson"/>-->
 
             <item android:title="Add Waiter"
                 android:id="@+id/add_waiter"
                 android:icon="@drawable/ic_baseline_addperson"/>
 
-            <item android:title="View Waiter"
-                android:id="@+id/view_waiter"
-                android:icon="@drawable/ic_baseline_viewperson"/>
+<!--            <item android:title="View Waiter"-->
+<!--                android:id="@+id/view_waiter"-->
+<!--                android:icon="@drawable/ic_baseline_viewperson"/>-->
 
-            <item android:title="View Order"
-                android:id="@+id/view_order"
-                android:icon="@drawable/ic_baseline_order"/>
+<!--            <item android:title="View Order"-->
+<!--                android:id="@+id/view_order"-->
+<!--                android:icon="@drawable/ic_baseline_order"/>-->
 
             <item android:title="Manage Menu"
                 android:id="@+id/manage_menu"
                 android:icon="@drawable/ic_baseline_viewperson"/>
 
-            <item android:title="Categories"
-                android:id="@+id/categories"
-                android:icon="@drawable/ic_menu"/>
+<!--            <item android:title="Categories"-->
+<!--                android:id="@+id/categories"-->
+<!--                android:icon="@drawable/ic_menu"/>-->
 
             <item android:title="View order history"
                 android:id="@+id/orderhistory"
@@ -47,9 +47,9 @@
     <item android:title="App">
         <menu>
 
-<!--            <item android:title="Manage complate"-->
-<!--                android:id="@+id/manage_complate"-->
-<!--                android:icon="@drawable/ic_baseline_order"/>-->
+            <item android:title="Manage complate"
+                android:id="@+id/manage_complate"
+                android:icon="@drawable/ic_baseline_order"/>
 <!--            <item android:title="View feedback"-->
 <!--                android:id="@+id/view_feedback"-->
 <!--                android:icon="@drawable/ic_baseline_payment_24"/>-->
