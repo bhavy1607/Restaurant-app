@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -21,17 +22,29 @@ public class AdminHome extends AppCompatActivity {
     private NavigationView navigationView;
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
-    Button btn1,btn2,btn3,btn4;
+    Button btn,btn1,btn2,btn3,btn4,btn5;
+    ScrollView scrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_home);
 
+        scrollView = (ScrollView)findViewById(R.id.scrollView);
+        btn = (Button)findViewById(R.id.btn);
         btn1 = (Button)findViewById(R.id.btn1);
         btn2 = (Button)findViewById(R.id.btn2);
         btn3 = (Button)findViewById(R.id.btn3);
         btn4 = (Button)findViewById(R.id.btn4);
+        btn5 = (Button)findViewById(R.id.btn5);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHome.this,AdminCategories.class);
+                startActivity(intent);
+            }
+        });
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +62,7 @@ public class AdminHome extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminHome.this,AdminShowComplain.class);
+                Intent intent = new Intent(AdminHome.this,AdminCookdetails.class);
                 startActivity(intent);
             }
         });
@@ -57,6 +70,13 @@ public class AdminHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminHome.this,Adminshowrevenue.class);
+                startActivity(intent);
+            }
+        });
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHome.this,AdminWaiterdetails.class);
                 startActivity(intent);
             }
         });
@@ -103,10 +123,10 @@ public class AdminHome extends AppCompatActivity {
                         Intent intent = new Intent(AdminHome.this,Adminshowmenu.class);
                         startActivity(intent);
                         break;
-//                    case R.id.showcomplate:
-//                        Intent intent2 = new Intent(AdminHome.this, AdminShowComplain.class);
-//                        startActivity(intent2);
-//                        break;
+                    case R.id.showcomplate:
+                        Intent intent2 = new Intent(AdminHome.this, AdminShowComplain.class);
+                        startActivity(intent2);
+                        break;
 //                    case R.id.view_revenue:
 //                        Intent intent3 = new Intent(AdminHome.this, Adminshowrevenue.class);
 //                        startActivity(intent3);

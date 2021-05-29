@@ -5,6 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -12,7 +15,9 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
@@ -31,6 +36,7 @@ import retrofit2.Retrofit;
 public class ViewOrderHistory extends AppCompatActivity {
 
     GridView gridView;
+    Toolbar toolbar;
 
     Orderdetails orderdetails = new Orderdetails();
     List<Order> orders = new ArrayList<>();
@@ -40,10 +46,34 @@ public class ViewOrderHistory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_order_history);
 
+
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         gridView = (GridView)findViewById(R.id.gridview);
 
         listingdata();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.parsal,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.parsal:
+                Intent intent = new Intent(ViewOrderHistory.this, ViewParsal.class);
+                startActivity(intent);
+                break;
+        }
+        return true;
+    }
+
+
 
     private void listingdata(){
 

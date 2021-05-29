@@ -26,13 +26,12 @@ public class ManagerHome extends AppCompatActivity {
     Button btn,btn1,btn2,btn3,btn4,btn5;
     ScrollView scrollView;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manager_home);
 
-        scrollView = (ScrollView)findViewById(R.id.scrollview);
+        scrollView = (ScrollView)findViewById(R.id.scrollView);
         btn = (Button)findViewById(R.id.btn);
         btn1 = (Button)findViewById(R.id.btn1);
         btn2 = (Button)findViewById(R.id.btn2);
