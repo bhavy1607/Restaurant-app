@@ -12,7 +12,7 @@
         android:id="@+id/toolbar"
         android:background="@color/Yellow"
         app:menu="@menu/parsal"
-        app:title="Staff Details"
+        app:title="Order History"
         app:titleMarginStart="40dp"
         />
 
