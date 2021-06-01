@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -22,8 +22,10 @@ public class AdminHome extends AppCompatActivity {
     private NavigationView navigationView;
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
-    Button btn,btn1,btn2,btn3,btn4,btn5;
+   // Button btn,btn1,btn2,btn3,btn4,btn5;
     ScrollView scrollView;
+    CardView card1,card2,card3,card4,card5,card6;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,52 +33,101 @@ public class AdminHome extends AppCompatActivity {
         setContentView(R.layout.admin_home);
 
         scrollView = (ScrollView)findViewById(R.id.scrollView);
-        btn = (Button)findViewById(R.id.btn);
-        btn1 = (Button)findViewById(R.id.btn1);
-        btn2 = (Button)findViewById(R.id.btn2);
-        btn3 = (Button)findViewById(R.id.btn3);
-        btn4 = (Button)findViewById(R.id.btn4);
-        btn5 = (Button)findViewById(R.id.btn5);
+//        btn = (Button)findViewById(R.id.btn);
+//        btn1 = (Button)findViewById(R.id.btn1);
+//        btn2 = (Button)findViewById(R.id.btn2);
+//        btn3 = (Button)findViewById(R.id.btn3);
+//        btn4 = (Button)findViewById(R.id.btn4);
+//        btn5 = (Button)findViewById(R.id.btn5);
+//
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(AdminHome.this,AdminCategories.class);
+//                startActivity(intent);
+//            }
+//        });
+//        btn4.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(AdminHome.this,Adminbooktable.class);
+//                startActivity(intent);
+//            }
+//        });
+//        btn1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(AdminHome.this,AdminShowFeedback.class);
+//                startActivity(intent);
+//            }
+//        });
+//        btn2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(AdminHome.this,AdminCookdetails.class);
+//                startActivity(intent);
+//            }
+//        });
+//        btn3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(AdminHome.this,Adminshowrevenue.class);
+//                startActivity(intent);
+//            }
+//        });
+//        btn5.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(AdminHome.this,AdminWaiterdetails.class);
+//                startActivity(intent);
+//            }
+//        });
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        card1 = (CardView)findViewById(R.id.card1);
+        card2 = (CardView)findViewById(R.id.card2);
+        card3 = (CardView)findViewById(R.id.card3);
+        card4 = (CardView)findViewById(R.id.card4);
+        card5 = (CardView)findViewById(R.id.card5);
+        card6 = (CardView)findViewById(R.id.card6);
+        card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminHome.this,AdminCategories.class);
+                Intent intent = new Intent(AdminHome.this,Categories.class);
                 startActivity(intent);
             }
         });
-        btn4.setOnClickListener(new View.OnClickListener() {
+        card2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminHome.this,Adminbooktable.class);
+                Intent intent = new Intent(AdminHome.this,Book_table.class);
                 startActivity(intent);
             }
         });
-        btn1.setOnClickListener(new View.OnClickListener() {
+        card3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminHome.this,AdminShowFeedback.class);
+                Intent intent = new Intent(AdminHome.this,ViewCook.class);
                 startActivity(intent);
             }
         });
-        btn2.setOnClickListener(new View.OnClickListener() {
+        card4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminHome.this,AdminCookdetails.class);
+                Intent intent = new Intent(AdminHome.this,ViewWaiter.class);
                 startActivity(intent);
             }
         });
-        btn3.setOnClickListener(new View.OnClickListener() {
+        card5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminHome.this,Adminshowrevenue.class);
+                Intent intent = new Intent(AdminHome.this,Viewrevenue.class);
                 startActivity(intent);
             }
         });
-        btn5.setOnClickListener(new View.OnClickListener() {
+        card6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminHome.this,AdminWaiterdetails.class);
+                Intent intent = new Intent(AdminHome.this,Viewfeedback.class);
                 startActivity(intent);
             }
         });
