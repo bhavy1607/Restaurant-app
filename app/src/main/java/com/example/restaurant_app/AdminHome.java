@@ -24,7 +24,7 @@ public class AdminHome extends AppCompatActivity {
     private ActionBarDrawerToggle toggle;
    // Button btn,btn1,btn2,btn3,btn4,btn5;
     ScrollView scrollView;
-    CardView card1,card2,card3,card4,card5,card6;
+    CardView card1,card2,card3,card4,card5,card6,card7;
 
 
     @Override
@@ -89,6 +89,14 @@ public class AdminHome extends AppCompatActivity {
         card4 = (CardView)findViewById(R.id.card4);
         card5 = (CardView)findViewById(R.id.card5);
         card6 = (CardView)findViewById(R.id.card6);
+        card7 = (CardView)findViewById(R.id.card7);
+        card7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminHome.this,View_manager.class);
+                startActivity(intent);
+            }
+        });
         card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -154,10 +162,10 @@ public class AdminHome extends AppCompatActivity {
                         Intent addmanager = new Intent(AdminHome.this, AdminAddManager.class);
                         startActivity(addmanager);
                         break;
-                    case R.id.Viewmanager:
-                        Intent intent1 = new Intent(AdminHome.this,View_manager.class);
-                        startActivity(intent1);
-                        break;
+//                    case R.id.Viewmanager:
+//                        Intent intent1 = new Intent(AdminHome.this,View_manager.class);
+//                        startActivity(intent1);
+//                        break;
                     case R.id.Sdetails:
                         Intent sdetails = new Intent(AdminHome.this, AdminStaffDetails.class);
                         startActivity(sdetails);
@@ -182,10 +190,10 @@ public class AdminHome extends AppCompatActivity {
 //                        Intent intent3 = new Intent(AdminHome.this, Adminshowrevenue.class);
 //                        startActivity(intent3);
 //                        break;
-                    case R.id.categories:
-                        Intent intent4 = new Intent(AdminHome.this, AdminCategories.class);
-                        startActivity(intent4);
-                        break;
+//                    case R.id.categories:
+//                        Intent intent4 = new Intent(AdminHome.this, AdminCategories.class);
+//                        startActivity(intent4);
+//                        break;
                     case R.id.logout:
                         Intent logout = new Intent(AdminHome.this, MainActivity.class);
                         startActivity(logout);
@@ -203,6 +211,5 @@ public class AdminHome extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
-
     }
 }

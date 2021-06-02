@@ -131,11 +131,13 @@ public class Viewfeedback extends AppCompatActivity {
                 convertView = lInflater.inflate(R.layout.feedbacklayout, null);
                 }
 
-            TextView tid = convertView.findViewById(R.id.tid);
+           // TextView tid = convertView.findViewById(R.id.tid);
             TextView ttitle = convertView.findViewById(R.id.ttitle);
             TextView tmessage = convertView.findViewById(R.id.tmessage);
+            TextView trating = convertView.findViewById(R.id.trating);
 
-            tid.setText(feedbacks.get(position).getId());
+            //tid.setText(feedbacks.get(position).getId());
+            trating.setText(feedbacks.get(position).getRating()+"");
             tmessage.setText(feedbacks.get(position).getMessage());
             ttitle.setText(feedbacks.get(position).getTitle());
 

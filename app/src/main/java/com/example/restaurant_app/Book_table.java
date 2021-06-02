@@ -2,8 +2,12 @@ package com.example.restaurant_app;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -11,7 +15,9 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
@@ -29,6 +35,8 @@ import retrofit2.Retrofit;
 public class Book_table extends AppCompatActivity {
 
     GridView gridView;
+    Toolbar toolbar;
+
 
     BookTable bookTable = new BookTable();
     List<Table> tables = new ArrayList<>();
@@ -38,9 +46,30 @@ public class Book_table extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_table);
 
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         gridView = (GridView)findViewById(R.id.gridview);
 
         booktable();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.parsal,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.parsal:
+                Intent intent = new Intent(Book_table.this, ViewParsal.class);
+                startActivity(intent);
+                break;
+        }
+        return true;
     }
 
     private void booktable(){
@@ -108,13 +137,13 @@ public class Book_table extends AppCompatActivity {
                 view = lInflater.inflate(R.layout.booktablelayout, null);
             }
 
-            TextView tid = view.findViewById(R.id.tid);
+           // TextView tid = view.findViewById(R.id.tid);
            TextView ttable = view.findViewById(R.id.ttable);
             TextView tsize = view.findViewById(R.id.tsize);
             TextView tstatus = view.findViewById(R.id.tstatus);
            // TextView twaiting = view.findViewById(R.id.twaiting);
 
-            tid.setText(tables.get(i).getId());
+           // tid.setText(tables.get(i).getId());
             ttable.setText(tables.get(i).getTable().toString());
             tsize.setText(tables.get(i).getSize().toString());
             tstatus.setText(tables.get(i).getStatus());

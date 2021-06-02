@@ -2,37 +2,38 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:title="Admin">
         <menu>
-            <item android:title="Home"
+            <item android:title="HOME"
                 android:id="@+id/home"
                 android:icon="@drawable/ic_home"/>
 
-            <item android:title="Add Manager"
+            <item android:title="ADD MANAGER"
                 android:id="@+id/AddManager"
                 android:icon="@drawable/ic_addmanager"/>
 
-            <item android:title="View Manager"
-                android:id="@+id/Viewmanager"
-                android:icon="@drawable/ic_baseline_viewperson"/>
+<!--            <item android:title="View Manager"-->
+<!--                android:id="@+id/Viewmanager"-->
+<!--                android:icon="@drawable/ic_baseline_viewperson"/>-->
 
-            <item android:title="Staff Details"
+            <item android:title="STAFF DATAILS"
                 android:id="@+id/Sdetails"
                 android:icon="@drawable/ic_staffdetails"/>
 
-            <item android:title="View Order"
-                android:id="@+id/vieworder"
-                android:icon="@drawable/ic_cart"/>
-
-            <item android:title="Show Menu"
+            <item android:title="SHOW MENU"
                 android:id="@+id/show_menu"
                 android:icon="@drawable/ic_staffdetails"/>
 
-<!--            <item android:title="View revenue"-->
+            <item android:title="ORDER HISTORY"
+                android:id="@+id/vieworder"
+                android:icon="@drawable/ic_cart"/>
+
+
+            <!--            <item android:title="View revenue"-->
 <!--                android:id="@+id/view_revenue"-->
 <!--                android:icon="@drawable/ic_cart"/>-->
 
-            <item android:title="Show Categories"
-                android:id="@+id/categories"
-                android:icon="@drawable/ic_addmanager"/>
+<!--            <item android:title="Show Categories"-->
+<!--                android:id="@+id/categories"-->
+<!--                android:icon="@drawable/ic_addmanager"/>-->
 
 
         </menu>
@@ -40,7 +41,7 @@
     <item android:title="App">
         <menu>
 
-            <item android:title="Show Complate"
+            <item android:title="SHOW COMPLAINE"
                 android:id="@+id/showcomplate"
                 android:icon="@drawable/ic_baseline_payment_24"/>
 
@@ -48,7 +49,7 @@
 <!--                android:id="@+id/Showfeedback"-->
 <!--                android:icon="@drawable/ic_baseline_rate_review_24"/>-->
 
-            <item android:title="Logout"
+            <item android:title="LOGOUT"
                 android:id="@+id/logout"
                 android:icon="@drawable/ic_logout"/>
 

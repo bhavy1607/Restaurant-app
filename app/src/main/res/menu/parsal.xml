@@ -4,7 +4,6 @@
 
     <item android:title="Parsal"
         android:id="@+id/parsal"
-        android:icon="@drawable/ic_baseline_parsal"
         app:showAsAction="ifRoom"/>
 
 </menu>

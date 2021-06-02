@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:title="Manager">
         <menu>
-            <item android:title="Home"
+            <item android:title="HOME"
                 android:id="@+id/home"
                 android:icon="@drawable/ic_home"/>
 
-            <item android:title="Add Cook"
+            <item android:title="ADD COOK"
                 android:id="@+id/add_cook"
                 android:icon="@drawable/ic_baseline_addperson"/>
 
@@ -14,7 +14,7 @@
 <!--                android:id="@+id/view_cook"-->
 <!--                android:icon="@drawable/ic_baseline_viewperson"/>-->
 
-            <item android:title="Add Waiter"
+            <item android:title="ADD WAITER"
                 android:id="@+id/add_waiter"
                 android:icon="@drawable/ic_baseline_addperson"/>
 
@@ -26,7 +26,7 @@
 <!--                android:id="@+id/view_order"-->
 <!--                android:icon="@drawable/ic_baseline_order"/>-->
 
-            <item android:title="Manage Menu"
+            <item android:title="MANAGER MENU"
                 android:id="@+id/manage_menu"
                 android:icon="@drawable/ic_baseline_viewperson"/>
 
@@ -34,7 +34,7 @@
 <!--                android:id="@+id/categories"-->
 <!--                android:icon="@drawable/ic_menu"/>-->
 
-            <item android:title="View order history"
+            <item android:title="VIEW ORDER HISTORY"
                 android:id="@+id/orderhistory"
                 android:icon="@drawable/ic_baseline_order"/>
 
@@ -47,14 +47,14 @@
     <item android:title="App">
         <menu>
 
-            <item android:title="Manage complate"
+            <item android:title="VIEW COMPLAINE"
                 android:id="@+id/manage_complate"
                 android:icon="@drawable/ic_baseline_order"/>
 <!--            <item android:title="View feedback"-->
 <!--                android:id="@+id/view_feedback"-->
 <!--                android:icon="@drawable/ic_baseline_payment_24"/>-->
 
-            <item android:title="Logout"
+            <item android:title="LOGOUT"
                 android:id="@+id/logout"
                 android:icon="@drawable/ic_logout"/>
 

@@ -93,7 +93,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="BOOKTABLE  "
+                            android:text="LIVE ORDER  "
                             android:textSize="30sp"
                             android:textStyle="bold|italic"
                             android:layout_marginTop="30dp"/>
@@ -106,6 +106,43 @@
 <!--                            android:layout_margin="20dp"-->
 <!--                            android:text="Go TO BookTable Page &ndash;&gt;"-->
 <!--                            android:textSize="15sp" />-->
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card7"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/t7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="VIEW MANAGER  "
+                            android:textSize="30sp"
+                            android:textStyle="bold|italic"
+                            android:layout_marginTop="30dp"
+                            />
+
+                        <!--                        <Button-->
+                        <!--                            android:id="@+id/btn2"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_gravity="center"-->
+                        <!--                            android:layout_margin="20dp"-->
+                        <!--                            android:text="Go TO COOK Page &ndash;&gt;"-->
+                        <!--                            android:textSize="15sp" />-->
 
 
                     </LinearLayout>

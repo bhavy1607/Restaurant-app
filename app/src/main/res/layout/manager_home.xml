@@ -94,7 +94,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="BOOKTABLE  "
+                        android:text="LIVE ORDER  "
                         android:textSize="30sp"
                         android:textStyle="bold|italic"
                         android:layout_marginTop="30dp"/>

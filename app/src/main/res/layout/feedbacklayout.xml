@@ -12,12 +12,12 @@
         android:orientation="vertical"
         android:layout_margin="10dp"
         >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:textSize="20sp"
-            android:text="ID :"/>
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:padding="5dp"-->
+<!--            android:textSize="20sp"-->
+<!--            android:text="ID :"/>-->
 
         <TextView
             android:layout_width="match_parent"
@@ -55,14 +55,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/buttons">
-        <TextView
-            android:id="@+id/tid"
-            android:padding="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="id"
-            />
+<!--        <TextView-->
+<!--            android:id="@+id/tid"-->
+<!--            android:padding="5dp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="20sp"-->
+<!--            android:text="id"-->
+<!--            />-->
         <TextView
             android:id="@+id/trating"
             android:padding="5dp"
