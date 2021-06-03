@@ -15,6 +15,7 @@ import com.example.restaurant_app.modelmanager.getingrediants.Getingredients;
 import com.example.restaurant_app.modelmanager.getmenu.Menudetails;
 import com.example.restaurant_app.modelmanager.gettingorder.Orderdetails;
 import com.example.restaurant_app.modelmanager.managecomplain.Getcomplate;
+import com.example.restaurant_app.modelmanager.parsal.Parsalorder;
 import com.example.restaurant_app.modelmanager.setdiscount.Order;
 import com.example.restaurant_app.modelmanager.showCategories.ShowCategories;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Showrevenue;
@@ -141,4 +142,7 @@ public interface RetrofitInterface {
     @GET("/category/categories")
     Call<ShowCategories> showCategories();
 
+    //View Parsal
+    @GET("/order/parcelorders")
+    Call<Parsalorder> Showparsal();
 }

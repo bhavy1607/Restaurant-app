@@ -114,7 +114,7 @@ public class ViewOrder extends AppCompatActivity {
             TextView tname = convertView.findViewById(R.id.tname);
             TextView temail = convertView.findViewById(R.id.temail);
             TextView tpayment = convertView.findViewById(R.id.tpaymentmethod);
-            TextView tid = convertView.findViewById(R.id.tid);
+            TextView ttotal = convertView.findViewById(R.id.total);
             CardView cardView = convertView.findViewById(R.id.cardview);
 
             cardView.setOnClickListener(new View.OnClickListener() {
@@ -128,7 +128,7 @@ public class ViewOrder extends AppCompatActivity {
             tname.setText(orders.get(position).getName());
             temail.setText(orders.get(position).getEmail());
             tpayment.setText(orders.get(position).getPaymentMethod());
-            tid.setText(orders.get(position).getId());
+            ttotal.setText(orders.get(position).getGrandTotal()+"");
 
             return convertView;
         }

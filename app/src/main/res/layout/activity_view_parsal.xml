@@ -15,5 +15,10 @@
         app:titleMarginStart="40dp"
         />
 
+    <GridView
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </RelativeLayout>
