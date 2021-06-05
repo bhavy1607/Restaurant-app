@@ -1,30 +1,28 @@
 
-package com.example.restaurant_app.modelmanager.getingrediants;
+package com.example.restaurant_app.modelmanager.getmenu;
 
-import com.example.restaurant_app.modelmanager.getmenu.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Ingredient {
+import java.util.List;
 
+public class CategoryId {
+
+    @SerializedName("products")
+    @Expose
+    private List<String> products = null;
     @SerializedName("_id")
     @Expose
     private String id;
-    @SerializedName("IngredientName")
+    @SerializedName("categoryName")
     @Expose
-    private String ingredientName;
+    private String categoryName;
     @SerializedName("imageUrl")
     @Expose
     private String imageUrl;
-    @SerializedName("price")
-    @Expose
-    private Integer price;
-    @SerializedName("description")
-    @Expose
-    private String description;
     @SerializedName("creator")
     @Expose
-    private Creator creator;
+    private Creator__1 creator;
     @SerializedName("createdAt")
     @Expose
     private String createdAt;
@@ -35,6 +33,14 @@ public class Ingredient {
     @Expose
     private Integer v;
 
+    public List<String> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<String> products) {
+        this.products = products;
+    }
+
     public String getId() {
         return id;
     }
@@ -43,12 +49,12 @@ public class Ingredient {
         this.id = id;
     }
 
-    public String getIngredientName() {
-        return ingredientName;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setIngredientName(String ingredientName) {
-        this.ingredientName = ingredientName;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     public String getImageUrl() {
@@ -59,27 +65,11 @@ public class Ingredient {
         this.imageUrl = imageUrl;
     }
 
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Creator getCreator() {
+    public Creator__1 getCreator() {
         return creator;
     }
 
-    public void setCreator(Creator creator) {
+    public void setCreator(Creator__1 creator) {
         this.creator = creator;
     }
 

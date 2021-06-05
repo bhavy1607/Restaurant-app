@@ -14,12 +14,15 @@ public class Product {
     @SerializedName("offer")
     @Expose
     private Integer offer;
+    @SerializedName("ingredients")
+    @Expose
+    private List<Ingredient> ingredients = null;
     @SerializedName("_id")
     @Expose
     private String id;
     @SerializedName("categoryId")
     @Expose
-    private String categoryId;
+    private CategoryId categoryId;
     @SerializedName("name")
     @Expose
     private String name;
@@ -31,7 +34,7 @@ public class Product {
     private Integer originalPrice;
     @SerializedName("offerPrice")
     @Expose
-    private Double offerPrice;
+    private Integer offerPrice;
     @SerializedName("imageUrl")
     @Expose
     private String imageUrl;
@@ -44,9 +47,9 @@ public class Product {
     @SerializedName("__v")
     @Expose
     private Integer v;
-    @SerializedName("ingredients")
+    @SerializedName("categoryName")
     @Expose
-    private List<String> ingredients = null;
+    private String categoryName;
 
     public Boolean getAvailability() {
         return availability;
@@ -64,6 +67,14 @@ public class Product {
         this.offer = offer;
     }
 
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
     public String getId() {
         return id;
     }
@@ -72,11 +83,11 @@ public class Product {
         this.id = id;
     }
 
-    public String getCategoryId() {
+    public CategoryId getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(String categoryId) {
+    public void setCategoryId(CategoryId categoryId) {
         this.categoryId = categoryId;
     }
 
@@ -104,11 +115,11 @@ public class Product {
         this.originalPrice = originalPrice;
     }
 
-    public Double getOfferPrice() {
+    public Integer getOfferPrice() {
         return offerPrice;
     }
 
-    public void setOfferPrice(Double offerPrice) {
+    public void setOfferPrice(Integer offerPrice) {
         this.offerPrice = offerPrice;
     }
 
@@ -144,12 +155,12 @@ public class Product {
         this.v = v;
     }
 
-    public List<String> getIngredients() {
-        return ingredients;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setIngredients(List<String> ingredients) {
-        this.ingredients = ingredients;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
 }

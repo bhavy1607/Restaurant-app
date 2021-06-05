@@ -1,10 +1,10 @@
 
-package com.example.restaurant_app.modelmanager;
+package com.example.restaurant_app.modelmanager.getmenu;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Creator {
+public class Creator__1 {
 
     @SerializedName("name")
     @Expose
