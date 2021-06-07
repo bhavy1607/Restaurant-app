@@ -65,7 +65,7 @@ public class Book_table extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.parsal:
-                Intent intent = new Intent(Book_table.this, ViewParsal.class);
+                Intent intent = new Intent(Book_table.this, AdminViewParsal.class);
                 startActivity(intent);
                 break;
         }

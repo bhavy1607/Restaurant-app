@@ -75,7 +75,7 @@ public class Adminvieworder extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.parsal:
-                Intent intent = new Intent(Adminvieworder.this, ViewParsal.class);
+                Intent intent = new Intent(Adminvieworder.this, AdminViewParsal.class);
                 startActivity(intent);
                 break;
         }
