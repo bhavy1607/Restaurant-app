@@ -1,4 +1,3 @@
-
 package com.example.restaurant_app.modelmanager.parsal;
 
 import com.google.gson.annotations.Expose;

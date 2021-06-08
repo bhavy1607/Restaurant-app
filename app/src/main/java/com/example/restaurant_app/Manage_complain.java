@@ -31,7 +31,9 @@ import retrofit2.Retrofit;
 public class Manage_complain extends AppCompatActivity {
 
     GridView gridView;
-    
+    public static String id;
+
+
     Getcomplate getcomplate = new Getcomplate();
     List<Complaint> complaints = new ArrayList<>();
 
@@ -108,7 +110,7 @@ public class Manage_complain extends AppCompatActivity {
                 convertView = lInflater.inflate(R.layout.managecomplatelayout, null);
             }
 
-            TextView tid = convertView.findViewById(R.id.tid);
+           // TextView tid = convertView.findViewById(R.id.tid);
             TextView ttitle = convertView.findViewById(R.id.ttitle);
             TextView tmessage = convertView.findViewById(R.id.tmessage);
             Button btnreply = convertView.findViewById(R.id.btnreply);
@@ -116,12 +118,14 @@ public class Manage_complain extends AppCompatActivity {
             btnreply.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(),ComplainReply.class);
+                    String get = complaints.get(position).getId();
+                    Intent intent = new Intent(Manage_complain.this,ComplainReply.class);
+                    intent.putExtra("_id",complaints.get(position).getId());
                     startActivity(intent);
                 }
             });
 
-            tid.setText(complaints.get(position).getId());
+            //tid.setText(complaints.get(position).getId());
             ttitle.setText(complaints.get(position).getTitle());
             tmessage.setText(complaints.get(position).getMessage());
 

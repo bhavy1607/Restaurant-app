@@ -146,10 +146,12 @@ public class Adminvieworder extends AppCompatActivity {
                 convertView = lInflater.inflate(R.layout.orderlayout, null);
             }
 
+            TextView ttotal = convertView.findViewById(R.id.total);
             TextView tname = convertView.findViewById(R.id.tname);
             TextView temail = convertView.findViewById(R.id.temail);
             TextView tpayment = convertView.findViewById(R.id.tpaymentmethod);
 
+            ttotal.setText(orders.get(position).getGrandTotal()+"");
             tname.setText(orders.get(position).getName());
             temail.setText(orders.get(position).getEmail());
             tpayment.setText(orders.get(position).getPaymentMethod());

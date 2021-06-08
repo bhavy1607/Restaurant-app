@@ -36,6 +36,8 @@ public class Viewrevenue extends AppCompatActivity {
     Sumrevenue sumrevenue;
     Showrevenue showrevenue = new Showrevenue();
     List<Result> results = new ArrayList<>();
+    //List<Result> results = new List<Result>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,8 +145,9 @@ public class Viewrevenue extends AppCompatActivity {
                     showrevenue = response.body();
                     results = showrevenue.getResult();
 
+
                     t2 = (TextView)findViewById(R.id.t2);
-                    t2.setText(results.get(map.size()).getSum()+"");
+                    t2.setText(results.get(response.code()).getSum()+"");
 
 //                    CustomAdepter customAdepter = new CustomAdepter(Viewrevenue.this,results);
 //                    gridView.setAdapter(customAdepter);

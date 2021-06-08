@@ -19,6 +19,12 @@
         android:layout_below="@+id/toolbar"
         android:id="@+id/gridview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="150dp"/>
+
+    <GridView
+        android:layout_below="@+id/gridview"
+        android:id="@+id/gridview1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"/>
 
 </RelativeLayout>

@@ -163,12 +163,12 @@ public class clickeditem extends AppCompatActivity {
             TextView tname = convertView.findViewById(R.id.tname);
             TextView tdec = convertView.findViewById(R.id.tdec);
            // TextView tprice = convertView.findViewById(R.id.price);
-            TextView tid = convertView.findViewById(R.id.id);
+            //TextView tid = convertView.findViewById(R.id.id);
 
             tname.setText(products.get(position).getName());
             tdec.setText(products.get(position).getDescription());
         //    tprice.setText(products.get(position).getPrice());
-            tid.setText(products.get(position).getId());
+           // tid.setText(products.get(position).getId());
 
             return convertView;
         }

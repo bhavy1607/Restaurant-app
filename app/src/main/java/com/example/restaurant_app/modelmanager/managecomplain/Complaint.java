@@ -4,8 +4,16 @@ package com.example.restaurant_app.modelmanager.managecomplain;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class Complaint {
 
+    @SerializedName("replyId")
+    @Expose
+    private List<String> replyId = null;
+    @SerializedName("status")
+    @Expose
+    private String status;
     @SerializedName("_id")
     @Expose
     private String id;
@@ -24,6 +32,22 @@ public class Complaint {
     @SerializedName("__v")
     @Expose
     private Integer v;
+
+    public List<String> getReplyId() {
+        return replyId;
+    }
+
+    public void setReplyId(List<String> replyId) {
+        this.replyId = replyId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getId() {
         return id;

@@ -194,9 +194,9 @@ public class Viewingrediant extends AppCompatActivity {
         HashMap<String, String> map = new HashMap<>();
 
         map.put("IngredientName", et1.getText().toString());
-        map.put("price", et3.getText().toString());
+        map.put("price", et3.getText().toString()+"");
         map.put("description", et4.getText().toString());
-        map.put("imageUrl", imageView.toString());
+        map.put("imageUrl", imageView.getDrawable().toString());
 
         Call<Createingrediants> call = retrofitInterface.AddIngrediants(map);
 
@@ -207,6 +207,7 @@ public class Viewingrediant extends AppCompatActivity {
 
                     createingrediants = response.body();
                     ingredient = createingrediants.getIngredient();
+
 
 
                     Toast.makeText(Viewingrediant.this, "Succes", Toast.LENGTH_SHORT).show();

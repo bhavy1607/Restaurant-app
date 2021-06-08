@@ -8,12 +8,12 @@ import java.util.List;
 
 public class UserId {
 
+    @SerializedName("active")
+    @Expose
+    private Boolean active;
     @SerializedName("otps")
     @Expose
     private List<Object> otps = null;
-    @SerializedName("posts")
-    @Expose
-    private List<Object> posts = null;
     @SerializedName("feedbacks")
     @Expose
     private List<Object> feedbacks = null;
@@ -26,9 +26,9 @@ public class UserId {
     @SerializedName("roles")
     @Expose
     private List<String> roles = null;
-    @SerializedName("restaurantId")
+    @SerializedName("categoryId")
     @Expose
-    private List<Object> restaurantId = null;
+    private Object categoryId;
     @SerializedName("complaints")
     @Expose
     private List<String> complaints = null;
@@ -41,9 +41,6 @@ public class UserId {
     @SerializedName("email")
     @Expose
     private String email;
-    @SerializedName("phone")
-    @Expose
-    private String phone;
     @SerializedName("password")
     @Expose
     private String password;
@@ -56,6 +53,23 @@ public class UserId {
     @SerializedName("__v")
     @Expose
     private Integer v;
+    @SerializedName("activatedAt")
+    @Expose
+    private String activatedAt;
+    @SerializedName("deactivatedAt")
+    @Expose
+    private String deactivatedAt;
+    @SerializedName("phone")
+    @Expose
+    private String phone;
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
 
     public List<Object> getOtps() {
         return otps;
@@ -63,14 +77,6 @@ public class UserId {
 
     public void setOtps(List<Object> otps) {
         this.otps = otps;
-    }
-
-    public List<Object> getPosts() {
-        return posts;
-    }
-
-    public void setPosts(List<Object> posts) {
-        this.posts = posts;
     }
 
     public List<Object> getFeedbacks() {
@@ -105,12 +111,12 @@ public class UserId {
         this.roles = roles;
     }
 
-    public List<Object> getRestaurantId() {
-        return restaurantId;
+    public Object getCategoryId() {
+        return categoryId;
     }
 
-    public void setRestaurantId(List<Object> restaurantId) {
-        this.restaurantId = restaurantId;
+    public void setCategoryId(Object categoryId) {
+        this.categoryId = categoryId;
     }
 
     public List<String> getComplaints() {
@@ -145,14 +151,6 @@ public class UserId {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -183,6 +181,30 @@ public class UserId {
 
     public void setV(Integer v) {
         this.v = v;
+    }
+
+    public String getActivatedAt() {
+        return activatedAt;
+    }
+
+    public void setActivatedAt(String activatedAt) {
+        this.activatedAt = activatedAt;
+    }
+
+    public String getDeactivatedAt() {
+        return deactivatedAt;
+    }
+
+    public void setDeactivatedAt(String deactivatedAt) {
+        this.deactivatedAt = deactivatedAt;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
 }

@@ -110,11 +110,11 @@ public class Itemavailable extends AppCompatActivity {
 
             TextView tname = convertView.findViewById(R.id.tname);
             TextView tdec = convertView.findViewById(R.id.tdec);
-            TextView tid = convertView.findViewById(R.id.id);
+           // TextView tid = convertView.findViewById(R.id.id);
 
             tname.setText(menus.get(position).getName());
             tdec.setText(menus.get(position).getDescription());
-            tid.setText(menus.get(position).getId());
+           // tid.setText(menus.get(position).getId());
 
             return convertView;
         }

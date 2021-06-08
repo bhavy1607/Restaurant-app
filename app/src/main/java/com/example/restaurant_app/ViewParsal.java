@@ -15,8 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
+import com.example.restaurant_app.modelmanager.parsal.Item;
 import com.example.restaurant_app.modelmanager.parsal.Order;
 import com.example.restaurant_app.modelmanager.parsal.Parsalorder;
+import com.example.restaurant_app.modelmanager.parsal.ProductId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +34,8 @@ public class ViewParsal extends AppCompatActivity {
 
     Parsalorder parsalorder = new Parsalorder();
     List<Order> orders = new ArrayList<>();
+    List<Item> items = new ArrayList<>();
+    ProductId productId = new ProductId();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +82,6 @@ public class ViewParsal extends AppCompatActivity {
         List<Order> orders;
         Context context;
 
-
         public CustomAdepter(ViewParsal viewParsal, List<Order> orders) {
             this.orders = orders;
             this.context = viewParsal;
@@ -117,8 +120,7 @@ public class ViewParsal extends AppCompatActivity {
 //            cardView.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
-//                    Intent intent = new Intent(getApplicationContext(),vieworderlist.class);
-//                    startActivity(intent);
+//                   parsalitem();
 //                }
 //            });
 
@@ -130,5 +132,93 @@ public class ViewParsal extends AppCompatActivity {
             return convertView;
         }
     }
+//    private void parsalitem(){
+//
+//        Retrofit retrofit = RetrofitClient.getInstance();
+//        RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
+//
+//        Call<Parsalorder> listing = retrofitInterface.Showparsal();
+//
+//        listing.enqueue(new Callback<Parsalorder>() {
+//            @Override
+//            public void onResponse(Call<Parsalorder> call, Response<Parsalorder> response) {
+//                if(response.isSuccessful()){
+//
+//                    parsalorder = response.body();
+//                    orders = parsalorder.getOrders();
+//                    items = orders.get(response.code()).getItems();
+//
+//                    CustomAdepter customAdepter = new CustomAdepter(ViewParsal.this,items);
+//                    gridView.setAdapter(customAdepter);
+//
+//                    Toast.makeText(ViewParsal.this, "Succes", Toast.LENGTH_SHORT).show();
+//                }else {
+//                    Toast.makeText(ViewParsal.this, ""+response.code(), Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Parsalorder> call, Throwable t) {
+//                Toast.makeText(ViewParsal.this, "Failure", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
+
+//    class CustomAdepter extends BaseAdapter {
+//
+//        List<Item> items;
+//        Context context;
+//
+//
+//        public CustomAdepter(ViewParsal viewParsal, List<Item> items) {
+//            this.items = items;
+//            this.context = viewParsal;
+//        }
+//
+//        @Override
+//        public int getCount() {
+//            return items.size();
+//        }
+//
+//        @Override
+//        public Object getItem(int position) {
+//            return null;
+//        }
+//
+//        @Override
+//        public long getItemId(int position) {
+//            return 0;
+//        }
+//
+//        @Override
+//        public View getView(int position, View convertView, ViewGroup parent) {
+//
+//            if (convertView == null) {
+//                convertView = LayoutInflater.from(context).inflate(R.layout.parsallayut,parent,false);
+//                LayoutInflater lInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+//                convertView = lInflater.inflate(R.layout.parsallayut, null);
+//            }
+//
+//            TextView tname = convertView.findViewById(R.id.tname);
+//            TextView temail = convertView.findViewById(R.id.temail);
+//            TextView tpayment = convertView.findViewById(R.id.tpaymentmethod);
+//            TextView ttotal = convertView.findViewById(R.id.total);
+//            CardView cardView = convertView.findViewById(R.id.cardview);
+//
+//            cardView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    parsalitem();
+//                }
+//            });
+//
+//            tname.setText(items.get(position).getName());
+//            temail.setText(items.get(position).getEmail());
+//            tpayment.setText(items.get(position).getPaymentMethod());
+//            ttotal.setText(items.get(position).getGrandTotal()+"");
+//
+//            return convertView;
+//        }
+//    }
 
 }

@@ -8,6 +8,12 @@ import java.util.List;
 
 public class OrderId {
 
+    @SerializedName("orderType")
+    @Expose
+    private String orderType;
+    @SerializedName("PaymentStatus")
+    @Expose
+    private String paymentStatus;
     @SerializedName("grandTotal")
     @Expose
     private Integer grandTotal;
@@ -29,6 +35,9 @@ public class OrderId {
     @SerializedName("email")
     @Expose
     private String email;
+    @SerializedName("phone")
+    @Expose
+    private String phone;
     @SerializedName("userId")
     @Expose
     private String userId;
@@ -44,9 +53,22 @@ public class OrderId {
     @SerializedName("__v")
     @Expose
     private Integer v;
-    @SerializedName("OrderReceivedAt")
-    @Expose
-    private String orderReceivedAt;
+
+    public String getOrderType() {
+        return orderType;
+    }
+
+    public void setOrderType(String orderType) {
+        this.orderType = orderType;
+    }
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
 
     public Integer getGrandTotal() {
         return grandTotal;
@@ -104,6 +126,14 @@ public class OrderId {
         this.email = email;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public String getUserId() {
         return userId;
     }
@@ -142,14 +172,6 @@ public class OrderId {
 
     public void setV(Integer v) {
         this.v = v;
-    }
-
-    public String getOrderReceivedAt() {
-        return orderReceivedAt;
-    }
-
-    public void setOrderReceivedAt(String orderReceivedAt) {
-        this.orderReceivedAt = orderReceivedAt;
     }
 
 }
