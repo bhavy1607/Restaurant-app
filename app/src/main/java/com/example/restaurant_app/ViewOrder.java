@@ -120,7 +120,7 @@ public class ViewOrder extends AppCompatActivity {
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(),vieworderlist.class);
+                    Intent intent = new Intent(getApplicationContext(), vieworderItemList.class);
                     startActivity(intent);
                 }
             });

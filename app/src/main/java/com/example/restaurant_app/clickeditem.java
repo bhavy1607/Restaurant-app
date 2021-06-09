@@ -2,12 +2,8 @@ package com.example.restaurant_app;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -15,7 +11,6 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -63,26 +58,26 @@ public class clickeditem extends AppCompatActivity {
 //        });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.itemselected,menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.Available:
-
-               // Toast.makeText(this, "........", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(clickeditem.this, Itemavailable.class);
-                startActivity(intent);
-                break;
-
-        }
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater menuInflater = getMenuInflater();
+//        menuInflater.inflate(R.menu.itemselected,menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        switch (item.getItemId()){
+//            case R.id.Available:
+//
+//               // Toast.makeText(this, "........", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(clickeditem.this, Itemavailable.class);
+//                startActivity(intent);
+//                break;
+//
+//        }
+//        return true;
+//    }
 
     private void clickeddata(){
 

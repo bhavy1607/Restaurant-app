@@ -5,50 +5,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".vieworderlist">
+    tools:context=".vieworderItemList">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:background="@color/Yellow"
+        android:layout_height="50dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnback"
+                android:layout_width="35dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_back"
+                android:textColor="#000000"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View Item"
+                android:textSize="25dp"
+                android:paddingLeft="20dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:textColor="#000000"
+                />
+
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <GridView
         android:id="@+id/gridview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/l1"
+        android:layout_below="@+id/appbar"
 
         />
 
-    <LinearLayout
-        android:id="@+id/l1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_above="@+id/btnoffer"
-        android:gravity="center"
-        android:layout_marginBottom="20dp"
-        android:padding="10dp">
+<!--    <LinearLayout-->
+<!--        android:id="@+id/l1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_above="@+id/btnoffer"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:padding="10dp">-->
 
-        <TextView
-            android:id="@+id/txt"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:text="Discount :"
-            android:textSize="20sp"
-            />
+<!--        <TextView-->
+<!--            android:id="@+id/txt"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginRight="30dp"-->
+<!--            android:text="Discount :"-->
+<!--            android:textSize="20sp"-->
+<!--            />-->
 
-        <EditText
-        android:id="@+id/edittext"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"/>
+<!--        <EditText-->
+<!--        android:id="@+id/edittext"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerHorizontal="true"/>-->
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
 
-    <Button
-        android:id="@+id/btnoffer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:text="offer set"/>
+<!--    <Button-->
+<!--        android:id="@+id/btnoffer"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:text="offer set"/>-->
 
 </RelativeLayout>

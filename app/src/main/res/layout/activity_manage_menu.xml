@@ -31,7 +31,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:paddingLeft="20dp"
-                android:text="View ManageMenu"
+                android:text="View Menu"
                 android:textColor="#000000"
                 android:textSize="25dp" />
 

@@ -11,6 +11,7 @@ import com.example.restaurant_app.modelmanager.cookdetails.Cookdetails;
 import com.example.restaurant_app.modelmanager.createIngrediants.Createingrediants;
 import com.example.restaurant_app.modelmanager.feedback.Avaragerating;
 import com.example.restaurant_app.modelmanager.feedback.Feedbackdetails;
+import com.example.restaurant_app.modelmanager.getOrderItem.OrderItem;
 import com.example.restaurant_app.modelmanager.getingrediants.Getingredients;
 import com.example.restaurant_app.modelmanager.getmenu.Menudetails;
 import com.example.restaurant_app.modelmanager.gettingorder.Orderdetails;
@@ -18,8 +19,8 @@ import com.example.restaurant_app.modelmanager.managecomplain.Getcomplate;
 import com.example.restaurant_app.modelmanager.parsal.Parsalorder;
 import com.example.restaurant_app.modelmanager.replaycomplain.BodyreplayComplain;
 import com.example.restaurant_app.modelmanager.replaycomplain.Replaycomplain;
-import com.example.restaurant_app.modelmanager.setdiscount.Order;
 import com.example.restaurant_app.modelmanager.showCategories.ShowCategories;
+import com.example.restaurant_app.modelmanager.showrevenuemodel.Bodyshowrevenue;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Showrevenue;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Sumrevenue;
 import com.example.restaurant_app.modelmanager.waiterdetails.Waiterdetails;
@@ -131,11 +132,11 @@ public interface RetrofitInterface {
 
     //view showrevenue
     @POST("/revenue/dates")
-    Call<Showrevenue> showRevenue(@Body HashMap<String, String> map);
+    Call<Showrevenue> showRevenue(@Body Bodyshowrevenue bodyshowrevenue);
 
-    //view set discount
-    @PUT("/order/setdiscount/60813fc1bd08352ee06de526")
-    Call<Order> setdiscount(@Body HashMap<String, String> map);
+    //view order item
+    @GET("/order/getorder/{path}")
+    Call<OrderItem> ViewItem(@Path(value = "path") String path);
 
     //booktable
     @GET("/table/tables")

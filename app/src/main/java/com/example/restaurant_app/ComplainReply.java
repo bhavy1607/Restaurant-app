@@ -29,7 +29,6 @@ public class  ComplainReply extends AppCompatActivity {
     Button btnreply;
     String id;
 
-
     Getcomplate getcomplate = new Getcomplate();
     List<Complaint> complaints = new ArrayList<>();
     private int position;

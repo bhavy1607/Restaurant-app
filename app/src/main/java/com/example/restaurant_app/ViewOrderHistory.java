@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,7 +19,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
@@ -37,6 +37,8 @@ public class ViewOrderHistory extends AppCompatActivity {
 
     GridView gridView;
     Toolbar toolbar;
+    public static String id;
+
 
     Orderdetails orderdetails = new Orderdetails();
     List<Order> orders = new ArrayList<>();
@@ -143,14 +145,20 @@ public class ViewOrderHistory extends AppCompatActivity {
             TextView ttotal = convertView.findViewById(R.id.total);
             TextView tname = convertView.findViewById(R.id.tname);
             TextView temail = convertView.findViewById(R.id.temail);
-            TextView tpayment = convertView.findViewById(R.id.tpaymentmethod);
+            TextView tdate = convertView.findViewById(R.id.tpaymentmethod);
+            TextView tstatus = convertView.findViewById(R.id.tstatus);
+            Button btn1 = convertView.findViewById(R.id.btn1);
+            //Button btn2 = convertView.findViewById(R.id.btn2);
            // TextView tid = convertView.findViewById(R.id.tid);
-            CardView cardView = convertView.findViewById(R.id.cardview);
+            // CardView cardView = convertView.findViewById(R.id.cardview);
 
-            cardView.setOnClickListener(new View.OnClickListener() {
+
+            btn1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(),vieworderlist.class);
+                    String get = orders.get(position).getId();
+                    Intent intent = new Intent(ViewOrderHistory.this, vieworderItemList.class);
+                    intent.putExtra("_id",orders.get(position).getId());
                     startActivity(intent);
                 }
             });
@@ -158,7 +166,8 @@ public class ViewOrderHistory extends AppCompatActivity {
             ttotal.setText(orders.get(position).getGrandTotal()+"");
             tname.setText(orders.get(position).getName());
             temail.setText(orders.get(position).getEmail());
-            tpayment.setText(orders.get(position).getPaymentMethod());
+            tdate.setText(orders.get(position).getCreatedAt());
+            tstatus.setText(orders.get(position).getPaymentStatus());
            // tid.setText(orders.get(position).getId());
 
             return convertView;

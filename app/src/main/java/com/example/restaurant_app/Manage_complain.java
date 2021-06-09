@@ -19,6 +19,7 @@ import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
 import com.example.restaurant_app.modelmanager.managecomplain.Complaint;
 import com.example.restaurant_app.modelmanager.managecomplain.Getcomplate;
+import com.example.restaurant_app.modelmanager.managecomplain.OrderId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,8 @@ public class Manage_complain extends AppCompatActivity {
 
     Getcomplate getcomplate = new Getcomplate();
     List<Complaint> complaints = new ArrayList<>();
+    OrderId orderId = new OrderId();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +113,7 @@ public class Manage_complain extends AppCompatActivity {
                 convertView = lInflater.inflate(R.layout.managecomplatelayout, null);
             }
 
-           // TextView tid = convertView.findViewById(R.id.tid);
+            TextView tid = convertView.findViewById(R.id.tid);
             TextView ttitle = convertView.findViewById(R.id.ttitle);
             TextView tmessage = convertView.findViewById(R.id.tmessage);
             Button btnreply = convertView.findViewById(R.id.btnreply);
@@ -125,7 +128,7 @@ public class Manage_complain extends AppCompatActivity {
                 }
             });
 
-            //tid.setText(complaints.get(position).getId());
+            tid.setText(complaints.get(position).getOrderId().getCreatedAt());
             ttitle.setText(complaints.get(position).getTitle());
             tmessage.setText(complaints.get(position).getMessage());
 

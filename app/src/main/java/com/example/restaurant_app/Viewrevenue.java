@@ -1,8 +1,12 @@
 package com.example.restaurant_app;
 
-import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -13,12 +17,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
+import com.example.restaurant_app.modelmanager.showrevenuemodel.Bodyshowrevenue;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Result;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Showrevenue;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Sumrevenue;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
@@ -129,15 +133,17 @@ public class Viewrevenue extends AppCompatActivity {
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        HashMap<String, String> map = new HashMap<>();
+        String startdate = et1.getText().toString();
+        String enddate = et2.getText().toString();
 
-        map.put("startdate", et1.getText().toString());
-        map.put("enddate",et2.getText().toString());
+        Bodyshowrevenue bodyshowrevenue = new Bodyshowrevenue();
+        bodyshowrevenue.setEnddate(enddate);
+        bodyshowrevenue.setStartdate(startdate);
 
-        Call<Showrevenue> call = retrofitInterface.showRevenue(map);
+        Call<Showrevenue> call = retrofitInterface.showRevenue(bodyshowrevenue);
 
         call.enqueue(new Callback<Showrevenue>() {
-            @SuppressLint("SetTextI18n")
+
             @Override
             public void onResponse(Call<Showrevenue> call, Response<Showrevenue> response) {
                 if(response.isSuccessful()){
@@ -145,12 +151,8 @@ public class Viewrevenue extends AppCompatActivity {
                     showrevenue = response.body();
                     results = showrevenue.getResult();
 
-
-                    t2 = (TextView)findViewById(R.id.t2);
-                    t2.setText(results.get(response.code()).getSum()+"");
-
-//                    CustomAdepter customAdepter = new CustomAdepter(Viewrevenue.this,results);
-//                    gridView.setAdapter(customAdepter);
+                    CustomAdepter customAdepter = new CustomAdepter(Viewrevenue.this,results);
+                    gridView.setAdapter(customAdepter);
 
                     Toast.makeText(Viewrevenue.this, "Succes", Toast.LENGTH_SHORT).show();
                 }else {
@@ -165,46 +167,48 @@ public class Viewrevenue extends AppCompatActivity {
         });
     }
 
-//    class CustomAdepter extends BaseAdapter {
-//
-//        List<Result> results;
-//        Context context;
-//
-//
-//        public CustomAdepter(Viewrevenue viewrevenue, List<Result> results) {
-//            this.results = results;
-//            this.context = viewrevenue;
-//        }
-//
-//        @Override
-//        public int getCount() {
-//            return results.size();
-//        }
-//
-//        @Override
-//        public Object getItem(int position) {
-//            return null;
-//        }
-//
-//        @Override
-//        public long getItemId(int position) {
-//            return 0;
-//        }
-//
-//        @Override
-//        public View getView(int position, View convertView, ViewGroup parent) {
-//
-//            if (convertView == null) {
-//                convertView = LayoutInflater.from(context).inflate(R.layout.showrevenuelayout,parent,false);
-//                LayoutInflater lInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-//                convertView = lInflater.inflate(R.layout.showrevenuelayout, null);
-//            }
-//
-//            TextView t1 = convertView.findViewById(R.id.textview);
-//            t1.setText(results.get(position).getSum()+"");
-//
-//
-//            return convertView;
-//        }
-//    }
+    class CustomAdepter extends BaseAdapter {
+
+        List<Result> results;
+        Context context;
+
+
+
+
+        public CustomAdepter(Viewrevenue viewrevenue, List<Result> results) {
+            this.results = results;
+            this.context = viewrevenue;
+        }
+
+        @Override
+        public int getCount() {
+            return results.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            if (convertView == null) {
+                convertView = LayoutInflater.from(context).inflate(R.layout.showrevenuelayout,parent,false);
+                LayoutInflater lInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+                convertView = lInflater.inflate(R.layout.showrevenuelayout, null);
+            }
+
+            TextView t1 = convertView.findViewById(R.id.textview);
+            t1.setText(results.get(position).getSum()+"");
+
+
+            return convertView;
+        }
+    }
 }

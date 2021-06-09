@@ -26,7 +26,7 @@
         <activity android:name=".AdminManagerdetails" />
         <activity android:name=".Adminbooktable" />
         <activity android:name=".Adminshowrevenue" />
-        <activity android:name=".vieworderlist" />
+        <activity android:name=".vieworderItemList" />
         <activity android:name=".Book_table" />
         <activity android:name=".ComplainReply" />
         <activity android:name=".Manage_complain" />
