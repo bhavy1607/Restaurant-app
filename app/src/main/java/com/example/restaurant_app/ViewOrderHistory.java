@@ -48,7 +48,6 @@ public class ViewOrderHistory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_order_history);
 
-
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -75,16 +74,44 @@ public class ViewOrderHistory extends AppCompatActivity {
         return true;
     }
 
-
+//    private void listingdata(){
+//
+//        Retrofit retrofit = RetrofitClient.getInstance();
+//        RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
+//
+//        Call<Orderdetails> listing = retrofitInterface.Getorder();
+//
+//        listing.enqueue(new Callback<Orderdetails>() {
+//            @Override
+//            public void onResponse(Call<Orderdetails> call, Response<Orderdetails> response) {
+//                if(response.isSuccessful()){
+//
+//                    orderdetails = response.body();
+//                    orders = orderdetails.getOrders();
+//
+//                    CustomAdepter customAdepter = new CustomAdepter(orders,ViewOrderHistory.this);
+//                    gridView.setAdapter(customAdepter);
+//
+//                    Toast.makeText(ViewOrderHistory.this, "Succes", Toast.LENGTH_SHORT).show();
+//                }else {
+//                    Toast.makeText(ViewOrderHistory.this, ""+response.code(), Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Orderdetails> call, Throwable t) {
+//                Toast.makeText(ViewOrderHistory.this, "Failure", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
 
     private void listingdata(){
-
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        Call<Orderdetails> listing = retrofitInterface.Getorder();
+        Call<Orderdetails> call = retrofitInterface.Getorder();
 
-        listing.enqueue(new Callback<Orderdetails>() {
+        call.enqueue(new Callback<Orderdetails>() {
             @Override
             public void onResponse(Call<Orderdetails> call, Response<Orderdetails> response) {
                 if(response.isSuccessful()){
@@ -92,20 +119,21 @@ public class ViewOrderHistory extends AppCompatActivity {
                     orderdetails = response.body();
                     orders = orderdetails.getOrders();
 
-                    CustomAdepter customAdepter = new CustomAdepter(orders,ViewOrderHistory.this);
+                    CustomAdepter customAdepter = new CustomAdepter(ViewOrderHistory.this,orders);
                     gridView.setAdapter(customAdepter);
 
                     Toast.makeText(ViewOrderHistory.this, "Succes", Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(ViewOrderHistory.this, ""+response.code(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ViewOrderHistory.this, +response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Orderdetails> call, Throwable t) {
-                Toast.makeText(ViewOrderHistory.this, "Failure", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(ViewOrderHistory.this, "Failure", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
     class CustomAdepter extends BaseAdapter {
 
@@ -113,7 +141,8 @@ public class ViewOrderHistory extends AppCompatActivity {
         Context context;
 
 
-        public CustomAdepter(List<Order> orders, ViewOrderHistory viewOrderHistory) {
+
+        public CustomAdepter(ViewOrderHistory viewOrderHistory, List<Order> orders) {
             this.orders = orders;
             this.context = viewOrderHistory;
         }
@@ -148,10 +177,6 @@ public class ViewOrderHistory extends AppCompatActivity {
             TextView tdate = convertView.findViewById(R.id.tpaymentmethod);
             TextView tstatus = convertView.findViewById(R.id.tstatus);
             Button btn1 = convertView.findViewById(R.id.btn1);
-            //Button btn2 = convertView.findViewById(R.id.btn2);
-           // TextView tid = convertView.findViewById(R.id.tid);
-            // CardView cardView = convertView.findViewById(R.id.cardview);
-
 
             btn1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -168,7 +193,6 @@ public class ViewOrderHistory extends AppCompatActivity {
             temail.setText(orders.get(position).getEmail());
             tdate.setText(orders.get(position).getCreatedAt());
             tstatus.setText(orders.get(position).getPaymentStatus());
-           // tid.setText(orders.get(position).getId());
 
             return convertView;
         }

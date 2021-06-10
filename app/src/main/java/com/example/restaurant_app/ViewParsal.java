@@ -2,11 +2,13 @@ package com.example.restaurant_app;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,10 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
-import com.example.restaurant_app.modelmanager.parsal.Item;
 import com.example.restaurant_app.modelmanager.parsal.Order;
 import com.example.restaurant_app.modelmanager.parsal.Parsalorder;
-import com.example.restaurant_app.modelmanager.parsal.ProductId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,11 +31,10 @@ import retrofit2.Retrofit;
 public class ViewParsal extends AppCompatActivity {
 
     GridView gridView;
+    public static String id;
 
     Parsalorder parsalorder = new Parsalorder();
     List<Order> orders = new ArrayList<>();
-    List<Item> items = new ArrayList<>();
-    ProductId productId = new ProductId();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,14 +114,17 @@ public class ViewParsal extends AppCompatActivity {
             TextView temail = convertView.findViewById(R.id.temail);
             TextView tpayment = convertView.findViewById(R.id.tpaymentmethod);
             TextView ttotal = convertView.findViewById(R.id.total);
-//            CardView cardView = convertView.findViewById(R.id.cardview);
-//
-//            cardView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                   parsalitem();
-//                }
-//            });
+            Button btn = convertView.findViewById(R.id.btn);
+
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String get = orders.get(position).getId();
+                    Intent intent = new Intent(ViewParsal.this, ParsalItem.class);
+                    intent.putExtra("_id",orders.get(position).getId());
+                    startActivity(intent);
+                }
+            });
 
             tname.setText(orders.get(position).getName());
             temail.setText(orders.get(position).getEmail());

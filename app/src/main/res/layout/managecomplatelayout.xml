@@ -85,14 +85,31 @@
     </androidx.cardview.widget.CardView>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
     <Button
         android:id="@+id/btnreply"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reply "
         android:layout_below="@+id/linear"
-        android:layout_marginLeft="300dp"
-
+        android:layout_marginLeft="200dp"
         />
 
+        <Button
+            android:id="@+id/btnsetdiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set Discount "
+            android:layout_below="@+id/linear"
+
+            />
+
+    </LinearLayout>
 </RelativeLayout>

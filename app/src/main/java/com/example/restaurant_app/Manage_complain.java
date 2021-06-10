@@ -19,7 +19,6 @@ import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
 import com.example.restaurant_app.modelmanager.managecomplain.Complaint;
 import com.example.restaurant_app.modelmanager.managecomplain.Getcomplate;
-import com.example.restaurant_app.modelmanager.managecomplain.OrderId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +36,6 @@ public class Manage_complain extends AppCompatActivity {
 
     Getcomplate getcomplate = new Getcomplate();
     List<Complaint> complaints = new ArrayList<>();
-    OrderId orderId = new OrderId();
 
 
     @Override
@@ -117,6 +115,17 @@ public class Manage_complain extends AppCompatActivity {
             TextView ttitle = convertView.findViewById(R.id.ttitle);
             TextView tmessage = convertView.findViewById(R.id.tmessage);
             Button btnreply = convertView.findViewById(R.id.btnreply);
+            Button btnsetdiscount = convertView.findViewById(R.id.btnsetdiscount);
+
+            btnsetdiscount.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String get = complaints.get(position).getId();
+                    Intent intent = new Intent(Manage_complain.this,SetDiscount.class);
+                    intent.putExtra("_id",complaints.get(position).getOrderId().getId());
+                    startActivity(intent);
+                }
+            });
 
             btnreply.setOnClickListener(new View.OnClickListener() {
                 @Override

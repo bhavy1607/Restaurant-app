@@ -40,8 +40,6 @@ public class Viewrevenue extends AppCompatActivity {
     Sumrevenue sumrevenue;
     Showrevenue showrevenue = new Showrevenue();
     List<Result> results = new ArrayList<>();
-    //List<Result> results = new List<Result>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -171,8 +169,6 @@ public class Viewrevenue extends AppCompatActivity {
 
         List<Result> results;
         Context context;
-
-
 
 
         public CustomAdepter(Viewrevenue viewrevenue, List<Result> results) {

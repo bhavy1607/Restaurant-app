@@ -4,23 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewParsal">
-
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/toolbar"
-        android:background="@color/Yellow"
-        app:title="VIEW PARSAL"
-        app:titleMarginStart="40dp"
-        />
+    tools:context=".TableWiseOrder">
 
     <GridView
-        android:layout_below="@+id/toolbar"
         android:id="@+id/gridview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
+        android:layout_height="wrap_content"
+        />
 
 
 </RelativeLayout>

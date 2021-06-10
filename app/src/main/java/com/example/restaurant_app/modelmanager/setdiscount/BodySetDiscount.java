@@ -1,9 +1,10 @@
+
 package com.example.restaurant_app.modelmanager.setdiscount;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Bodysetdiscount {
+public class BodySetDiscount {
 
     @SerializedName("discount")
     @Expose

@@ -8,6 +8,12 @@ import java.util.List;
 
 public class Order {
 
+    @SerializedName("orderType")
+    @Expose
+    private String orderType;
+    @SerializedName("PaymentStatus")
+    @Expose
+    private String paymentStatus;
     @SerializedName("grandTotal")
     @Expose
     private Integer grandTotal;
@@ -53,12 +59,25 @@ public class Order {
     @SerializedName("OrderServedAt")
     @Expose
     private String orderServedAt;
-    @SerializedName("orderType")
+    @SerializedName("table")
     @Expose
-    private String orderType;
-    @SerializedName("PaymentStatus")
-    @Expose
-    private String paymentStatus;
+    private String table;
+
+    public String getOrderType() {
+        return orderType;
+    }
+
+    public void setOrderType(String orderType) {
+        this.orderType = orderType;
+    }
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
 
     public Integer getGrandTotal() {
         return grandTotal;
@@ -180,20 +199,12 @@ public class Order {
         this.orderServedAt = orderServedAt;
     }
 
-    public String getOrderType() {
-        return orderType;
+    public String getTable() {
+        return table;
     }
 
-    public void setOrderType(String orderType) {
-        this.orderType = orderType;
-    }
-
-    public String getPaymentStatus() {
-        return paymentStatus;
-    }
-
-    public void setPaymentStatus(String paymentStatus) {
-        this.paymentStatus = paymentStatus;
+    public void setTable(String table) {
+        this.table = table;
     }
 
 }

@@ -8,9 +8,15 @@ import java.util.List;
 
 public class Order {
 
+    @SerializedName("orderType")
+    @Expose
+    private String orderType;
+    @SerializedName("PaymentStatus")
+    @Expose
+    private String paymentStatus;
     @SerializedName("grandTotal")
     @Expose
-    private Integer grandTotal;
+    private Double grandTotal;
     @SerializedName("paymentMethod")
     @Expose
     private String paymentMethod;
@@ -29,6 +35,9 @@ public class Order {
     @SerializedName("email")
     @Expose
     private String email;
+    @SerializedName("phone")
+    @Expose
+    private String phone;
     @SerializedName("userId")
     @Expose
     private String userId;
@@ -44,18 +53,28 @@ public class Order {
     @SerializedName("__v")
     @Expose
     private Integer v;
-    @SerializedName("OrderReceivedAt")
-    @Expose
-    private String orderReceivedAt;
-    @SerializedName("OrderDoneAt")
-    @Expose
-    private String orderDoneAt;
 
-    public Integer getGrandTotal() {
+    public String getOrderType() {
+        return orderType;
+    }
+
+    public void setOrderType(String orderType) {
+        this.orderType = orderType;
+    }
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+
+    public Double getGrandTotal() {
         return grandTotal;
     }
 
-    public void setGrandTotal(Integer grandTotal) {
+    public void setGrandTotal(Double grandTotal) {
         this.grandTotal = grandTotal;
     }
 
@@ -107,6 +126,14 @@ public class Order {
         this.email = email;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public String getUserId() {
         return userId;
     }
@@ -145,22 +172,6 @@ public class Order {
 
     public void setV(Integer v) {
         this.v = v;
-    }
-
-    public String getOrderReceivedAt() {
-        return orderReceivedAt;
-    }
-
-    public void setOrderReceivedAt(String orderReceivedAt) {
-        this.orderReceivedAt = orderReceivedAt;
-    }
-
-    public String getOrderDoneAt() {
-        return orderDoneAt;
-    }
-
-    public void setOrderDoneAt(String orderDoneAt) {
-        this.orderDoneAt = orderDoneAt;
     }
 
 }

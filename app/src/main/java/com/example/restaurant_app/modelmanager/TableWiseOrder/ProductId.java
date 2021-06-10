@@ -1,5 +1,5 @@
 
-package com.example.restaurant_app.modelmanager.gettingorder;
+package com.example.restaurant_app.modelmanager.TableWiseOrder;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

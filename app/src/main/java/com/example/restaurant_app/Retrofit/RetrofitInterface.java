@@ -6,6 +6,7 @@ import com.example.restaurant_app.Menu;
 import com.example.restaurant_app.modeladmin.Getmanager;
 import com.example.restaurant_app.modeladmin.Staffdetails;
 import com.example.restaurant_app.modelmanager.Availableitem.Availableitem;
+import com.example.restaurant_app.modelmanager.TableWiseOrder.Tablewiseorder;
 import com.example.restaurant_app.modelmanager.booktable.BookTable;
 import com.example.restaurant_app.modelmanager.cookdetails.Cookdetails;
 import com.example.restaurant_app.modelmanager.createIngrediants.Createingrediants;
@@ -19,6 +20,8 @@ import com.example.restaurant_app.modelmanager.managecomplain.Getcomplate;
 import com.example.restaurant_app.modelmanager.parsal.Parsalorder;
 import com.example.restaurant_app.modelmanager.replaycomplain.BodyreplayComplain;
 import com.example.restaurant_app.modelmanager.replaycomplain.Replaycomplain;
+import com.example.restaurant_app.modelmanager.setdiscount.BodySetDiscount;
+import com.example.restaurant_app.modelmanager.setdiscount.Setdiscount;
 import com.example.restaurant_app.modelmanager.showCategories.ShowCategories;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Bodyshowrevenue;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Showrevenue;
@@ -142,6 +145,10 @@ public interface RetrofitInterface {
     @GET("/table/tables")
     Call<BookTable> showtable();
 
+    //View TableWiseOrder
+    @GET("/table/orderlist/{path1}")
+    Call<Tablewiseorder> TableOrder(@Path(value = "path1") String path);
+
     //show Categories
     @GET("/category/categories")
     Call<ShowCategories> showCategories();
@@ -150,8 +157,17 @@ public interface RetrofitInterface {
     @GET("/order/parcelorders")
     Call<Parsalorder> Showparsal();
 
+    //parsal item
+    @GET("/order/getorder/{path}")
+    Call<OrderItem> parsalitem(@Path(value = "path") String path);
+
     //replay complain
     @POST("/reply/reply/{path1}")
     Call<Replaycomplain> GetReplay(@Path(value = "path1") String path,
                                    @Body BodyreplayComplain bodyreplayComplain);
+
+    //set Discount
+    @PUT("/order/setdiscount/{path1}")
+    Call<Setdiscount> SetDiscount(@Path(value = "path1") String path,
+                                  @Body BodySetDiscount bodysetdiscount);
 }

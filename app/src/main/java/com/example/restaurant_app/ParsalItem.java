@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
+import com.example.restaurant_app.modelmanager.getOrderItem.Order;
 import com.example.restaurant_app.modelmanager.getOrderItem.OrderItem;
 import com.squareup.picasso.Picasso;
 
@@ -27,34 +28,32 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class vieworderItemList extends AppCompatActivity {
+public class ParsalItem extends AppCompatActivity {
 
-    GridView gridView;
     String id;
+    GridView gridView;
 
     OrderItem orderItem = new OrderItem();
     List<com.example.restaurant_app.modelmanager.getOrderItem.Order> orders = new ArrayList<>();
 
-    private int position;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vieworderlist);
+        setContentView(R.layout.activity_parsal_item);
 
         id = getIntent().getStringExtra("_id");
         gridView = (GridView)findViewById(R.id.gridview);
 
-        ViewItemList();
+        parsalitem();
     }
 
-    private void ViewItemList(){
+    private void parsalitem(){
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        Call<OrderItem> call = retrofitInterface.ViewItem(id);
+        Call<OrderItem> listing = retrofitInterface.parsalitem(id);
 
-        call.enqueue(new Callback<OrderItem>() {
+        listing.enqueue(new Callback<OrderItem>() {
             @Override
             public void onResponse(Call<OrderItem> call, Response<OrderItem> response) {
                 if(response.isSuccessful()){
@@ -62,19 +61,19 @@ public class vieworderItemList extends AppCompatActivity {
                     orderItem = response.body();
                     orders = orderItem.getOrder();
 
-                    CustomAdepter customAdepter = new CustomAdepter(vieworderItemList.this,orders);
+                    CustomAdepter customAdepter = new CustomAdepter(ParsalItem.this,orders);
                     gridView.setAdapter(customAdepter);
 
-                    Toast.makeText(vieworderItemList.this, "Succes", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(vieworderItemList.this, +response.code(), Toast.LENGTH_SHORT).show();
 
+                    Toast.makeText(ParsalItem.this, "Succes", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(ParsalItem.this, ""+response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<OrderItem> call, Throwable t) {
-                Toast.makeText(vieworderItemList.this, "Failure", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ParsalItem.this, "Failure", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -85,9 +84,9 @@ public class vieworderItemList extends AppCompatActivity {
         Context context;
 
 
-        public CustomAdepter(vieworderItemList vieworderItemList, List<com.example.restaurant_app.modelmanager.getOrderItem.Order> orders) {
+        public CustomAdepter(ParsalItem parsalItem, List<Order> orders) {
             this.orders = orders;
-            this.context = vieworderItemList;
+            this.context = parsalItem;
         }
 
         @Override
@@ -125,7 +124,7 @@ public class vieworderItemList extends AppCompatActivity {
             tdic.setText(orders.get(position).getItems().get(position).getProductId().getDescription());
             tdate.setText(orders.get(position).getItems().get(position).getProductId().getCreatedAt());
 
-            Picasso.with(vieworderItemList.this).load(orders.get(position).getItems().get(position).getProductId().getImageUrl()).into(imageView);
+            Picasso.with(ParsalItem.this).load(orders.get(position).getItems().get(position).getProductId().getImageUrl()).into(imageView);
 
             return convertView;
         }

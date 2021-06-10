@@ -4,7 +4,6 @@ package com.example.restaurant_app.modelmanager.showrevenuemodel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-
 public class Result {
 
     @SerializedName("_id")
@@ -12,7 +11,7 @@ public class Result {
     private Integer id;
     @SerializedName("SUM")
     @Expose
-    private Integer sum;
+    private Double sum;
     @SerializedName("COUNT")
     @Expose
     private Integer count;
@@ -25,11 +24,11 @@ public class Result {
         this.id = id;
     }
 
-    public Integer getSum() {
+    public Double getSum() {
         return sum;
     }
 
-    public void setSum(Integer sum) {
+    public void setSum(Double sum) {
         this.sum = sum;
     }
 

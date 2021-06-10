@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,8 @@ public class Book_table extends AppCompatActivity {
 
     GridView gridView;
     Toolbar toolbar;
+    public static String id;
+
 
 
     BookTable bookTable = new BookTable();
@@ -65,7 +68,7 @@ public class Book_table extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.parsal:
-                Intent intent = new Intent(Book_table.this, AdminViewParsal.class);
+                Intent intent = new Intent(Book_table.this, ViewParsal.class);
                 startActivity(intent);
                 break;
         }
@@ -137,17 +140,24 @@ public class Book_table extends AppCompatActivity {
                 view = lInflater.inflate(R.layout.booktablelayout, null);
             }
 
-           // TextView tid = view.findViewById(R.id.tid);
            TextView ttable = view.findViewById(R.id.ttable);
             TextView tsize = view.findViewById(R.id.tsize);
             TextView tstatus = view.findViewById(R.id.tstatus);
-           // TextView twaiting = view.findViewById(R.id.twaiting);
+            Button btn = view.findViewById(R.id.btn);
 
-           // tid.setText(tables.get(i).getId());
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String get = tables.get(i).getId();
+                    Intent intent = new Intent(Book_table.this, TableWiseOrder.class);
+                    intent.putExtra("_id",tables.get(i).getId());
+                    startActivity(intent);
+                }
+            });
+
             ttable.setText(tables.get(i).getTable().toString());
             tsize.setText(tables.get(i).getSize().toString());
             tstatus.setText(tables.get(i).getStatus());
-          //  twaiting.setText(tables.get(i).getWaiting());
 
 
             return view;

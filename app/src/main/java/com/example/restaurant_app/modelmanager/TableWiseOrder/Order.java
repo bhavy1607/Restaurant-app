@@ -1,12 +1,12 @@
 
-package com.example.restaurant_app.modelmanager.managecomplain;
+package com.example.restaurant_app.modelmanager.TableWiseOrder;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class OrderId {
+public class Order {
 
     @SerializedName("orderType")
     @Expose
@@ -16,7 +16,7 @@ public class OrderId {
     private String paymentStatus;
     @SerializedName("grandTotal")
     @Expose
-    private Double grandTotal;
+    private Integer grandTotal;
     @SerializedName("paymentMethod")
     @Expose
     private String paymentMethod;
@@ -25,7 +25,7 @@ public class OrderId {
     private String orderIs;
     @SerializedName("complaints")
     @Expose
-    private List<String> complaints = null;
+    private List<Object> complaints = null;
     @SerializedName("_id")
     @Expose
     private String id;
@@ -70,11 +70,11 @@ public class OrderId {
         this.paymentStatus = paymentStatus;
     }
 
-    public Double getGrandTotal() {
+    public Integer getGrandTotal() {
         return grandTotal;
     }
 
-    public void setGrandTotal(Double grandTotal) {
+    public void setGrandTotal(Integer grandTotal) {
         this.grandTotal = grandTotal;
     }
 
@@ -94,11 +94,11 @@ public class OrderId {
         this.orderIs = orderIs;
     }
 
-    public List<String> getComplaints() {
+    public List<Object> getComplaints() {
         return complaints;
     }
 
-    public void setComplaints(List<String> complaints) {
+    public void setComplaints(List<Object> complaints) {
         this.complaints = complaints;
     }
 

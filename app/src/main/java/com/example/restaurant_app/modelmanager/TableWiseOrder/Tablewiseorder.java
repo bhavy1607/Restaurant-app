@@ -1,19 +1,17 @@
 
-package com.example.restaurant_app.modelmanager.setdiscount;
+package com.example.restaurant_app.modelmanager.TableWiseOrder;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
-public class Setdiscount {
+public class Tablewiseorder {
 
     @SerializedName("message")
     @Expose
     private String message;
-    @SerializedName("order")
+    @SerializedName("list")
     @Expose
-    private List<Order> order = null;
+    private List list;
 
     public String getMessage() {
         return message;
@@ -23,12 +21,12 @@ public class Setdiscount {
         this.message = message;
     }
 
-    public List<Order> getOrder() {
-        return order;
+    public List getList() {
+        return list;
     }
 
-    public void setOrder(List<Order> order) {
-        this.order = order;
+    public void setList(List list) {
+        this.list = list;
     }
 
 }
