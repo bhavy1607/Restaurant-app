@@ -15,7 +15,8 @@
         android:theme="@style/Theme.Restaurant_App"
         android:usesCleartextTraffic="true"
         tools:ignore="UnusedAttribute">
-        <activity android:name=".TableWiseOrder"></activity>
+        <activity android:name=".TableWiseItemList"></activity>
+        <activity android:name=".TableWiseOrder" />
         <activity android:name=".ParsalItem" />
         <activity android:name=".SetDiscount" />
         <activity android:name=".AdminViewParsal" />
@@ -147,9 +148,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".waiter_ready_to_serve"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ViewOrder"
             android:screenOrientation="portrait" />
         <activity
             android:name=".RatingAvarage"

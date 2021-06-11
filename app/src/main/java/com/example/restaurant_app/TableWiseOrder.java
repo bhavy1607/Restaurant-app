@@ -2,11 +2,13 @@ package com.example.restaurant_app;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -115,6 +117,16 @@ public class TableWiseOrder extends AppCompatActivity {
             TextView temail = view.findViewById(R.id.temail);
             TextView tdate = view.findViewById(R.id.tpaymentmethod);
             TextView tstatus = view.findViewById(R.id.tstatus);
+            Button btn = view.findViewById(R.id.btn1);
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String get = orders.get(i).getId();
+                    Intent intent = new Intent(TableWiseOrder.this, TableWiseItemList.class);
+                    intent.putExtra("_id",orders.get(i).getId());
+                    startActivity(intent);
+                }
+            });
 
             ttotal.setText(orders.get(i).getGrandTotal()+"");
             tname.setText(orders.get(i).getName());

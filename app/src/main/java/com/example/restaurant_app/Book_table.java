@@ -39,8 +39,6 @@ public class Book_table extends AppCompatActivity {
     Toolbar toolbar;
     public static String id;
 
-
-
     BookTable bookTable = new BookTable();
     List<Table> tables = new ArrayList<>();
 
@@ -87,8 +85,7 @@ public class Book_table extends AppCompatActivity {
                 if(response.isSuccessful()){
 
                     bookTable = response.body();
-                        tables = bookTable.getTables();
-
+                    tables = bookTable.getTables();
 
                     CustomAdepter customAdepter = new CustomAdepter(Book_table.this,tables);
                     gridView.setAdapter(customAdepter);
@@ -158,7 +155,6 @@ public class Book_table extends AppCompatActivity {
             ttable.setText(tables.get(i).getTable().toString());
             tsize.setText(tables.get(i).getSize().toString());
             tstatus.setText(tables.get(i).getStatus());
-
 
             return view;
         }

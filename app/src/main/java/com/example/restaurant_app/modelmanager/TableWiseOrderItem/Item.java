@@ -1,5 +1,5 @@
 
-package com.example.restaurant_app.modelmanager.gettingorder;
+package com.example.restaurant_app.modelmanager.TableWiseOrderItem;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -17,37 +17,31 @@ public class Item {
     private String id;
     @SerializedName("notes")
     @Expose
-    private Object notes;
+    private String notes;
     @SerializedName("product_id")
     @Expose
     private ProductId productId;
+    @SerializedName("ingredientId")
+    @Expose
+    private IngredientId ingredientId;
+    @SerializedName("ingredientPrice")
+    @Expose
+    private Integer ingredientPrice;
     @SerializedName("qty")
     @Expose
     private Integer qty;
+    @SerializedName("categoryId")
+    @Expose
+    private CategoryId categoryId;
     @SerializedName("priority")
     @Expose
     private Integer priority;
-    @SerializedName("categoryId")
-    @Expose
-    private String categoryId;
     @SerializedName("productPrice")
     @Expose
     private Integer productPrice;
     @SerializedName("total")
     @Expose
     private Integer total;
-    @SerializedName("itemAcceptedAt")
-    @Expose
-    private String itemAcceptedAt;
-    @SerializedName("itemDoneAt")
-    @Expose
-    private String itemDoneAt;
-    @SerializedName("ingredientId")
-    @Expose
-    private String ingredientId;
-    @SerializedName("ingredientPrice")
-    @Expose
-    private Integer ingredientPrice;
 
     public String getProgress() {
         return progress;
@@ -73,11 +67,11 @@ public class Item {
         this.id = id;
     }
 
-    public Object getNotes() {
+    public String getNotes() {
         return notes;
     }
 
-    public void setNotes(Object notes) {
+    public void setNotes(String notes) {
         this.notes = notes;
     }
 
@@ -89,6 +83,22 @@ public class Item {
         this.productId = productId;
     }
 
+    public IngredientId getIngredientId() {
+        return ingredientId;
+    }
+
+    public void setIngredientId(IngredientId ingredientId) {
+        this.ingredientId = ingredientId;
+    }
+
+    public Integer getIngredientPrice() {
+        return ingredientPrice;
+    }
+
+    public void setIngredientPrice(Integer ingredientPrice) {
+        this.ingredientPrice = ingredientPrice;
+    }
+
     public Integer getQty() {
         return qty;
     }
@@ -97,20 +107,20 @@ public class Item {
         this.qty = qty;
     }
 
+    public CategoryId getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(CategoryId categoryId) {
+        this.categoryId = categoryId;
+    }
+
     public Integer getPriority() {
         return priority;
     }
 
     public void setPriority(Integer priority) {
         this.priority = priority;
-    }
-
-    public String getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(String categoryId) {
-        this.categoryId = categoryId;
     }
 
     public Integer getProductPrice() {
@@ -127,38 +137,6 @@ public class Item {
 
     public void setTotal(Integer total) {
         this.total = total;
-    }
-
-    public String getItemAcceptedAt() {
-        return itemAcceptedAt;
-    }
-
-    public void setItemAcceptedAt(String itemAcceptedAt) {
-        this.itemAcceptedAt = itemAcceptedAt;
-    }
-
-    public String getItemDoneAt() {
-        return itemDoneAt;
-    }
-
-    public void setItemDoneAt(String itemDoneAt) {
-        this.itemDoneAt = itemDoneAt;
-    }
-
-    public String getIngredientId() {
-        return ingredientId;
-    }
-
-    public void setIngredientId(String ingredientId) {
-        this.ingredientId = ingredientId;
-    }
-
-    public Integer getIngredientPrice() {
-        return ingredientPrice;
-    }
-
-    public void setIngredientPrice(Integer ingredientPrice) {
-        this.ingredientPrice = ingredientPrice;
     }
 
 }

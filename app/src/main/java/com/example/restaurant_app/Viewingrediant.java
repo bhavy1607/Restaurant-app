@@ -23,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
+import com.example.restaurant_app.modelmanager.createIngrediants.Body;
 import com.example.restaurant_app.modelmanager.createIngrediants.Createingrediants;
 import com.example.restaurant_app.modelmanager.getingrediants.Getingredients;
 import com.example.restaurant_app.modelmanager.getingrediants.Ingredient;
@@ -31,7 +32,6 @@ import com.squareup.picasso.Picasso;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
@@ -191,22 +191,23 @@ public class Viewingrediant extends AppCompatActivity {
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        HashMap<String, String> map = new HashMap<>();
+        String ingrediantname = et1.getText().toString();
+        String price = et3.getText().toString()+"";
+        String description = et4.getText().toString();
+        String image = imageView.toString();
 
-        map.put("IngredientName", et1.getText().toString());
-        map.put("price", et3.getText().toString()+"");
-        map.put("description", et4.getText().toString());
-        map.put("imageUrl", imageView.getDrawable().toString());
+        Body body = new Body();
+        body.setImageUrl(image);
+        body.setDescription(description);
+        body.setIngredientName(ingrediantname);
+        body.setPrice(price.length());
 
-        Call<Createingrediants> call = retrofitInterface.AddIngrediants(map);
+        Call<Createingrediants> call = retrofitInterface.AddIngrediants(body);
 
         call.enqueue(new Callback<Createingrediants>() {
             @Override
             public void onResponse(Call<Createingrediants> call, Response<Createingrediants> response) {
                 if(response.isSuccessful()){
-
-                    createingrediants = response.body();
-                    ingredient = createingrediants.getIngredient();
 
 
 

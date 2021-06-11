@@ -7,6 +7,7 @@ import com.example.restaurant_app.modeladmin.Getmanager;
 import com.example.restaurant_app.modeladmin.Staffdetails;
 import com.example.restaurant_app.modelmanager.Availableitem.Availableitem;
 import com.example.restaurant_app.modelmanager.TableWiseOrder.Tablewiseorder;
+import com.example.restaurant_app.modelmanager.TableWiseOrderItem.TablewiseorderItem;
 import com.example.restaurant_app.modelmanager.booktable.BookTable;
 import com.example.restaurant_app.modelmanager.cookdetails.Cookdetails;
 import com.example.restaurant_app.modelmanager.createIngrediants.Createingrediants;
@@ -127,7 +128,7 @@ public interface RetrofitInterface {
 
     //Get Ingrediants
     @POST("/ingredient/addIngredient")
-    Call<Createingrediants> AddIngrediants(@Body HashMap<String, String> map);
+    Call<Createingrediants> AddIngrediants(@Body com.example.restaurant_app.modelmanager.createIngrediants.Body body);
 
     //view totalrevenue
     @GET("/revenue/sum")
@@ -148,6 +149,10 @@ public interface RetrofitInterface {
     //View TableWiseOrder
     @GET("/table/orderlist/{path1}")
     Call<Tablewiseorder> TableOrder(@Path(value = "path1") String path);
+
+    //View TableWiseItem
+    @GET("/order/getorder/{path1}")
+    Call<TablewiseorderItem> tableitem(@Path(value = "path1") String path);
 
     //show Categories
     @GET("/category/categories")
@@ -170,4 +175,6 @@ public interface RetrofitInterface {
     @PUT("/order/setdiscount/{path1}")
     Call<Setdiscount> SetDiscount(@Path(value = "path1") String path,
                                   @Body BodySetDiscount bodysetdiscount);
+
+
 }

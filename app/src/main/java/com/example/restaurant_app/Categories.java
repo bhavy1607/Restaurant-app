@@ -57,7 +57,7 @@ public class Categories extends AppCompatActivity {
         et1 = (EditText)findViewById(R.id.et1);
         btnshowimage = (Button) findViewById(R.id.btnshowimage);
         imageView = (ImageView)findViewById(R.id.imageview);
-        button = (Button) findViewById(R.id.btn);
+        button = (Button) findViewById(R.id.btnadd);
         gridView = (GridView)findViewById(R.id.gridview);
 
 
@@ -170,4 +170,6 @@ public class Categories extends AppCompatActivity {
             return convertView;
         }
     }
+
+
 }

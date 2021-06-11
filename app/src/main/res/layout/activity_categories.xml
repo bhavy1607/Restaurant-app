@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:background="@color/Yellow"
         android:layout_height="50dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -92,11 +93,10 @@
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"/>
 
-
     </LinearLayout>
     
     <Button
-        android:id="@+id/btn"
+        android:id="@+id/btnadd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linear"
@@ -108,7 +108,7 @@
         android:id="@+id/t2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btn"
+        android:layout_below="@id/btnadd"
         android:layout_marginTop="20dp"
         android:text="  Categories :"
         android:textSize="25sp"/>
