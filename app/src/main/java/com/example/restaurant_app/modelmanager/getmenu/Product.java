@@ -34,7 +34,7 @@ public class Product {
     private Integer originalPrice;
     @SerializedName("offerPrice")
     @Expose
-    private Integer offerPrice;
+    private Double offerPrice;
     @SerializedName("imageUrl")
     @Expose
     private String imageUrl;
@@ -115,11 +115,11 @@ public class Product {
         this.originalPrice = originalPrice;
     }
 
-    public Integer getOfferPrice() {
+    public Double getOfferPrice() {
         return offerPrice;
     }
 
-    public void setOfferPrice(Integer offerPrice) {
+    public void setOfferPrice(Double offerPrice) {
         this.offerPrice = offerPrice;
     }
 

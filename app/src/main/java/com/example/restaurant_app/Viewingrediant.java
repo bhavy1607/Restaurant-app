@@ -200,7 +200,7 @@ public class Viewingrediant extends AppCompatActivity {
         body.setImageUrl(image);
         body.setDescription(description);
         body.setIngredientName(ingrediantname);
-        body.setPrice(price.length());
+        body.setPrice(Integer.parseInt(price));
 
         Call<Createingrediants> call = retrofitInterface.AddIngrediants(body);
 

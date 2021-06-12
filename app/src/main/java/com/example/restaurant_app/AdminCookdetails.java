@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
-import com.example.restaurant_app.modelmanager.cookdetails.Cook;
+import com.example.restaurant_app.modelmanager.cookdetails.Bodycook;
 import com.example.restaurant_app.modelmanager.cookdetails.Cookdetails;
 
 import java.util.ArrayList;
@@ -29,9 +31,11 @@ import retrofit2.Retrofit;
 public class AdminCookdetails extends AppCompatActivity {
 
     GridView gridView;
+    EditText editText;
+    Button button;
 
     Cookdetails cookdetails = new Cookdetails();
-    List<Cook> cooks = new ArrayList<>();
+    List<com.example.restaurant_app.modelmanager.cookdetails.List> lists = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,8 @@ public class AdminCookdetails extends AppCompatActivity {
         setContentView(R.layout.activity_admin_cookdetails);
 
         gridView = (GridView)findViewById(R.id.gridview);
+        editText = (EditText)findViewById(R.id.et);
+        button = (Button)findViewById(R.id.btn);
 
         listingdata();
     }
@@ -47,19 +53,23 @@ public class AdminCookdetails extends AppCompatActivity {
 
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
+        String name = editText.getText().toString();
 
-        Call<Cookdetails> listing = retrofitInterface.Getcook();
+        Bodycook bodycook = new Bodycook();
+        bodycook.setActiverole(name);
 
+        Call<Cookdetails> listing = retrofitInterface.Getcook(bodycook);
         listing.enqueue(new Callback<Cookdetails>() {
             @Override
             public void onResponse(Call<Cookdetails> call, Response<Cookdetails> response) {
                 if (response.isSuccessful()) {
 
                     cookdetails = response.body();
-                    cooks = cookdetails.getCooks();
+                    lists = cookdetails.getList();
 
-                    CustomAdepter customAdepter = new CustomAdepter(cooks,AdminCookdetails.this);
+                    CustomAdepter customAdepter = new CustomAdepter(lists,AdminCookdetails.this);
                     gridView.setAdapter(customAdepter);
+
 
                     Toast.makeText(AdminCookdetails.this, "Success", Toast.LENGTH_SHORT).show();
 
@@ -78,19 +88,19 @@ public class AdminCookdetails extends AppCompatActivity {
 
     static class CustomAdepter extends BaseAdapter {
 
-        List<Cook> cooks;
+        List<com.example.restaurant_app.modelmanager.cookdetails.List> lists;
         Context context;
 
 
-
-        public CustomAdepter(List<Cook> cooks, AdminCookdetails adminCookdetails) {
-            this.context = adminCookdetails;
-            this.cooks = cooks;
+        public CustomAdepter(List<com.example.restaurant_app.modelmanager.cookdetails.List> lists, AdminCookdetails adminCookdetails) {
+            this.context = context;
+            this.lists = lists;
         }
+
 
         @Override
         public int getCount() {
-            return   cooks.size();
+            return   lists.size();
         }
 
         @Override
@@ -115,9 +125,9 @@ public class AdminCookdetails extends AppCompatActivity {
             TextView temail = view.findViewById(R.id.temail);
             TextView tphone = view.findViewById(R.id.tphone);
 
-            tname.setText(cooks.get(i).getName());
-            temail.setText(cooks.get(i).getEmail());
-            tphone.setText(cooks.get(i).getPhone());
+            tname.setText(lists.get(i).getName());
+            temail.setText(lists.get(i).getEmail());
+            tphone.setText(lists.get(i).getPhone());
 
             return view;
         }

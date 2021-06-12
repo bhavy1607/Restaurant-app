@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,9 +18,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
+import com.example.restaurant_app.modelmanager.TableWiseOrder.Tablewiseorder;
 import com.example.restaurant_app.modelmanager.booktable.BookTable;
 import com.example.restaurant_app.modelmanager.booktable.Table;
 
@@ -138,11 +139,13 @@ public class Book_table extends AppCompatActivity {
             }
 
            TextView ttable = view.findViewById(R.id.ttable);
-            TextView tsize = view.findViewById(R.id.tsize);
+            TextView tname = view.findViewById(R.id.tname);
+            TextView tphone = view.findViewById(R.id.tphone);
             TextView tstatus = view.findViewById(R.id.tstatus);
-            Button btn = view.findViewById(R.id.btn);
+            //Button btn = view.findViewById(R.id.btn);
+            CardView cardView = view.findViewById(R.id.cardview);
 
-            btn.setOnClickListener(new View.OnClickListener() {
+            cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     String get = tables.get(i).getId();
@@ -153,8 +156,9 @@ public class Book_table extends AppCompatActivity {
             });
 
             ttable.setText(tables.get(i).getTable().toString());
-            tsize.setText(tables.get(i).getSize().toString());
+            tname.setText(tables.get(i).getUserName());
             tstatus.setText(tables.get(i).getStatus());
+            tphone.setText(tables.get(i).getPhone());
 
             return view;
         }

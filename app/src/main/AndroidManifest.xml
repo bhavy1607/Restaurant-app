@@ -15,7 +15,8 @@
         android:theme="@style/Theme.Restaurant_App"
         android:usesCleartextTraffic="true"
         tools:ignore="UnusedAttribute">
-        <activity android:name=".TableWiseItemList"></activity>
+        <activity android:name=".deleteCook"></activity>
+        <activity android:name=".TableWiseItemList" />
         <activity android:name=".TableWiseOrder" />
         <activity android:name=".ParsalItem" />
         <activity android:name=".SetDiscount" />

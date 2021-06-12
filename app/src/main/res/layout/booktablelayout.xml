@@ -31,7 +31,14 @@
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:textSize="20sp"
-            android:text="size :"/>
+            android:text="name :"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textSize="20sp"
+            android:text="phone :"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -40,17 +47,13 @@
             android:textSize="20sp"
             android:text="Status :"/>
 
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:padding="5dp"-->
-<!--            android:textSize="20sp"-->
-<!--            android:text="waiting :"/>-->
+
 
 
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -72,12 +75,21 @@
                 />
 
             <TextView
-                android:id="@+id/tsize"
+                android:id="@+id/tname"
                 android:padding="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:text="size"
+                android:text="name"
+                />
+
+            <TextView
+                android:id="@+id/tphone"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="phone"
                 />
 
             <TextView
@@ -94,12 +106,12 @@
     </androidx.cardview.widget.CardView>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="270dp"
-        android:textSize="15sp"
-        android:text="View Order"/>
+<!--    <Button-->
+<!--        android:id="@+id/btn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="270dp"-->
+<!--        android:textSize="15sp"-->
+<!--        android:text="View Order"/>-->
 
 </LinearLayout>

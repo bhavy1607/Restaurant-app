@@ -114,7 +114,7 @@ public class TableWiseOrder extends AppCompatActivity {
 
             TextView ttotal = view.findViewById(R.id.total);
             TextView tname = view.findViewById(R.id.tname);
-            TextView temail = view.findViewById(R.id.temail);
+          //  TextView temail = view.findViewById(R.id.temail);
             TextView tdate = view.findViewById(R.id.tpaymentmethod);
             TextView tstatus = view.findViewById(R.id.tstatus);
             Button btn = view.findViewById(R.id.btn1);
@@ -130,7 +130,7 @@ public class TableWiseOrder extends AppCompatActivity {
 
             ttotal.setText(orders.get(i).getGrandTotal()+"");
             tname.setText(orders.get(i).getName());
-            temail.setText(orders.get(i).getEmail());
+           // temail.setText(orders.get(i).getEmail());
             tdate.setText(orders.get(i).getCreatedAt());
             tstatus.setText(orders.get(i).getPaymentStatus());
 

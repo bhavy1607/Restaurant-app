@@ -1,19 +1,37 @@
 
-package com.example.restaurant_app.modelmanager.cookdetails;
+package com.example.restaurant_app.modelmanager.deletecook;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Cook {
+public class RemovedPerson {
 
+    @SerializedName("active")
+    @Expose
+    private Boolean active;
     @SerializedName("otps")
     @Expose
-    private List<String> otps = null;
-    @SerializedName("posts")
+    private List<Object> otps = null;
+    @SerializedName("feedbacks")
     @Expose
-    private List<Object> posts = null;
+    private List<Object> feedbacks = null;
+    @SerializedName("orders")
+    @Expose
+    private List<Object> orders = null;
+    @SerializedName("activerole")
+    @Expose
+    private String activerole;
+    @SerializedName("roles")
+    @Expose
+    private List<String> roles = null;
+    @SerializedName("categoryId")
+    @Expose
+    private Object categoryId;
+    @SerializedName("complaints")
+    @Expose
+    private List<Object> complaints = null;
     @SerializedName("_id")
     @Expose
     private String id;
@@ -39,20 +57,68 @@ public class Cook {
     @Expose
     private Integer v;
 
-    public List<String> getOtps() {
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public List<Object> getOtps() {
         return otps;
     }
 
-    public void setOtps(List<String> otps) {
+    public void setOtps(List<Object> otps) {
         this.otps = otps;
     }
 
-    public List<Object> getPosts() {
-        return posts;
+    public List<Object> getFeedbacks() {
+        return feedbacks;
     }
 
-    public void setPosts(List<Object> posts) {
-        this.posts = posts;
+    public void setFeedbacks(List<Object> feedbacks) {
+        this.feedbacks = feedbacks;
+    }
+
+    public List<Object> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Object> orders) {
+        this.orders = orders;
+    }
+
+    public String getActiverole() {
+        return activerole;
+    }
+
+    public void setActiverole(String activerole) {
+        this.activerole = activerole;
+    }
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
+    }
+
+    public Object getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Object categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public List<Object> getComplaints() {
+        return complaints;
+    }
+
+    public void setComplaints(List<Object> complaints) {
+        this.complaints = complaints;
     }
 
     public String getId() {

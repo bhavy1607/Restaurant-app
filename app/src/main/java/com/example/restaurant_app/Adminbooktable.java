@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -108,17 +107,17 @@ public class Adminbooktable extends AppCompatActivity {
                 view = lInflater.inflate(R.layout.booktablelayout, null);
             }
 
-            TextView tid = view.findViewById(R.id.tid);
-            TextView ttable = view.findViewById(R.id.ttable);
-            TextView tsize = view.findViewById(R.id.tsize);
-            TextView tstatus = view.findViewById(R.id.tstatus);
-            // TextView twaiting = view.findViewById(R.id.twaiting);
-
-            tid.setText(tables.get(i).getId());
-            ttable.setText(tables.get(i).getTable().toString());
-            tsize.setText(tables.get(i).getSize().toString());
-            tstatus.setText(tables.get(i).getStatus());
-            //  twaiting.setText(tables.get(i).getWaiting());
+//            TextView tid = view.findViewById(R.id.tid);
+//            TextView ttable = view.findViewById(R.id.ttable);
+//            TextView tsize = view.findViewById(R.id.tsize);
+//            TextView tstatus = view.findViewById(R.id.tstatus);
+//            // TextView twaiting = view.findViewById(R.id.twaiting);
+//
+//            tid.setText(tables.get(i).getId());
+//            ttable.setText(tables.get(i).getTable().toString());
+//            tsize.setText(tables.get(i).getSize().toString());
+//            tstatus.setText(tables.get(i).getStatus());
+//            //  twaiting.setText(tables.get(i).getWaiting());
 
 
             return view;

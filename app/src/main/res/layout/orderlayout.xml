@@ -32,13 +32,13 @@
             android:textSize="20sp"
             android:text="Name :"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:textSize="20sp"
-            android:text="Email :"
-            />
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:padding="5dp"-->
+<!--            android:textSize="20sp"-->
+<!--            android:text="Email :"-->
+<!--            />-->
 
         <TextView
             android:layout_width="match_parent"
@@ -87,14 +87,14 @@
             android:textSize="20sp"
             android:text="name"
             />
-        <TextView
-            android:id="@+id/temail"
-            android:padding="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="email"
-            />
+<!--        <TextView-->
+<!--            android:id="@+id/temail"-->
+<!--            android:padding="5dp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="20sp"-->
+<!--            android:text="email"-->
+<!--            />-->
 
         <TextView
             android:id="@+id/tstatus"

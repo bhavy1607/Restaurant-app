@@ -1,7 +1,7 @@
 
 package com.example.restaurant_app.modelmanager.getingrediants;
 
-import com.example.restaurant_app.modelmanager.getmenu.Creator;
+import com.example.restaurant_app.modelmanager.createIngrediants.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

@@ -5,12 +5,16 @@ import com.example.restaurant_app.LoginResult;
 import com.example.restaurant_app.Menu;
 import com.example.restaurant_app.modeladmin.Getmanager;
 import com.example.restaurant_app.modeladmin.Staffdetails;
+import com.example.restaurant_app.modelmanager.AllRegister.Bodyregister;
+import com.example.restaurant_app.modelmanager.AllRegister.cook;
 import com.example.restaurant_app.modelmanager.Availableitem.Availableitem;
 import com.example.restaurant_app.modelmanager.TableWiseOrder.Tablewiseorder;
 import com.example.restaurant_app.modelmanager.TableWiseOrderItem.TablewiseorderItem;
 import com.example.restaurant_app.modelmanager.booktable.BookTable;
+import com.example.restaurant_app.modelmanager.cookdetails.Bodycook;
 import com.example.restaurant_app.modelmanager.cookdetails.Cookdetails;
 import com.example.restaurant_app.modelmanager.createIngrediants.Createingrediants;
+import com.example.restaurant_app.modelmanager.deletecook.Deletecook;
 import com.example.restaurant_app.modelmanager.feedback.Avaragerating;
 import com.example.restaurant_app.modelmanager.feedback.Feedbackdetails;
 import com.example.restaurant_app.modelmanager.getOrderItem.OrderItem;
@@ -33,6 +37,7 @@ import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -52,15 +57,15 @@ public interface RetrofitInterface {
     Call<LoginResult> executeLogin(@Body HashMap<String, String> map);
 
     //Waiter register & login
-    @PUT("/waiter/addwaiter")
-    Call<Void> executeWaiterRegister(@Body HashMap<String, String> map);
+    @PUT("/all/register")
+    Call<cook> executeWaiterRegister(@Body Bodyregister bodyregister);
 
     @POST("/waiter/login")
     Call<LoginResult> executeWaiterLogin(@Body HashMap<String, String> map);
 
     //Cook register
-    @PUT("/cook/addcook")
-    Call<Void> executeCookRegister(@Body HashMap<String, String> map);
+    @PUT("/all/register")
+    Call<cook> executeCookRegister(@Body Bodyregister bodyregister);
 
     //cook login
     @POST("/cook/login")
@@ -83,8 +88,12 @@ public interface RetrofitInterface {
     Call<Menu> executeMenu(@Body HashMap<String, String> map);
 
     //view cook
-    @GET("/cook/getcooks")
-    Call<Cookdetails> Getcook();
+    @POST("/all/get")
+    Call<Cookdetails> Getcook(@Body Bodycook bodycook);
+
+    //deletecook
+    @DELETE("/all/delete/{path}")
+    Call<Deletecook> cookdelete(@Path(value = "path") String path);
 
     //view waiter
     @GET("/waiter/getwaiters")
