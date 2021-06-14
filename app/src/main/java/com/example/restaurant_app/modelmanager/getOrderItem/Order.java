@@ -35,9 +35,6 @@ public class Order {
     @SerializedName("email")
     @Expose
     private String email;
-    @SerializedName("phone")
-    @Expose
-    private String phone;
     @SerializedName("userId")
     @Expose
     private String userId;
@@ -124,14 +121,6 @@ public class Order {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public String getUserId() {

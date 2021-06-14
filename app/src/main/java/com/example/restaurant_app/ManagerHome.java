@@ -111,7 +111,7 @@ public class ManagerHome extends AppCompatActivity {
         card4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ManagerHome.this,ViewWaiter.class);
+                Intent intent = new Intent(ManagerHome.this,Manage_complain.class);
                 startActivity(intent);
             }
         });
@@ -186,10 +186,10 @@ public class ManagerHome extends AppCompatActivity {
 //                        Intent booktable = new Intent(ManagerHome.this,Book_table.class);
 //                        startActivity(booktable);
 //                        break;
-                    case R.id.manage_complate:
-                        Intent manage_complate = new Intent(ManagerHome.this, Manage_complain.class);
-                        startActivity(manage_complate);
-                        break;
+//                    case R.id.manage_complate:
+//                        Intent manage_complate = new Intent(ManagerHome.this, Manage_complain.class);
+//                        startActivity(manage_complate);
+//                        break;
                     case R.id.logout:
                         SharedPreferences preferences = getSharedPreferences("checked",MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();

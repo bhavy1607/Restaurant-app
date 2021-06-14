@@ -1,37 +1,35 @@
 
-package com.example.restaurant_app.modelmanager.deletecook;
+package com.example.restaurant_app.modelmanager.waiterdetails;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
-public class RemovedPerson {
+public class List {
 
     @SerializedName("active")
     @Expose
     private Boolean active;
     @SerializedName("otps")
     @Expose
-    private List<Object> otps = null;
+    private java.util.List<Object> otps = null;
     @SerializedName("feedbacks")
     @Expose
-    private List<Object> feedbacks = null;
+    private java.util.List<Object> feedbacks = null;
     @SerializedName("orders")
     @Expose
-    private List<Object> orders = null;
+    private java.util.List<Object> orders = null;
     @SerializedName("activerole")
     @Expose
     private String activerole;
     @SerializedName("roles")
     @Expose
-    private List<String> roles = null;
+    private java.util.List<String> roles = null;
     @SerializedName("categoryId")
     @Expose
     private Object categoryId;
     @SerializedName("complaints")
     @Expose
-    private List<Object> complaints = null;
+    private java.util.List<Object> complaints = null;
     @SerializedName("_id")
     @Expose
     private String id;
@@ -65,27 +63,27 @@ public class RemovedPerson {
         this.active = active;
     }
 
-    public List<Object> getOtps() {
+    public java.util.List<Object> getOtps() {
         return otps;
     }
 
-    public void setOtps(List<Object> otps) {
+    public void setOtps(java.util.List<Object> otps) {
         this.otps = otps;
     }
 
-    public List<Object> getFeedbacks() {
+    public java.util.List<Object> getFeedbacks() {
         return feedbacks;
     }
 
-    public void setFeedbacks(List<Object> feedbacks) {
+    public void setFeedbacks(java.util.List<Object> feedbacks) {
         this.feedbacks = feedbacks;
     }
 
-    public List<Object> getOrders() {
+    public java.util.List<Object> getOrders() {
         return orders;
     }
 
-    public void setOrders(List<Object> orders) {
+    public void setOrders(java.util.List<Object> orders) {
         this.orders = orders;
     }
 
@@ -97,11 +95,11 @@ public class RemovedPerson {
         this.activerole = activerole;
     }
 
-    public List<String> getRoles() {
+    public java.util.List<String> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<String> roles) {
+    public void setRoles(java.util.List<String> roles) {
         this.roles = roles;
     }
 
@@ -113,11 +111,11 @@ public class RemovedPerson {
         this.categoryId = categoryId;
     }
 
-    public List<Object> getComplaints() {
+    public java.util.List<Object> getComplaints() {
         return complaints;
     }
 
-    public void setComplaints(List<Object> complaints) {
+    public void setComplaints(java.util.List<Object> complaints) {
         this.complaints = complaints;
     }
 

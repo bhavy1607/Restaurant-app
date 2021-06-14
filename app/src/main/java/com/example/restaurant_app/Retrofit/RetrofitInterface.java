@@ -14,7 +14,7 @@ import com.example.restaurant_app.modelmanager.booktable.BookTable;
 import com.example.restaurant_app.modelmanager.cookdetails.Bodycook;
 import com.example.restaurant_app.modelmanager.cookdetails.Cookdetails;
 import com.example.restaurant_app.modelmanager.createIngrediants.Createingrediants;
-import com.example.restaurant_app.modelmanager.deletecook.Deletecook;
+import com.example.restaurant_app.modelmanager.delete.Deletecook;
 import com.example.restaurant_app.modelmanager.feedback.Avaragerating;
 import com.example.restaurant_app.modelmanager.feedback.Feedbackdetails;
 import com.example.restaurant_app.modelmanager.getOrderItem.OrderItem;
@@ -31,6 +31,7 @@ import com.example.restaurant_app.modelmanager.showCategories.ShowCategories;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Bodyshowrevenue;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Showrevenue;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Sumrevenue;
+import com.example.restaurant_app.modelmanager.waiterdetails.Bodywaiter;
 import com.example.restaurant_app.modelmanager.waiterdetails.Waiterdetails;
 
 import java.util.HashMap;
@@ -96,8 +97,8 @@ public interface RetrofitInterface {
     Call<Deletecook> cookdelete(@Path(value = "path") String path);
 
     //view waiter
-    @GET("/waiter/getwaiters")
-    Call<Waiterdetails> Getwaiter();
+    @GET("/all/get")
+    Call<Waiterdetails> Getwaiter(@Body Bodywaiter bodywaiter);
 
     //view manager
     @GET("/manage/getmanagers")

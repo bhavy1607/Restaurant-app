@@ -13,7 +13,7 @@ public class ProductId {
     private Boolean availability;
     @SerializedName("offer")
     @Expose
-    private Object offer;
+    private Integer offer;
     @SerializedName("ingredients")
     @Expose
     private List<String> ingredients = null;
@@ -34,7 +34,7 @@ public class ProductId {
     private Integer originalPrice;
     @SerializedName("offerPrice")
     @Expose
-    private Integer offerPrice;
+    private Double offerPrice;
     @SerializedName("imageUrl")
     @Expose
     private String imageUrl;
@@ -56,11 +56,11 @@ public class ProductId {
         this.availability = availability;
     }
 
-    public Object getOffer() {
+    public Integer getOffer() {
         return offer;
     }
 
-    public void setOffer(Object offer) {
+    public void setOffer(Integer offer) {
         this.offer = offer;
     }
 
@@ -112,11 +112,11 @@ public class ProductId {
         this.originalPrice = originalPrice;
     }
 
-    public Integer getOfferPrice() {
+    public Double getOfferPrice() {
         return offerPrice;
     }
 
-    public void setOfferPrice(Integer offerPrice) {
+    public void setOfferPrice(Double offerPrice) {
         this.offerPrice = offerPrice;
     }
 

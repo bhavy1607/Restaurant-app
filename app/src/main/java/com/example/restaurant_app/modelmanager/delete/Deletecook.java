@@ -1,5 +1,5 @@
 
-package com.example.restaurant_app.modelmanager.deletecook;
+package com.example.restaurant_app.modelmanager.delete;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

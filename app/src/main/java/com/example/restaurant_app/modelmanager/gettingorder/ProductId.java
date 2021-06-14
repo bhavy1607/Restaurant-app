@@ -31,10 +31,10 @@ public class ProductId {
     private String description;
     @SerializedName("originalPrice")
     @Expose
-    private Integer originalPrice;
+    private Double originalPrice;
     @SerializedName("offerPrice")
     @Expose
-    private Integer offerPrice;
+    private Double offerPrice;
     @SerializedName("imageUrl")
     @Expose
     private String imageUrl;
@@ -104,19 +104,19 @@ public class ProductId {
         this.description = description;
     }
 
-    public Integer getOriginalPrice() {
+    public Double getOriginalPrice() {
         return originalPrice;
     }
 
-    public void setOriginalPrice(Integer originalPrice) {
+    public void setOriginalPrice(Double originalPrice) {
         this.originalPrice = originalPrice;
     }
 
-    public Integer getOfferPrice() {
+    public Double getOfferPrice() {
         return offerPrice;
     }
 
-    public void setOfferPrice(Integer offerPrice) {
+    public void setOfferPrice(Double offerPrice) {
         this.offerPrice = offerPrice;
     }
 

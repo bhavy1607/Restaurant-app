@@ -20,7 +20,7 @@ import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
 import com.example.restaurant_app.modelmanager.cookdetails.Bodycook;
 import com.example.restaurant_app.modelmanager.cookdetails.Cookdetails;
-import com.example.restaurant_app.modelmanager.deletecook.Deletecook;
+import com.example.restaurant_app.modelmanager.delete.Deletecook;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,10 +67,10 @@ public class ViewCook extends AppCompatActivity {
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-//        String name = editText.getText().toString();
-//
+        String name = editText.getText().toString();
+
         Bodycook bodycook = new Bodycook();
-//        bodycook.setActiverole(name);
+        bodycook.setActiverole(name);
 
         Call<Cookdetails> listing = retrofitInterface.Getcook(bodycook);
 
@@ -78,28 +78,32 @@ public class ViewCook extends AppCompatActivity {
             @Override
             public void onResponse(Call<Cookdetails> call, Response<Cookdetails> response) {
                 if (response.isSuccessful()) {
-                    cookdetails = response.body();
-                    lists = cookdetails.getList();
-                        if(lists.get(i).getActiverole().matches("cook")) {
+
+                    if(bodycook.getActiverole().equals("cook")){
 
 
+                        cookdetails = response.body();
+                        lists = cookdetails.getList();
 
-                            CustomAdepter customAdepter = new CustomAdepter(lists, ViewCook.this);
-                            gridView.setAdapter(customAdepter);
+                        CustomAdepter customAdepter = new CustomAdepter(lists, ViewCook.this);
+                        gridView.setAdapter(customAdepter);
 
-                            Toast.makeText(ViewCook.this, "Success", Toast.LENGTH_SHORT).show();
 
-                        }
+                    }
+
+                    Toast.makeText(ViewCook.this, "Success", Toast.LENGTH_SHORT).show();
+
+
 
                 } else {
 
-                    Toast.makeText(ViewCook.this, "" + response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ViewCook.this, "" +response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Cookdetails> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Failure", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Failure"+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
-import com.example.restaurant_app.modelmanager.waiterdetails.Waiter;
+import com.example.restaurant_app.modelmanager.waiterdetails.Bodywaiter;
 import com.example.restaurant_app.modelmanager.waiterdetails.Waiterdetails;
 
 import java.util.ArrayList;
@@ -29,9 +31,11 @@ import retrofit2.Retrofit;
 public class   AdminWaiterdetails extends AppCompatActivity {
 
     GridView gridView;
+    EditText editText;
+    Button button;
 
     Waiterdetails waiterdetails = new Waiterdetails();
-    List<Waiter> waiterList = new ArrayList<>();
+    List<com.example.restaurant_app.modelmanager.waiterdetails.List> waiterList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,8 @@ public class   AdminWaiterdetails extends AppCompatActivity {
         setContentView(R.layout.activity_admin_waiterdetails);
 
         gridView = (GridView)findViewById(R.id.gridview);
+        editText = (EditText)findViewById(R.id.et);
+        button = (Button)findViewById(R.id.btn);
 
         listingdata();
     }
@@ -47,7 +53,13 @@ public class   AdminWaiterdetails extends AppCompatActivity {
         Retrofit retrofitclient = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface =  retrofitclient.create(RetrofitInterface.class);
 
-        Call<Waiterdetails> listing = retrofitInterface.Getwaiter();
+
+        String name = editText.getText().toString();
+
+        Bodywaiter bodywaiter = new Bodywaiter();
+        bodywaiter.setActiverole(name);
+
+        Call<Waiterdetails> listing = retrofitInterface.Getwaiter(bodywaiter);
 
         listing.enqueue(new Callback<Waiterdetails>() {
             @Override
@@ -55,7 +67,7 @@ public class   AdminWaiterdetails extends AppCompatActivity {
                 if(response.isSuccessful()){
 
                     waiterdetails = response.body();
-                    waiterList = waiterdetails.getWaiters();
+                    waiterList = waiterdetails.getList();
 
                     CustomAdepter customAdepter = new CustomAdepter(waiterList,AdminWaiterdetails.this);
                     gridView.setAdapter(customAdepter);
@@ -76,10 +88,10 @@ public class   AdminWaiterdetails extends AppCompatActivity {
 
     class CustomAdepter extends BaseAdapter {
 
-        List<Waiter> waiterList;
+        List<com.example.restaurant_app.modelmanager.waiterdetails.List> waiterList;
         private Context context;
 
-        public CustomAdepter(List<Waiter> waiterList, AdminWaiterdetails adminWaiterdetails) {
+        public CustomAdepter(List<com.example.restaurant_app.modelmanager.waiterdetails.List> waiterList, AdminWaiterdetails adminWaiterdetails) {
             this.context = adminWaiterdetails;
             this.waiterList = waiterList;
         }

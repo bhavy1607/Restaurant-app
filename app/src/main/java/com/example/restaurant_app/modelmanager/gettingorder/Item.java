@@ -32,10 +32,10 @@ public class Item {
     private String categoryId;
     @SerializedName("productPrice")
     @Expose
-    private Integer productPrice;
+    private Double productPrice;
     @SerializedName("total")
     @Expose
-    private Integer total;
+    private Double total;
     @SerializedName("itemAcceptedAt")
     @Expose
     private String itemAcceptedAt;
@@ -47,7 +47,7 @@ public class Item {
     private String ingredientId;
     @SerializedName("ingredientPrice")
     @Expose
-    private Integer ingredientPrice;
+    private Double ingredientPrice;
 
     public String getProgress() {
         return progress;
@@ -113,21 +113,7 @@ public class Item {
         this.categoryId = categoryId;
     }
 
-    public Integer getProductPrice() {
-        return productPrice;
-    }
 
-    public void setProductPrice(Integer productPrice) {
-        this.productPrice = productPrice;
-    }
-
-    public Integer getTotal() {
-        return total;
-    }
-
-    public void setTotal(Integer total) {
-        this.total = total;
-    }
 
     public String getItemAcceptedAt() {
         return itemAcceptedAt;
@@ -153,12 +139,27 @@ public class Item {
         this.ingredientId = ingredientId;
     }
 
-    public Integer getIngredientPrice() {
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
+
+    public Double getIngredientPrice() {
         return ingredientPrice;
     }
 
-    public void setIngredientPrice(Integer ingredientPrice) {
+    public void setIngredientPrice(Double ingredientPrice) {
         this.ingredientPrice = ingredientPrice;
     }
 
+    public Double getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(Double productPrice) {
+        this.productPrice = productPrice;
+    }
 }

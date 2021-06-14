@@ -99,12 +99,12 @@ public class ViewOrderHistory extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Orderdetails> call, Throwable t) {
-                Toast.makeText(ViewOrderHistory.this, "Failure", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ViewOrderHistory.this, "Failure"+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-        class CustomAdepter extends BaseAdapter {
+class CustomAdepter extends BaseAdapter {
 
             List<Order> orders;
             Context context;
@@ -154,12 +154,17 @@ public class ViewOrderHistory extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
-
-                ttotal.setText(orders.get(position).getGrandTotal() + "");
+                ttotal.setText(orders.get(position).getGrandTotal()+""+"₹");
                 tname.setText(orders.get(position).getName());
-                temail.setText(orders.get(position).getEmail());
+//                temail.setText(orders.get(position).getEmail());
                 tdate.setText(orders.get(position).getCreatedAt());
                 tstatus.setText(orders.get(position).getPaymentStatus());
+
+//                ttotal.setText(orders.get(position).getGrandTotal() + "");
+//                tname.setText(orders.get(position).getName());
+////                temail.setText(orders.get(position).getEmail());
+//                tdate.setText(orders.get(position).getCreatedAt());
+//                tstatus.setText(orders.get(position).getPaymentStatus());
 
                 return convertView;
             }
