@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,8 @@ public class Adminvieworder extends AppCompatActivity {
 
     GridView gridView;
     Toolbar toolbar;
+    public static String id;
+
 
 
     Orderdetails orderdetails = new Orderdetails();
@@ -148,13 +151,26 @@ public class Adminvieworder extends AppCompatActivity {
 
             TextView ttotal = convertView.findViewById(R.id.total);
             TextView tname = convertView.findViewById(R.id.tname);
-            TextView temail = convertView.findViewById(R.id.temail);
-            TextView tpayment = convertView.findViewById(R.id.tpaymentmethod);
 
-            ttotal.setText(orders.get(position).getGrandTotal()+"");
+            TextView tdate = convertView.findViewById(R.id.tpaymentmethod);
+            TextView tstatus = convertView.findViewById(R.id.tstatus);
+            Button btn1 = convertView.findViewById(R.id.btn1);
+
+            btn1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String get = orders.get(position).getId();
+                    Intent intent = new Intent(Adminvieworder.this, vieworderItemList.class);
+                    intent.putExtra("_id", orders.get(position).getId());
+                    startActivity(intent);
+                }
+            });
+            ttotal.setText(orders.get(position).getGrandTotal()+""+"₹");
             tname.setText(orders.get(position).getName());
-            temail.setText(orders.get(position).getEmail());
-            tpayment.setText(orders.get(position).getPaymentMethod());
+
+            tdate.setText(orders.get(position).getCreatedAt());
+            tstatus.setText(orders.get(position).getPaymentStatus());
+
 
             return convertView;
         }

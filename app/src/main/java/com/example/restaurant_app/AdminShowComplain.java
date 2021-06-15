@@ -31,6 +31,8 @@ import retrofit2.Retrofit;
 public class AdminShowComplain extends AppCompatActivity {
 
     GridView  gridView;
+    public static String id;
+
 
     Getcomplate getcomplate = new Getcomplate();
     List<Complaint> complaints = new ArrayList<>();
@@ -142,20 +144,33 @@ private void manageComplate(){
             TextView tid = convertView.findViewById(R.id.tid);
             TextView ttitle = convertView.findViewById(R.id.ttitle);
             TextView tmessage = convertView.findViewById(R.id.tmessage);
-
             Button btnreply = convertView.findViewById(R.id.btnreply);
+            Button btnsetdiscount = convertView.findViewById(R.id.btnsetdiscount);
 
-            btnreply.setOnClickListener(new View.OnClickListener() {
+            btnsetdiscount.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(),ComplainReply.class);
+                    String get = complaints.get(position).getId();
+                    Intent intent = new Intent(AdminShowComplain.this,SetDiscount.class);
+                    intent.putExtra("_id",complaints.get(position).getOrderId().getId());
                     startActivity(intent);
                 }
             });
 
-            tid.setText(complaints.get(position).getId());
+            btnreply.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String get = complaints.get(position).getId();
+                    Intent intent = new Intent(AdminShowComplain.this,ComplainReply.class);
+                    intent.putExtra("_id",complaints.get(position).getId());
+                    startActivity(intent);
+                }
+            });
+
+            tid.setText(complaints.get(position).getOrderId().getCreatedAt());
             ttitle.setText(complaints.get(position).getTitle());
             tmessage.setText(complaints.get(position).getMessage());
+
 
             return convertView;
         }

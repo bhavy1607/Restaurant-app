@@ -140,7 +140,7 @@ class CustomAdepter extends BaseAdapter {
 
                 TextView ttotal = convertView.findViewById(R.id.total);
                 TextView tname = convertView.findViewById(R.id.tname);
-                TextView temail = convertView.findViewById(R.id.temail);
+              //  TextView temail = convertView.findViewById(R.id.temail);
                 TextView tdate = convertView.findViewById(R.id.tpaymentmethod);
                 TextView tstatus = convertView.findViewById(R.id.tstatus);
                 Button btn1 = convertView.findViewById(R.id.btn1);
