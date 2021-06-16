@@ -54,11 +54,8 @@ public class Bodyregister {
         this.name = name;
     }
 
-    public String getActiverole() {
-        return activerole;
-    }
 
-    public void setActiverole(String activerole) {
+    public Bodyregister(String activerole) {
         this.activerole = activerole;
     }
 

@@ -23,7 +23,7 @@ import retrofit2.Retrofit;
 public class AddCook extends AppCompatActivity {
 
     ImageView logo_image;
-    EditText name, phone, email, password,activerole;
+    EditText name, phone, email, password;
     Button register;
     private Button backbtn;
     RetrofitInterface retrofitInterface;
@@ -40,7 +40,7 @@ public class AddCook extends AppCompatActivity {
         phone = (EditText) findViewById(R.id.phone);
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
-        activerole = (EditText)findViewById(R.id.activerole);
+       // activerole = (EditText)findViewById(R.id.activerole);
         register = (Button) findViewById(R.id.register_btn);
 
 
@@ -99,14 +99,14 @@ public class AddCook extends AppCompatActivity {
                 String s1 = phone.getText().toString()+"";
                 String s2 = email.getText().toString();
                 String s3 = password.getText().toString();
-                String s4 = activerole.getText().toString();
+              //  String s4 = activerole.getText().toString();
 
-                Bodyregister bodyregister = new Bodyregister();
+                Bodyregister bodyregister = new Bodyregister("cook");
                 bodyregister.setName(s);
                 bodyregister.setEmail(s2);
                 bodyregister.setPhone(Integer.valueOf(s1));
                 bodyregister.setPassword(s3);
-                bodyregister.setActiverole(s4);
+
 
                 Call<cook> call = retrofitInterface.executeCookRegister(bodyregister);
 
@@ -116,10 +116,11 @@ public class AddCook extends AppCompatActivity {
                     public void onResponse(Call<cook> call, Response<cook> response) {
                         if(response.isSuccessful()){
 
+                                Toast.makeText(AddCook.this, "Added Succesfully..", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(AddCook.this,ManagerHome.class);
+                                startActivity(intent);
 
-                            Toast.makeText(AddCook.this, "Added Succesfully..", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(AddCook.this,ManagerHome.class);
-                            startActivity(intent);
+
                         }else {
                             Toast.makeText(AddCook.this, ""+response.message(), Toast.LENGTH_SHORT).show();
                         }

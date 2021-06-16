@@ -1,19 +1,17 @@
 
-package com.example.restaurant_app.modeladmin;
+package com.example.restaurant_app.modelmanager.managerdetails;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
-public class Staffdetails {
+public class ManagerDetails {
 
     @SerializedName("message")
     @Expose
     private String message;
-    @SerializedName("persons")
+    @SerializedName("list")
     @Expose
-    private List<Person> persons = null;
+    private java.util.List<List> list = null;
     @SerializedName("totalPersons")
     @Expose
     private Integer totalPersons;
@@ -26,12 +24,12 @@ public class Staffdetails {
         this.message = message;
     }
 
-    public List<Person> getPersons() {
-        return persons;
+    public java.util.List<List> getList() {
+        return list;
     }
 
-    public void setPersons(List<Person> persons) {
-        this.persons = persons;
+    public void setList(java.util.List<List> list) {
+        this.list = list;
     }
 
     public Integer getTotalPersons() {

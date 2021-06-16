@@ -8,14 +8,19 @@ public class Bodycook {
 
     @SerializedName("activerole")
     @Expose
+//    private String activerole;
+//
+//    public String getActiverole() {
+//        return activerole;
+//    }
+//
+//    public void setActiverole(String activerole) {
+//        this.activerole = activerole;
+//    }
+
     private String activerole;
 
-    public String getActiverole() {
-        return activerole;
-    }
-
-    public void setActiverole(String activerole) {
+    public Bodycook(String activerole) {
         this.activerole = activerole;
     }
-
 }

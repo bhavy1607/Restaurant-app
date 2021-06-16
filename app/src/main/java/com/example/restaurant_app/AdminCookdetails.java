@@ -53,10 +53,10 @@ public class AdminCookdetails extends AppCompatActivity {
 
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
-        String name = editText.getText().toString();
-
-        Bodycook bodycook = new Bodycook();
-        bodycook.setActiverole(name);
+//        String name = editText.getText().toString();
+//
+        Bodycook bodycook = new Bodycook("cook");
+//        bodycook.setActiverole(name);
 
         Call<Cookdetails> listing = retrofitInterface.Getcook(bodycook);
         listing.enqueue(new Callback<Cookdetails>() {

@@ -47,9 +47,9 @@
     <item android:title="App">
         <menu>
 
-<!--            <item android:title="VIEW COMPLAINE"-->
-<!--                android:id="@+id/manage_complate"-->
-<!--                android:icon="@drawable/ic_baseline_order"/>-->
+            <item android:title="VIEW COMPLAINE"
+                android:id="@+id/manage_complate"
+                android:icon="@drawable/ic_baseline_order"/>
 <!--            <item android:title="View feedback"-->
 <!--                android:id="@+id/view_feedback"-->
 <!--                android:icon="@drawable/ic_baseline_payment_24"/>-->

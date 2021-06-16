@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
@@ -45,6 +46,8 @@ public class Categories extends AppCompatActivity {
     Button button,btnshowimage;
     GridView gridView;
     ImageView imageView;
+    public static String id;
+
 
     ShowCategories showCategories = new ShowCategories();
     List<Categorypost> categoryposts = new ArrayList<>();
@@ -60,6 +63,7 @@ public class Categories extends AppCompatActivity {
         button = (Button) findViewById(R.id.btnadd);
         gridView = (GridView)findViewById(R.id.gridview);
 
+        showcategories();
 
         btnshowimage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,8 +73,6 @@ public class Categories extends AppCompatActivity {
                 startActivityForResult(intent,SELECT_PHOTO);
             }
         });
-
-        showcategories();
 
     }
 
@@ -159,7 +161,18 @@ public class Categories extends AppCompatActivity {
 
             TextView textView;
             ImageView imageView;
+            CardView cardView;
 
+            cardView = convertView.findViewById(R.id.cardview);
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String get = categoryposts.get(position).getId();
+                    Intent intent = new Intent(Categories.this,CategoryItem.class);
+                    intent.putExtra("_id",categoryposts.get(position).getId());
+                    startActivity(intent);
+                }
+            });
             textView = convertView.findViewById(R.id.name);
             imageView = convertView.findViewById(R.id.image);
 

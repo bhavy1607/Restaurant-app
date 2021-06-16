@@ -3,14 +3,13 @@ package com.example.restaurant_app.Retrofit;
 import com.example.restaurant_app.ForgotResult;
 import com.example.restaurant_app.LoginResult;
 import com.example.restaurant_app.Menu;
-import com.example.restaurant_app.modeladmin.Getmanager;
-import com.example.restaurant_app.modeladmin.Staffdetails;
 import com.example.restaurant_app.modelmanager.AllRegister.Bodyregister;
 import com.example.restaurant_app.modelmanager.AllRegister.cook;
 import com.example.restaurant_app.modelmanager.Availableitem.Availableitem;
 import com.example.restaurant_app.modelmanager.TableWiseOrder.Tablewiseorder;
 import com.example.restaurant_app.modelmanager.TableWiseOrderItem.TablewiseorderItem;
 import com.example.restaurant_app.modelmanager.booktable.BookTable;
+import com.example.restaurant_app.modelmanager.categoriesitem.Categoryitem;
 import com.example.restaurant_app.modelmanager.cookdetails.Bodycook;
 import com.example.restaurant_app.modelmanager.cookdetails.Cookdetails;
 import com.example.restaurant_app.modelmanager.createIngrediants.Createingrediants;
@@ -22,6 +21,8 @@ import com.example.restaurant_app.modelmanager.getingrediants.Getingredients;
 import com.example.restaurant_app.modelmanager.getmenu.Menudetails;
 import com.example.restaurant_app.modelmanager.gettingorder.Orderdetails;
 import com.example.restaurant_app.modelmanager.managecomplain.Getcomplate;
+import com.example.restaurant_app.modelmanager.managerdetails.Bodymanager;
+import com.example.restaurant_app.modelmanager.managerdetails.ManagerDetails;
 import com.example.restaurant_app.modelmanager.parsal.Parsalorder;
 import com.example.restaurant_app.modelmanager.replaycomplain.BodyreplayComplain;
 import com.example.restaurant_app.modelmanager.replaycomplain.Replaycomplain;
@@ -97,12 +98,12 @@ public interface RetrofitInterface {
     Call<Deletecook> cookdelete(@Path(value = "path") String path);
 
     //view waiter
-    @GET("/all/get")
+    @POST("/all/get")
     Call<Waiterdetails> Getwaiter(@Body Bodywaiter bodywaiter);
 
     //view manager
-    @GET("/manage/getmanagers")
-    Call<Getmanager> Getmanager();
+    @POST("/all/get")
+    Call<ManagerDetails> Getmanager(@Body Bodymanager bodymanager);
 
     //view order
     @GET("/order/getorders")
@@ -125,8 +126,8 @@ public interface RetrofitInterface {
     Call<Availableitem> GetitemAvailable();
 
     //show staff details
-    @GET("/all/geteveryone")
-    Call<Staffdetails> Getshowstaffdetails();
+//    @GET("/all/geteveryone")
+//    Call<Staffdetails> Getshowstaffdetails();
 
     //show complate
     @GET("/complaint/complaints")
@@ -167,6 +168,10 @@ public interface RetrofitInterface {
     //show Categories
     @GET("/category/categories")
     Call<ShowCategories> showCategories();
+
+    //show CategoryItem
+    @GET("/feed/menu/{path1}")
+    Call<Categoryitem> showCategoryItem(@Path(value = "path1") String path);
 
     //View Parsal
     @GET("/order/parcelorders")

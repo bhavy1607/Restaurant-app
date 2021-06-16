@@ -40,7 +40,7 @@ public class AdminAddManager extends AppCompatActivity {
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
         btnregister = (Button) findViewById(R.id.register_btn);
-        activerole = (EditText)findViewById(R.id.activerole);
+       // activerole = (EditText)findViewById(R.id.activerole);
 
         backbtn = (Button) findViewById(R.id.btnback);
         backbtn.setOnClickListener(new View.OnClickListener() {
@@ -105,14 +105,14 @@ public class AdminAddManager extends AppCompatActivity {
                 String s1 = phone.getText().toString()+"";
                 String s2 = email.getText().toString();
                 String s3 = password.getText().toString();
-                String s4 = activerole.getText().toString();
+                //String s4 = activerole.getText().toString();
 
-                Bodyregister bodyregister = new Bodyregister();
+                Bodyregister bodyregister = new Bodyregister("manager");
                 bodyregister.setName(s);
                 bodyregister.setEmail(s2);
                 bodyregister.setPhone(Integer.valueOf(s1));
                 bodyregister.setPassword(s3);
-                bodyregister.setActiverole(s4);
+                //bodyregister.setActiverole(s4);
 
                 Call<cook> call = retrofitInterface.executeCookRegister(bodyregister);
 

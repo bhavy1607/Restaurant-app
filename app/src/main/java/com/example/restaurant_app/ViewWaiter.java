@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,13 +32,10 @@ import retrofit2.Retrofit;
 public class ViewWaiter extends AppCompatActivity {
 
     GridView gridView;
-    EditText editText;
-    Button button;
     public static String id;
 
-
     Waiterdetails waiterdetails = new Waiterdetails();
-    List<com.example.restaurant_app.modelmanager.waiterdetails.List> waiterList = new ArrayList<>();
+    List<com.example.restaurant_app.modelmanager.waiterdetails.List> lists = new ArrayList<>();
     private int i;
 
     @Override
@@ -47,136 +43,127 @@ public class ViewWaiter extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_waiter);
 
+        listingdata();
+
         gridView = (GridView)findViewById(R.id.gridview);
         id = getIntent().getStringExtra("_id");
-        editText = (EditText)findViewById(R.id.et);
-        button = (Button)findViewById(R.id.btn);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listingdata();
-            }
-        });
 
     }
 
-    private void listingdata(){
+    private void listingdata() {
+
         Retrofit retrofitclient = RetrofitClient.getInstance();
-        RetrofitInterface retrofitInterface =  retrofitclient.create(RetrofitInterface.class);
+        RetrofitInterface retrofitInterface = retrofitclient.create(RetrofitInterface.class);
 
+        Bodywaiter bodywaiter = new Bodywaiter("waiter");
 
-        String name = editText.getText().toString();
-
-        Bodywaiter bodywaiter = new Bodywaiter();
-        bodywaiter.setActiverole(name);
-
-        Call<Waiterdetails> listing = retrofitInterface.Getwaiter(bodywaiter);
-
-        listing.enqueue(new Callback<Waiterdetails>() {
+        Call<Waiterdetails> call = retrofitInterface.Getwaiter(bodywaiter);
+        call.enqueue(new Callback<Waiterdetails>() {
             @Override
             public void onResponse(Call<Waiterdetails> call, Response<Waiterdetails> response) {
-                if(response.isSuccessful()){
+
+                if (response.isSuccessful()) {
 
                     waiterdetails = response.body();
-                    waiterList = waiterdetails.getList();
+                    lists = waiterdetails.getList();
 
-                    CustomAdepter customAdepter = new CustomAdepter(waiterList,ViewWaiter.this);
-                    gridView.setAdapter(customAdepter);
 
-                    Toast.makeText(ViewWaiter.this, "Success", Toast.LENGTH_SHORT).show();
+                    CustomAdpter customAdpter = new CustomAdpter(lists,ViewWaiter.this);
+                    gridView.setAdapter(customAdpter);
 
-                }else{
-                    Toast.makeText(ViewWaiter.this, ""+response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ViewWaiter.this, "Succes", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(ViewWaiter.this, "" + response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Waiterdetails> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),"Failure",Toast.LENGTH_SHORT).show();
+                Toast.makeText(ViewWaiter.this, "Failure" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    class CustomAdepter extends BaseAdapter {
+        class CustomAdpter extends BaseAdapter {
 
-        List<com.example.restaurant_app.modelmanager.waiterdetails.List> waiterList;
-        private Context context;
+            List<com.example.restaurant_app.modelmanager.waiterdetails.List> lists;
+            Context context;
 
-
-        public CustomAdepter(List<com.example.restaurant_app.modelmanager.waiterdetails.List> waiterList, ViewWaiter context) {
-            this.context = context;
-            this.waiterList = waiterList;
-        }
-
-        @Override
-        public int getCount() {
-            return waiterList.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            if (view == null) {
-                view = LayoutInflater.from(context).inflate(R.layout.cardlayout,viewGroup,false);
-                LayoutInflater lInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-                view = lInflater.inflate(R.layout.cardlayout, null);
+            public CustomAdpter(List<com.example.restaurant_app.modelmanager.waiterdetails.List> lists, ViewWaiter viewWaiter) {
+                this.context = viewWaiter;
+                this.lists = lists;
             }
 
-            TextView tname = view.findViewById(R.id.tname);
-            TextView temail = view.findViewById(R.id.temail);
-            TextView tphone = view.findViewById(R.id.tphone);
-            Button btn = view.findViewById(R.id.btndelete);
-            btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public int getCount() {
+                return lists.size();
+            }
+
+            @Override
+            public Object getItem(int position) {
+                return null;
+            }
+
+            @Override
+            public long getItemId(int position) {
+                return 0;
+            }
+
+            @Override
+            public View getView(int position, View view, ViewGroup parent) {
+                if (view == null) {
+                    view = LayoutInflater.from(context).inflate(R.layout.cardlayout, parent, false);
+                    LayoutInflater lInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+                    view = lInflater.inflate(R.layout.cardlayout, null);
+                }
+
+                TextView tname = view.findViewById(R.id.tname);
+                TextView temail = view.findViewById(R.id.temail);
+                TextView tphone = view.findViewById(R.id.tphone);
+                Button btn = view.findViewById(R.id.btndelete);
+                btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(context, "Deleted succesfully..", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ViewWaiter.this, ManagerHome.class);
+                        startActivity(intent);
+
+                        cookdelete();
+
+                    }
+                });
+
+                tname.setText(lists.get(i).getName());
+                temail.setText(lists.get(i).getEmail());
+                tphone.setText(lists.get(i).getPhone());
+
+                return view;
+            }
+        }
+
+
+        private void cookdelete ( ) {
+            Retrofit retrofit = RetrofitClient.getInstance();
+            RetrofitInterface retrofitInterface1 = retrofit.create(RetrofitInterface.class);
+
+            String get = lists.get(i).getId();
+            Call<Deletecook> call1 = retrofitInterface1.cookdelete(get);
+
+            call1.enqueue(new Callback<Deletecook>() {
                 @Override
-                public void onClick(View v) {
-                    Toast.makeText(context, "Deleted succesfully..", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(ViewWaiter.this,ManagerHome.class);
-                    startActivity(intent);
-                    cookdelete();
+                public void onResponse(Call<Deletecook> call, Response<Deletecook> response) {
+                    if (response.isSuccessful()) {
 
+                        Toast.makeText(ViewWaiter.this, "Succes", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(ViewWaiter.this, +response.code(), Toast.LENGTH_SHORT).show();
+                    }
+                }
 
+                @Override
+                public void onFailure(Call<Deletecook> call, Throwable t) {
+                    Toast.makeText(ViewWaiter.this, "Failure", Toast.LENGTH_SHORT).show();
                 }
             });
-
-            tname.setText(waiterList.get(i).getName());
-            temail.setText(waiterList.get(i).getEmail());
-            tphone.setText(waiterList.get(i).getPhone());
-
-            return view;
         }
     }
-
-    private void cookdelete(){
-        Retrofit retrofit = RetrofitClient.getInstance();
-        RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
-
-        String get = waiterList.get(i).getId();
-        Call<Deletecook> call = retrofitInterface.cookdelete(get);
-
-        call.enqueue(new Callback<Deletecook>() {
-            @Override
-            public void onResponse(Call<Deletecook> call, Response<Deletecook> response) {
-                if(response.isSuccessful()){
-
-                    Toast.makeText(ViewWaiter.this, "Succes", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(ViewWaiter.this, +response.code(), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Deletecook> call, Throwable t) {
-                Toast.makeText(ViewWaiter.this, "Failure", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-}

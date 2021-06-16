@@ -43,19 +43,19 @@ public class waiter_home extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.home:
                         break;
-                    case R.id.to:
-                        Intent takeorder = new Intent(waiter_home.this, waiter_take_order.class);
-                        startActivity(takeorder);
-                        break;
-                    case R.id.so:
-                        Intent sendorder = new Intent(waiter_home.this, waiter_sent_order.class);
-                        startActivity(sendorder);
-                        break;
-
-                    case R.id.rts:
-                        Intent readytoserve = new Intent(waiter_home.this, waiter_ready_to_serve.class);
-                        startActivity(readytoserve);
-                        break;
+//                    case R.id.to:
+//                        Intent takeorder = new Intent(waiter_home.this, waiter_take_order.class);
+//                        startActivity(takeorder);
+//                        break;
+//                    case R.id.so:
+//                        Intent sendorder = new Intent(waiter_home.this, waiter_sent_order.class);
+//                        startActivity(sendorder);
+//                        break;
+//
+//                    case R.id.rts:
+//                        Intent readytoserve = new Intent(waiter_home.this, waiter_ready_to_serve.class);
+//                        startActivity(readytoserve);
+//                        break;
 
                     case R.id.logout:
                         Intent logout = new Intent(waiter_home.this,  MainActivity.class);

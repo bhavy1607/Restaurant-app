@@ -15,7 +15,8 @@
         android:theme="@style/Theme.Restaurant_App"
         android:usesCleartextTraffic="true"
         tools:ignore="UnusedAttribute">
-        <activity android:name=".deleteCook"></activity>
+        <activity android:name=".CategoryItem"></activity>
+        <activity android:name=".deleteCook" />
         <activity android:name=".TableWiseItemList" />
         <activity android:name=".TableWiseOrder" />
         <activity android:name=".ParsalItem" />
@@ -28,7 +29,6 @@
         <activity android:name=".Categories" />
         <activity android:name=".AdminWaiterdetails" />
         <activity android:name=".AdminCookdetails" />
-        <activity android:name=".AdminManagerdetails" />
         <activity android:name=".Adminbooktable" />
         <activity android:name=".Adminshowrevenue" />
         <activity android:name=".vieworderItemList" />
@@ -121,34 +121,10 @@
             android:name=".CookHome"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".cook_update_stock"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".cook_receive_order"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".cook_pending_order"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".cook_complete_order"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".cook_redy_for_serve"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".WaiterLogin"
             android:screenOrientation="portrait" />
         <activity
             android:name=".waiter_home"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".waiter_take_order"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".waiter_sent_order"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".waiter_ready_to_serve"
             android:screenOrientation="portrait" />
         <activity
             android:name=".RatingAvarage"

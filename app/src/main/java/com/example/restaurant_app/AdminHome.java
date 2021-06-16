@@ -166,10 +166,10 @@ public class AdminHome extends AppCompatActivity {
 //                        Intent intent1 = new Intent(AdminHome.this,View_manager.class);
 //                        startActivity(intent1);
 //                        break;
-                    case R.id.Sdetails:
-                        Intent sdetails = new Intent(AdminHome.this, AdminStaffDetails.class);
-                        startActivity(sdetails);
-                        break;
+//                    case R.id.Sdetails:
+//                        Intent sdetails = new Intent(AdminHome.this, AdminStaffDetails.class);
+//                        startActivity(sdetails);
+//                        break;
                     case R.id.vieworder:
                         Intent cart = new Intent(AdminHome.this, Adminvieworder.class);
                         startActivity(cart);

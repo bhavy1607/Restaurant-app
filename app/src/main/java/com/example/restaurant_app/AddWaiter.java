@@ -40,7 +40,7 @@ public class AddWaiter extends AppCompatActivity {
         phone = (EditText) findViewById(R.id.phone);
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
-        activerole = (EditText)findViewById(R.id.activerole);
+       // activerole = (EditText)findViewById(R.id.activerole);
         register = (Button) findViewById(R.id.register_btn);
 
         register.setOnClickListener(new View.OnClickListener() {
@@ -99,14 +99,14 @@ public class AddWaiter extends AppCompatActivity {
                 String s1 = phone.getText().toString()+"";
                 String s2 = email.getText().toString();
                 String s3 = password.getText().toString();
-                String s4 = activerole.getText().toString();
+               // String s4 = activerole.getText().toString();
 
-                Bodyregister bodyregister = new Bodyregister();
+                Bodyregister bodyregister = new Bodyregister("waiter");
                 bodyregister.setName(s);
                 bodyregister.setEmail(s2);
                 bodyregister.setPhone(Integer.valueOf(s1));
                 bodyregister.setPassword(s3);
-                bodyregister.setActiverole(s4);
+                //bodyregister.setActiverole(s4);
 
                 Call<cook> call = retrofitInterface.executeWaiterRegister(bodyregister);
 

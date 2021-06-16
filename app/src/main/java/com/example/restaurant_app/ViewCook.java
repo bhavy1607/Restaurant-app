@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,10 +32,7 @@ import retrofit2.Retrofit;
 public class ViewCook extends AppCompatActivity {
 
     GridView gridView;
-    EditText editText;
-    Button button;
     public static String id;
-
 
     Cookdetails cookdetails = new Cookdetails();
     List<com.example.restaurant_app.modelmanager.cookdetails.List> lists = new ArrayList<>();
@@ -50,16 +46,8 @@ public class ViewCook extends AppCompatActivity {
         gridView = (GridView)findViewById(R.id.gridview);
         id = getIntent().getStringExtra("_id");
 
-        editText = (EditText)findViewById(R.id.et);
-        button = (Button)findViewById(R.id.btn);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listingdata();
-            }
-        });
 
-
+        listingdata();
     }
 
     private void listingdata() {
@@ -67,33 +55,24 @@ public class ViewCook extends AppCompatActivity {
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        String name = editText.getText().toString();
-
-        Bodycook bodycook = new Bodycook();
-        bodycook.setActiverole(name);
+        Bodycook bodycook = new Bodycook("cook");
 
         Call<Cookdetails> listing = retrofitInterface.Getcook(bodycook);
 
         listing.enqueue(new Callback<Cookdetails>() {
             @Override
             public void onResponse(Call<Cookdetails> call, Response<Cookdetails> response) {
-                if (response.isSuccessful()) {
 
-                    if(bodycook.getActiverole().equals("cook")){
 
+                        if (response.isSuccessful()) {
 
                         cookdetails = response.body();
                         lists = cookdetails.getList();
 
-                        CustomAdepter customAdepter = new CustomAdepter(lists, ViewCook.this);
-                        gridView.setAdapter(customAdepter);
+                            CustomAdepter customAdepter = new CustomAdepter(lists, ViewCook.this);
+                            gridView.setAdapter(customAdepter);
 
-
-                    }
-
-                    Toast.makeText(ViewCook.this, "Success", Toast.LENGTH_SHORT).show();
-
-
+                            Toast.makeText(ViewCook.this, "Success", Toast.LENGTH_SHORT).show();
 
                 } else {
 
@@ -154,7 +133,6 @@ public class ViewCook extends AppCompatActivity {
                     Intent intent = new Intent(ViewCook.this,ManagerHome.class);
                     startActivity(intent);
                     cookdelete();
-
 
                 }
             });

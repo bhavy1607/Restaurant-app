@@ -1,18 +1,22 @@
 package com.example.restaurant_app;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
@@ -22,7 +26,9 @@ import com.example.restaurant_app.modelmanager.showrevenuemodel.Result;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Showrevenue;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Sumrevenue;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -36,6 +42,7 @@ public class Viewrevenue extends AppCompatActivity {
     Button btntotal,btnshowrevenue;
     TextView t1,t2;
     GridView gridView;
+    int year,month,day;
 
     Sumrevenue sumrevenue;
     Showrevenue showrevenue = new Showrevenue();
@@ -54,6 +61,24 @@ public class Viewrevenue extends AppCompatActivity {
         t2 = (TextView)findViewById(R.id.t2);
         gridView = (GridView)findViewById(R.id.gridview);
 
+        final Calendar calendar = Calendar.getInstance();
+        et1.setOnClickListener(new View.OnClickListener() {
+
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onClick(View v) {
+                year = calendar.get(Calendar.YEAR);
+                day = calendar.get(Calendar.DAY_OF_MONTH);
+                month = calendar.get(Calendar.MONTH);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(Viewrevenue.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        et1.setText(SimpleDateFormat.getDateInstance().format(calendar.getTime()));
+                    }
+                },year,month,day);
+                datePickerDialog.show();
+            }
+        });
 
         btntotal.setOnClickListener(new View.OnClickListener() {
             @Override

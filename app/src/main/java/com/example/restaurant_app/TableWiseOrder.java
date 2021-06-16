@@ -77,6 +77,7 @@ public class TableWiseOrder extends AppCompatActivity {
             }
         });
 }
+
     class CustomAdepter extends BaseAdapter {
 
         List<Order> orders;

@@ -54,10 +54,10 @@ public class   AdminWaiterdetails extends AppCompatActivity {
         RetrofitInterface retrofitInterface =  retrofitclient.create(RetrofitInterface.class);
 
 
-        String name = editText.getText().toString();
 
-        Bodywaiter bodywaiter = new Bodywaiter();
-        bodywaiter.setActiverole(name);
+
+        Bodywaiter bodywaiter = new Bodywaiter("waiter");
+
 
         Call<Waiterdetails> listing = retrofitInterface.Getwaiter(bodywaiter);
 

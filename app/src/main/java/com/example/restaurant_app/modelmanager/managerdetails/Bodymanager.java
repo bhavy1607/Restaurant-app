@@ -1,10 +1,10 @@
 
-package com.example.restaurant_app.modelmanager.waiterdetails;
+package com.example.restaurant_app.modelmanager.managerdetails;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Bodywaiter {
+public class Bodymanager {
 
     @SerializedName("activerole")
     @Expose
@@ -17,10 +17,10 @@ public class Bodywaiter {
 //    public void setActiverole(String activerole) {
 //        this.activerole = activerole;
 //    }
-private String activerole;
 
-    public Bodywaiter(String activerole) {
+    private String activerole;
+
+    public Bodymanager(String activerole) {
         this.activerole = activerole;
     }
-
 }

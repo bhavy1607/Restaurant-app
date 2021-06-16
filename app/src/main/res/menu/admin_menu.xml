@@ -14,9 +14,9 @@
 <!--                android:id="@+id/Viewmanager"-->
 <!--                android:icon="@drawable/ic_baseline_viewperson"/>-->
 
-            <item android:title="STAFF DATAILS"
-                android:id="@+id/Sdetails"
-                android:icon="@drawable/ic_staffdetails"/>
+<!--            <item android:title="STAFF DATAILS"-->
+<!--                android:id="@+id/Sdetails"-->
+<!--                android:icon="@drawable/ic_staffdetails"/>-->
 
             <item android:title="SHOW MENU"
                 android:id="@+id/show_menu"

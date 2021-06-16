@@ -1,43 +1,17 @@
 package com.example.restaurant_app;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.GridView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
-import com.example.restaurant_app.Retrofit.RetrofitClient;
-import com.example.restaurant_app.Retrofit.RetrofitInterface;
-import com.example.restaurant_app.modeladmin.Person;
-import com.example.restaurant_app.modeladmin.Staffdetails;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class AdminStaffDetails extends AppCompatActivity {
 
    // Button backbtn;
     GridView gridView;
-    Staffdetails staffdetails = new Staffdetails();
-    List<Person> people = new ArrayList<>();
+//    Staffdetails staffdetails = new Staffdetails();
+//    List<Person> people = new ArrayList<>();
     Toolbar toolbar;
 
 
@@ -86,7 +60,7 @@ public class AdminStaffDetails extends AppCompatActivity {
 
         gridView = (GridView) findViewById(R.id.gridview);
 
-        showstaffdetails();
+       //showstaffdetails();
 
 //        backbtn = (Button) findViewById(R.id.btnback);
 //        backbtn.setOnClickListener(new View.OnClickListener() {
@@ -99,106 +73,106 @@ public class AdminStaffDetails extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.adminstaffdetails,menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater menuInflater = getMenuInflater();
+//        menuInflater.inflate(R.menu.adminstaffdetails,menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        switch (item.getItemId()){
+//            case R.id.Manager:
+//                Intent intent = new Intent(AdminStaffDetails.this, AdminManagerdetails.class);
+//                startActivity(intent);
+//                break;
+//            case R.id.Cook:
+//                Intent intent1 = new Intent(AdminStaffDetails.this,AdminCookdetails.class);
+//                startActivity(intent1);
+//                break;
+//            case R.id.Waiter:
+//                Intent intent2 = new Intent(AdminStaffDetails.this,AdminWaiterdetails.class);
+//                startActivity(intent2);
+//                break;
+//        }
+//        return true;
+//    }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.Manager:
-                Intent intent = new Intent(AdminStaffDetails.this, AdminManagerdetails.class);
-                startActivity(intent);
-                break;
-            case R.id.Cook:
-                Intent intent1 = new Intent(AdminStaffDetails.this,AdminCookdetails.class);
-                startActivity(intent1);
-                break;
-            case R.id.Waiter:
-                Intent intent2 = new Intent(AdminStaffDetails.this,AdminWaiterdetails.class);
-                startActivity(intent2);
-                break;
-        }
-        return true;
-    }
 
+//    private void showstaffdetails() {
+//        Retrofit retrofit = RetrofitClient.getInstance();
+//        RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
+//
+//        Call<Staffdetails> call = retrofitInterface.Getshowstaffdetails();
+//
+//        call.enqueue(new Callback<Staffdetails>() {
+//            @Override
+//            public void onResponse(Call<Staffdetails> call, Response<Staffdetails> response) {
+//                if (response.isSuccessful()) {
+//
+//                    staffdetails = response.body();
+//                    people = staffdetails.getPersons();
+//
+//                    CustomAdepter customAdepter = new CustomAdepter(AdminStaffDetails.this, people);
+//                    gridView.setAdapter(customAdepter);
+//
+//                    Toast.makeText(AdminStaffDetails.this, "Succes", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    Toast.makeText(AdminStaffDetails.this, "" + response.message(), Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Staffdetails> call, Throwable t) {
+//                Toast.makeText(getApplicationContext(), "Failure", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
 
-    private void showstaffdetails() {
-        Retrofit retrofit = RetrofitClient.getInstance();
-        RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
-
-        Call<Staffdetails> call = retrofitInterface.Getshowstaffdetails();
-
-        call.enqueue(new Callback<Staffdetails>() {
-            @Override
-            public void onResponse(Call<Staffdetails> call, Response<Staffdetails> response) {
-                if (response.isSuccessful()) {
-
-                    staffdetails = response.body();
-                    people = staffdetails.getPersons();
-
-                    CustomAdepter customAdepter = new CustomAdepter(AdminStaffDetails.this, people);
-                    gridView.setAdapter(customAdepter);
-
-                    Toast.makeText(AdminStaffDetails.this, "Succes", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(AdminStaffDetails.this, "" + response.message(), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Staffdetails> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Failure", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    class CustomAdepter extends BaseAdapter {
-
-        List<Person> people;
-        Context context;
-
-        public CustomAdepter(AdminStaffDetails adminStaffDetails, List<Person> people) {
-            this.people = people;
-            this.context = adminStaffDetails;
-        }
-
-        @Override
-        public int getCount() {
-            return people.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-            if (convertView == null) {
-                convertView = LayoutInflater.from(context).inflate(R.layout.staffdetailslayout, parent, false);
-                LayoutInflater lInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-                convertView = lInflater.inflate(R.layout.staffdetailslayout, null);
-            }
-
-            TextView tname = convertView.findViewById(R.id.tname);
-            TextView temail = convertView.findViewById(R.id.temail);
-            TextView tphone = convertView.findViewById(R.id.tphone);
-
-            tname.setText(people.get(position).getName());
-            temail.setText(people.get(position).getEmail());
-            tphone.setText(people.get(position).getPhone());
-
-            return convertView;
-        }
-    }
+//    class CustomAdepter extends BaseAdapter {
+//
+//        List<Person> people;
+//        Context context;
+//
+//        public CustomAdepter(AdminStaffDetails adminStaffDetails, List<Person> people) {
+//            this.people = people;
+//            this.context = adminStaffDetails;
+//        }
+//
+//        @Override
+//        public int getCount() {
+//            return people.size();
+//        }
+//
+//        @Override
+//        public Object getItem(int position) {
+//            return null;
+//        }
+//
+//        @Override
+//        public long getItemId(int position) {
+//            return 0;
+//        }
+//
+//        @Override
+//        public View getView(int position, View convertView, ViewGroup parent) {
+//
+//            if (convertView == null) {
+//                convertView = LayoutInflater.from(context).inflate(R.layout.staffdetailslayout, parent, false);
+//                LayoutInflater lInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+//                convertView = lInflater.inflate(R.layout.staffdetailslayout, null);
+//            }
+//
+//            TextView tname = convertView.findViewById(R.id.tname);
+//            TextView temail = convertView.findViewById(R.id.temail);
+//            TextView tphone = convertView.findViewById(R.id.tphone);
+//
+//            tname.setText(people.get(position).getName());
+//            temail.setText(people.get(position).getEmail());
+//            tphone.setText(people.get(position).getPhone());
+//
+//            return convertView;
+//        }
+//    }
 }
