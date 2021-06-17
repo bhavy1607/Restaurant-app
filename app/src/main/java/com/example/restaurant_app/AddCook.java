@@ -14,6 +14,11 @@ import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
 import com.example.restaurant_app.modelmanager.AllRegister.Bodyregister;
 import com.example.restaurant_app.modelmanager.AllRegister.cook;
+import com.example.restaurant_app.modelmanager.showCategories.Categorypost;
+import com.example.restaurant_app.modelmanager.showCategories.ShowCategories;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,10 +33,16 @@ public class AddCook extends AppCompatActivity {
     private Button backbtn;
     RetrofitInterface retrofitInterface;
 
+    ShowCategories showCategories = new ShowCategories();
+    List<Categorypost> categoryposts = new ArrayList<>();
+    private int i;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_cook);
+
+        showcategories();
 
 
         backbtn = (Button) findViewById(R.id.btnback);
@@ -99,13 +110,15 @@ public class AddCook extends AppCompatActivity {
                 String s1 = phone.getText().toString()+"";
                 String s2 = email.getText().toString();
                 String s3 = password.getText().toString();
-              //  String s4 = activerole.getText().toString();
+                String get = categoryposts.get(i).getId();
+
 
                 Bodyregister bodyregister = new Bodyregister("cook");
                 bodyregister.setName(s);
                 bodyregister.setEmail(s2);
                 bodyregister.setPhone(Integer.valueOf(s1));
                 bodyregister.setPassword(s3);
+                bodyregister.setCategoryId(get);
 
 
                 Call<cook> call = retrofitInterface.executeCookRegister(bodyregister);
@@ -141,6 +154,32 @@ public class AddCook extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(AddCook.this, ManagerHome.class);
                 startActivity(intent);
+            }
+        });
+    }
+
+    private void showcategories(){
+        Retrofit retrofit = RetrofitClient.getInstance();
+        RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
+
+        Call<ShowCategories> call = retrofitInterface.showCategories();
+
+        call.enqueue(new Callback<ShowCategories>() {
+            @Override
+            public void onResponse(Call<ShowCategories> call, Response<ShowCategories> response) {
+
+                if(response.isSuccessful()){
+
+
+                   // Toast.makeText(AddCook.this, "Succes", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(AddCook.this, ""+response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ShowCategories> call, Throwable t) {
+                Toast.makeText(AddCook.this, "Failure", Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -1,16 +1,16 @@
 
-package com.example.restaurant_app.modelmanager.showCategories;
+package com.example.restaurant_app.modelmanager.categoriesitem;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Categorypost {
+public class Category {
 
     @SerializedName("products")
     @Expose
-    private List<Product> products = null;
+    private List<String> products = null;
     @SerializedName("_id")
     @Expose
     private String id;
@@ -33,11 +33,11 @@ public class Categorypost {
     @Expose
     private Integer v;
 
-    public List<Product> getProducts() {
+    public List<String> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(List<String> products) {
         this.products = products;
     }
 

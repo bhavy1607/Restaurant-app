@@ -33,7 +33,6 @@ public class Manage_complain extends AppCompatActivity {
     GridView gridView;
     public static String id;
 
-
     Getcomplate getcomplate = new Getcomplate();
     List<Complaint> complaints = new ArrayList<>();
 

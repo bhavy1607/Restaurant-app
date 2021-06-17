@@ -21,6 +21,9 @@ public class Bodyregister {
     @SerializedName("activerole")
     @Expose
     private String activerole;
+    @SerializedName("categoryId")
+    @Expose
+    private String categoryId;
 
     public String getEmail() {
         return email;
@@ -54,9 +57,16 @@ public class Bodyregister {
         this.name = name;
     }
 
-
     public Bodyregister(String activerole) {
         this.activerole = activerole;
+    }
+
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
     }
 
 }

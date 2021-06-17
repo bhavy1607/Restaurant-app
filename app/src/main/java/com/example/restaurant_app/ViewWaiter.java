@@ -43,10 +43,10 @@ public class ViewWaiter extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_waiter);
 
-        listingdata();
-
         gridView = (GridView)findViewById(R.id.gridview);
         id = getIntent().getStringExtra("_id");
+
+        listingdata();
 
     }
 
@@ -66,7 +66,6 @@ public class ViewWaiter extends AppCompatActivity {
 
                     waiterdetails = response.body();
                     lists = waiterdetails.getList();
-
 
                     CustomAdpter customAdpter = new CustomAdpter(lists,ViewWaiter.this);
                     gridView.setAdapter(customAdpter);
@@ -121,15 +120,23 @@ public class ViewWaiter extends AppCompatActivity {
                 TextView temail = view.findViewById(R.id.temail);
                 TextView tphone = view.findViewById(R.id.tphone);
                 Button btn = view.findViewById(R.id.btndelete);
+                Button btn1 = view.findViewById(R.id.btnupdate);
+                btn1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String get = lists.get(position).getId();
+                        Intent intent = new Intent(ViewWaiter.this,WaiterUpdateDetails.class);
+                        intent.putExtra("_id",lists.get(position).getId());
+                        startActivity(intent);
+                    }
+                });
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        cookdelete();
                         Toast.makeText(context, "Deleted succesfully..", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(ViewWaiter.this, ManagerHome.class);
                         startActivity(intent);
-
-                        cookdelete();
-
                     }
                 });
 

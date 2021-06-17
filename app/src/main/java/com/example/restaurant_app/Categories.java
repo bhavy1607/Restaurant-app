@@ -120,7 +120,7 @@ public class Categories extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ShowCategories> call, Throwable t) {
-                Toast.makeText(Categories.this, "Failure", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Categories.this, "Failure"+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

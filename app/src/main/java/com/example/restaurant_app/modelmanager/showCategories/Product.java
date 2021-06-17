@@ -1,5 +1,5 @@
 
-package com.example.restaurant_app.modelmanager.categoriesitem;
+package com.example.restaurant_app.modelmanager.showCategories;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -47,6 +47,9 @@ public class Product {
     @SerializedName("__v")
     @Expose
     private Integer v;
+    @SerializedName("categoryName")
+    @Expose
+    private String categoryName;
 
     public Boolean getAvailability() {
         return availability;
@@ -56,7 +59,13 @@ public class Product {
         this.availability = availability;
     }
 
+    public Double getOffer() {
+        return offer;
+    }
 
+    public void setOffer(Double offer) {
+        this.offer = offer;
+    }
 
     public List<Ingredient> getIngredients() {
         return ingredients;
@@ -96,14 +105,6 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Double getOffer() {
-        return offer;
-    }
-
-    public void setOffer(Double offer) {
-        this.offer = offer;
     }
 
     public Double getOriginalPrice() {
@@ -152,6 +153,14 @@ public class Product {
 
     public void setV(Integer v) {
         this.v = v;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
 }

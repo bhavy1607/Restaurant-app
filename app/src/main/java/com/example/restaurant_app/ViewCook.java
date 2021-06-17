@@ -126,6 +126,16 @@ public class ViewCook extends AppCompatActivity {
             TextView temail = view.findViewById(R.id.temail);
             TextView tphone = view.findViewById(R.id.tphone);
             Button btn = view.findViewById(R.id.btndelete);
+            Button btn1 = view.findViewById(R.id.btnupdate);
+            btn1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String get = lists.get(i).getId();
+                    Intent intent = new Intent(ViewCook.this,WaiterUpdateDetails.class);
+                    intent.putExtra("_id",lists.get(i).getId());
+                    startActivity(intent);
+                }
+            });
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

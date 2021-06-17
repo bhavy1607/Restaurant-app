@@ -32,17 +32,21 @@ import com.example.restaurant_app.modelmanager.showCategories.ShowCategories;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Bodyshowrevenue;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Showrevenue;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Sumrevenue;
+import com.example.restaurant_app.modelmanager.updatewaiter.Bodywaiterupdate;
+import com.example.restaurant_app.modelmanager.updatewaiter.Waiterupdate;
 import com.example.restaurant_app.modelmanager.waiterdetails.Bodywaiter;
 import com.example.restaurant_app.modelmanager.waiterdetails.Waiterdetails;
 
 import java.util.HashMap;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
 
 public interface RetrofitInterface {
@@ -64,6 +68,11 @@ public interface RetrofitInterface {
 
     @POST("/waiter/login")
     Call<LoginResult> executeWaiterLogin(@Body HashMap<String, String> map);
+
+    //updatewaiterdetails
+    @PUT("/all/update/{path}")
+    Call<Waiterupdate> updatedetails(@Path(value = "path") String path,
+                                     @Body Bodywaiterupdate bodywaiterupdate);
 
     //Cook register
     @PUT("/all/register")
@@ -139,7 +148,8 @@ public interface RetrofitInterface {
 
     //Get Ingrediants
     @POST("/ingredient/addIngredient")
-    Call<Createingrediants> AddIngrediants(@Body com.example.restaurant_app.modelmanager.createIngrediants.Body body);
+    Call<Createingrediants> AddIngrediants(@Body com.example.restaurant_app.modelmanager.createIngrediants.Body body,
+                                           @Part MultipartBody.Part filepath);
 
     //view totalrevenue
     @GET("/revenue/sum")

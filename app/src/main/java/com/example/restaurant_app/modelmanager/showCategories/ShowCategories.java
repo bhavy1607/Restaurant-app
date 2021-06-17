@@ -16,7 +16,7 @@ public class ShowCategories {
     private List<Categorypost> categoryposts = null;
     @SerializedName("totalItems")
     @Expose
-    private Integer totalItems;
+    private Double totalItems;
 
     public String getMessage() {
         return message;
@@ -34,12 +34,11 @@ public class ShowCategories {
         this.categoryposts = categoryposts;
     }
 
-    public Integer getTotalItems() {
+    public Double getTotalItems() {
         return totalItems;
     }
 
-    public void setTotalItems(Integer totalItems) {
+    public void setTotalItems(Double totalItems) {
         this.totalItems = totalItems;
     }
-
 }

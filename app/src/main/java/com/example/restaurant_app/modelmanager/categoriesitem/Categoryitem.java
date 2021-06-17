@@ -14,6 +14,9 @@ public class Categoryitem {
     @SerializedName("products")
     @Expose
     private List<Product> products = null;
+    @SerializedName("category")
+    @Expose
+    private Category category;
 
     public String getMessage() {
         return message;
@@ -29,6 +32,14 @@ public class Categoryitem {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
 }
