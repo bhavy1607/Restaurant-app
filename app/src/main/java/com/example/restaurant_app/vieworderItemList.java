@@ -74,7 +74,7 @@ public class vieworderItemList extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<OrderItem> call, Throwable t) {
-                Toast.makeText(vieworderItemList.this, "Failure", Toast.LENGTH_SHORT).show();
+                Toast.makeText(vieworderItemList.this, "Failure"+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

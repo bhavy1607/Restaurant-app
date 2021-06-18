@@ -1,6 +1,5 @@
 package com.example.restaurant_app;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -69,8 +68,8 @@ public class WaiterUpdateDetails extends AppCompatActivity {
                 if(response.isSuccessful()){
 
                     Toast.makeText(WaiterUpdateDetails.this, "Update Succesfully..", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(WaiterUpdateDetails.this,ManagerHome.class);
-                    startActivity(intent);
+//                    Intent intent = new Intent(WaiterUpdateDetails.this,ManagerHome.class);
+//                    startActivity(intent);
                 }else {
                     Toast.makeText(WaiterUpdateDetails.this, ""+response.message(), Toast.LENGTH_SHORT).show();
                 }

@@ -110,16 +110,14 @@ public class AddCook extends AppCompatActivity {
                 String s1 = phone.getText().toString()+"";
                 String s2 = email.getText().toString();
                 String s3 = password.getText().toString();
-                String get = categoryposts.get(i).getId();
-
+               // String get = categoryposts.get(i).getCategoryName();
 
                 Bodyregister bodyregister = new Bodyregister("cook");
                 bodyregister.setName(s);
                 bodyregister.setEmail(s2);
                 bodyregister.setPhone(Integer.valueOf(s1));
                 bodyregister.setPassword(s3);
-                bodyregister.setCategoryId(get);
-
+               // bodyregister.setCategoryId(get);
 
                 Call<cook> call = retrofitInterface.executeCookRegister(bodyregister);
 
@@ -145,8 +143,6 @@ public class AddCook extends AppCompatActivity {
                     }
                 });
             }
-
-
         });
 
         backbtn.setOnClickListener(new View.OnClickListener() {

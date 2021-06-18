@@ -29,15 +29,11 @@ import com.example.restaurant_app.modelmanager.getingrediants.Getingredients;
 import com.example.restaurant_app.modelmanager.getingrediants.Ingredient;
 import com.squareup.picasso.Picasso;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -195,8 +191,8 @@ public class Viewingrediant extends AppCompatActivity {
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        File file = new File(String.valueOf(R.drawable.i_1));
-        MultipartBody.Part filePart = MultipartBody.Part.createFormData("file", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
+//        File file = new File(String.valueOf(R.drawable.i_1));
+//        MultipartBody.Part filePart = MultipartBody.Part.createFormData("file", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
 
         String ingrediantname = et1.getText().toString();
         String price = et3.getText().toString()+"";
@@ -209,7 +205,7 @@ public class Viewingrediant extends AppCompatActivity {
         body.setIngredientName(ingrediantname);
         body.setPrice(Integer.parseInt(price));
 
-        Call<Createingrediants> call = retrofitInterface.AddIngrediants(body,filePart);
+        Call<Createingrediants> call = retrofitInterface.AddIngrediants(body);
 
         call.enqueue(new Callback<Createingrediants>() {
             @Override

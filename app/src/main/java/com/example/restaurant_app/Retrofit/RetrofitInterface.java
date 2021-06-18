@@ -12,6 +12,7 @@ import com.example.restaurant_app.modelmanager.booktable.BookTable;
 import com.example.restaurant_app.modelmanager.categoriesitem.Categoryitem;
 import com.example.restaurant_app.modelmanager.cookdetails.Bodycook;
 import com.example.restaurant_app.modelmanager.cookdetails.Cookdetails;
+import com.example.restaurant_app.modelmanager.createCategory.Createcategories;
 import com.example.restaurant_app.modelmanager.createIngrediants.Createingrediants;
 import com.example.restaurant_app.modelmanager.delete.Deletecook;
 import com.example.restaurant_app.modelmanager.feedback.Avaragerating;
@@ -39,14 +40,12 @@ import com.example.restaurant_app.modelmanager.waiterdetails.Waiterdetails;
 
 import java.util.HashMap;
 
-import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
-import retrofit2.http.Part;
 import retrofit2.http.Path;
 
 public interface RetrofitInterface {
@@ -148,8 +147,11 @@ public interface RetrofitInterface {
 
     //Get Ingrediants
     @POST("/ingredient/addIngredient")
-    Call<Createingrediants> AddIngrediants(@Body com.example.restaurant_app.modelmanager.createIngrediants.Body body,
-                                           @Part MultipartBody.Part filepath);
+    Call<Createingrediants> AddIngrediants(@Body com.example.restaurant_app.modelmanager.createIngrediants.Body body);
+
+    //Get Category
+    @POST("/category/create")
+    Call<Createcategories> AddCategory(@Body com.example.restaurant_app.modelmanager.createCategory.Body body);
 
     //view totalrevenue
     @GET("/revenue/sum")

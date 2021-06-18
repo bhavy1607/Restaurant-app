@@ -3,10 +3,9 @@ package com.example.restaurant_app;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,18 +17,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
+import com.example.restaurant_app.modelmanager.createCategory.Body;
+import com.example.restaurant_app.modelmanager.createCategory.Createcategories;
 import com.example.restaurant_app.modelmanager.showCategories.Categorypost;
 import com.example.restaurant_app.modelmanager.showCategories.ShowCategories;
 import com.squareup.picasso.Picasso;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +41,7 @@ public class Categories extends AppCompatActivity {
     int SELECT_PHOTO = 1;
     Uri uri;
     EditText et1,et2;
-    Button button,btnshowimage;
+    Button btnadd;
     GridView gridView;
     ImageView imageView;
     public static String id;
@@ -58,39 +56,46 @@ public class Categories extends AppCompatActivity {
         setContentView(R.layout.activity_categories);
 
         et1 = (EditText)findViewById(R.id.et1);
-        btnshowimage = (Button) findViewById(R.id.btnshowimage);
+      //  et2 = (EditText)findViewById(R.id.et2);
         imageView = (ImageView)findViewById(R.id.imageview);
-        button = (Button) findViewById(R.id.btnadd);
+        btnadd = (Button)findViewById(R.id.btnadd);
+
+        btnadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCategory();
+            }
+        });
         gridView = (GridView)findViewById(R.id.gridview);
 
         showcategories();
 
-        btnshowimage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setType("image/*");
-                startActivityForResult(intent,SELECT_PHOTO);
-            }
-        });
+//        btnshowimage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(Intent.ACTION_PICK);
+//                intent.setType("image/*");
+//                startActivityForResult(intent,SELECT_PHOTO);
+//            }
+//        });
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == SELECT_PHOTO && resultCode == RESULT_OK && data != null && data.getData() != null){
-            uri = data.getData();
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),uri);
-                imageView.setImageBitmap(bitmap);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if(requestCode == SELECT_PHOTO && resultCode == RESULT_OK && data != null && data.getData() != null){
+//            uri = data.getData();
+//            try {
+//                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),uri);
+//                imageView.setImageBitmap(bitmap);
+//            } catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
 
 
     private void showcategories(){
@@ -124,6 +129,7 @@ public class Categories extends AppCompatActivity {
             }
         });
     }
+
     class CustomAdepter extends BaseAdapter {
 
         List<Categorypost> categoryposts;
@@ -133,7 +139,6 @@ public class Categories extends AppCompatActivity {
             this.context = categories;
             this.categoryposts = categoryposts;
         }
-
 
         @Override
         public int getCount() {
@@ -173,6 +178,7 @@ public class Categories extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+
             textView = convertView.findViewById(R.id.name);
             imageView = convertView.findViewById(R.id.image);
 
@@ -184,5 +190,42 @@ public class Categories extends AppCompatActivity {
         }
     }
 
+    private void AddCategory(){
+        Retrofit retrofit = RetrofitClient.getInstance();
+        RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
+        String categoryname = et1.getText().toString();
+        Drawable img = getResources().getDrawable(R.drawable.i_1);
+        String pathimage = img.toString();
+
+        Uri path = Uri.parse("android.resource://com.example.restaurant_app/" +R.drawable.i_1);
+        String imgpath = path.toString();
+
+        Body body = new Body();
+
+        body.setCategoryname(categoryname);
+        body.setImageUrl(imgpath);
+
+
+        Call<Createcategories> call = retrofitInterface.AddCategory(body);
+
+        call.enqueue(new Callback<Createcategories>() {
+            @Override
+            public void onResponse(Call<Createcategories> call, Response<Createcategories> response) {
+                if(response.isSuccessful()){
+
+
+
+                    Toast.makeText(Categories.this, "Succes", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(Categories.this, ""+response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Createcategories> call, Throwable t) {
+                Toast.makeText(Categories.this, "Failure"+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

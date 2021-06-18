@@ -72,19 +72,19 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <!--    <EditText-->
-        <!--        android:id="@+id/et2"-->
-        <!--        android:layout_width="match_parent"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:layout_below="@+id/et1"-->
-        <!--        android:layout_marginTop="10dp"-->
-        <!--        android:hint="Chooes Image"/>-->
+<!--            <EditText-->
+<!--                android:id="@+id/et2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/et1"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:hint="Chooes Image"/>-->
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnshowimage"
-            android:text="Chooes Image"/>
+<!--        <Button-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/btnshowimage"-->
+<!--            android:text="Chooes Image"/>-->
 
 
         <ImageView

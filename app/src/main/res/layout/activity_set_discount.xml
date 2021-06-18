@@ -13,7 +13,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:layout_marginTop="20dp"
-        android:maxLength="3"
+        android:maxLength="2"
         android:imeOptions="actionDone"
         android:inputType="numberDecimal"
         android:hint="Discount Amount"/>

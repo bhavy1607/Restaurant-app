@@ -154,7 +154,7 @@ class CustomAdepter extends BaseAdapter {
                         startActivity(intent);
                     }
                 });
-                ttotal.setText(orders.get(position).getGrandTotal()+""+"₹");
+                ttotal.setText(orders.get(position).getGrandTotal()+""+"  ₹");
                 tname.setText(orders.get(position).getName());
 //                temail.setText(orders.get(position).getEmail());
                 tdate.setText(orders.get(position).getCreatedAt());
