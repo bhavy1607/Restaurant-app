@@ -24,6 +24,7 @@ import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
 import com.example.restaurant_app.modelmanager.createCategory.Body;
 import com.example.restaurant_app.modelmanager.createCategory.Createcategories;
+import com.example.restaurant_app.modelmanager.showCategories.Categorydelete;
 import com.example.restaurant_app.modelmanager.showCategories.Categorypost;
 import com.example.restaurant_app.modelmanager.showCategories.ShowCategories;
 import com.squareup.picasso.Picasso;
@@ -49,6 +50,7 @@ public class Categories extends AppCompatActivity {
 
     ShowCategories showCategories = new ShowCategories();
     List<Categorypost> categoryposts = new ArrayList<>();
+    private int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,8 @@ public class Categories extends AppCompatActivity {
         et1 = (EditText)findViewById(R.id.et1);
       //  et2 = (EditText)findViewById(R.id.et2);
         imageView = (ImageView)findViewById(R.id.imageview);
+        id = getIntent().getStringExtra("_id");
+
         btnadd = (Button)findViewById(R.id.btnadd);
 
         btnadd.setOnClickListener(new View.OnClickListener() {
@@ -167,7 +171,18 @@ public class Categories extends AppCompatActivity {
             TextView textView;
             ImageView imageView;
             CardView cardView;
+            Button btn;
 
+            btn = convertView.findViewById(R.id.btndel);
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    deleteCategory();
+                    Toast.makeText(context, "Deleted succesfully..", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Categories.this, ManagerHome.class);
+                    startActivity(intent);
+                }
+            });
             cardView = convertView.findViewById(R.id.cardview);
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -227,5 +242,33 @@ public class Categories extends AppCompatActivity {
                 Toast.makeText(Categories.this, "Failure"+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void deleteCategory(){
+        Retrofit retrofit = RetrofitClient.getInstance();
+        RetrofitInterface retrofitInterface1 = retrofit.create(RetrofitInterface.class);
+
+        String get = categoryposts.get(i).getId();
+
+        Call<Categorydelete> call = retrofitInterface1.deletecategory(get);
+
+        call.enqueue(new Callback<Categorydelete>() {
+            @Override
+            public void onResponse(Call<Categorydelete> call, Response<Categorydelete> response) {
+                if (response.isSuccessful()){
+
+                    Toast.makeText(Categories.this, "Succes", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(Categories.this, ""+response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Categorydelete> call, Throwable t) {
+
+                Toast.makeText(Categories.this, "Failure", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }

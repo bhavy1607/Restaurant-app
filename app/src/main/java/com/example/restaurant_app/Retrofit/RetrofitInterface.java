@@ -29,6 +29,7 @@ import com.example.restaurant_app.modelmanager.replaycomplain.BodyreplayComplain
 import com.example.restaurant_app.modelmanager.replaycomplain.Replaycomplain;
 import com.example.restaurant_app.modelmanager.setdiscount.BodySetDiscount;
 import com.example.restaurant_app.modelmanager.setdiscount.Setdiscount;
+import com.example.restaurant_app.modelmanager.showCategories.Categorydelete;
 import com.example.restaurant_app.modelmanager.showCategories.ShowCategories;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Bodyshowrevenue;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Showrevenue;
@@ -184,6 +185,10 @@ public interface RetrofitInterface {
     //show CategoryItem
     @GET("/feed/menu/{path1}")
     Call<Categoryitem> showCategoryItem(@Path(value = "path1") String path);
+
+    //deleteCategory
+    @DELETE("/category/delete/{path1}")
+    Call<Categorydelete> deletecategory(@Path(value = "path1") String path);
 
     //View Parsal
     @GET("/order/parcelorders")
