@@ -1,6 +1,7 @@
 package com.example.restaurant_app;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -195,8 +196,14 @@ public class AdminHome extends AppCompatActivity {
 //                        startActivity(intent4);
 //                        break;
                     case R.id.logout:
-                        Intent logout = new Intent(AdminHome.this, MainActivity.class);
-                        startActivity(logout);
+                        SharedPreferences preferences = getSharedPreferences("checked",MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("remember","false");
+                        editor.apply();
+                        Intent intent1 = new Intent(AdminHome.this,AdminLogin.class);
+                        startActivity(intent1);
+                        finish();
+
                         break;
                 }
                 return true;

@@ -33,6 +33,7 @@ public class Viewfeedback extends AppCompatActivity {
 //    private Button backbtn;
     GridView gridView;
     Button btnAvarage;
+    Button btnback;
 
     Feedbackdetails feedbackdetails = new Feedbackdetails();
     List<Feedback> feedbacks = new ArrayList<>();
@@ -44,6 +45,14 @@ public class Viewfeedback extends AppCompatActivity {
         setContentView(R.layout.activity_view_feedback);
         gridView = (GridView)findViewById(R.id.gridview);
         btnAvarage = (Button)findViewById(R.id.btnavarage);
+        btnback = (Button)findViewById(R.id.btnback);
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Viewfeedback.this,ManagerHome.class);
+                startActivity(intent);
+            }
+        });
 
         listingdata();
 

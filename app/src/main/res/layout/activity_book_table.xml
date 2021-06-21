@@ -38,6 +38,18 @@
 <!--        </LinearLayout>-->
 <!--    </com.google.android.material.appbar.AppBarLayout>-->
 
+
+    <Button
+        android:id="@+id/btnback"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_back"
+        android:layout_marginTop="10dp"
+        android:textColor="#000000"
+        android:paddingLeft="20dp"
+        />
+
+
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

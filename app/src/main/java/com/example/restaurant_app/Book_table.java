@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,7 +23,6 @@ import androidx.cardview.widget.CardView;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
-import com.example.restaurant_app.modelmanager.TableWiseOrder.Tablewiseorder;
 import com.example.restaurant_app.modelmanager.booktable.BookTable;
 import com.example.restaurant_app.modelmanager.booktable.Table;
 
@@ -39,6 +39,7 @@ public class Book_table extends AppCompatActivity {
     GridView gridView;
     Toolbar toolbar;
     public static String id;
+    Button btnback;
 
     BookTable bookTable = new BookTable();
     List<Table> tables = new ArrayList<>();
@@ -52,6 +53,14 @@ public class Book_table extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         gridView = (GridView)findViewById(R.id.gridview);
+        btnback = (Button) findViewById(R.id.btnback);
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Book_table.this,ManagerHome.class);
+                startActivity(intent);
+            }
+        });
 
         booktable();
     }
@@ -112,7 +121,6 @@ public class Book_table extends AppCompatActivity {
          public CustomAdepter(Book_table book_table, List<Table> tables) {
              this.context = book_table;
              this.tables = tables;
-
          }
 
          @Override

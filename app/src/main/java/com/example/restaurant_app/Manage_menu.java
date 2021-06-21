@@ -33,6 +33,7 @@ import retrofit2.Retrofit;
 public class Manage_menu extends AppCompatActivity {
 
     GridView gridView;
+    Button  btnback;
 
     Menudetails menudetails = new Menudetails();
     List<Product> products = new ArrayList<>();
@@ -44,6 +45,14 @@ public class Manage_menu extends AppCompatActivity {
         setContentView(R.layout.activity_manage_menu);
 
         gridView = (GridView)findViewById(R.id.gridview);
+        btnback = (Button)findViewById(R.id.btnback);
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Manage_menu.this,ManagerHome.class);
+                startActivity(intent);
+            }
+        });
 
         showmenu();
     }

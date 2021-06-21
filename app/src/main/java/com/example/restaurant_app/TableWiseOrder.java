@@ -83,11 +83,9 @@ public class TableWiseOrder extends AppCompatActivity {
         List<Order> orders;
         Context context;
 
-
         public CustomAdepter(TableWiseOrder tableWiseOrder, List<Order> orders) {
             this.context = tableWiseOrder;
             this.orders = orders;
-
         }
 
         @Override
@@ -138,5 +136,4 @@ public class TableWiseOrder extends AppCompatActivity {
             return view;
         }
     }
-
 }

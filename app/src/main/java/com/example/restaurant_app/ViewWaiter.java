@@ -33,10 +33,12 @@ public class ViewWaiter extends AppCompatActivity {
 
     GridView gridView;
     public static String id;
+    Button btnback;
 
     Waiterdetails waiterdetails = new Waiterdetails();
     List<com.example.restaurant_app.modelmanager.waiterdetails.List> lists = new ArrayList<>();
     private int i;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,14 @@ public class ViewWaiter extends AppCompatActivity {
 
         gridView = (GridView)findViewById(R.id.gridview);
         id = getIntent().getStringExtra("_id");
+        btnback = (Button)findViewById(R.id.btnback);
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ViewWaiter.this,ManagerHome.class);
+                startActivity(intent);
+            }
+        });
 
         listingdata();
 

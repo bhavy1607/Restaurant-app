@@ -30,7 +30,7 @@ public class AddCook extends AppCompatActivity {
     ImageView logo_image;
     EditText name, phone, email, password;
     Button register;
-    private Button backbtn;
+    private Button backbtn,btnback;
     RetrofitInterface retrofitInterface;
 
     ShowCategories showCategories = new ShowCategories();
@@ -53,6 +53,14 @@ public class AddCook extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password);
        // activerole = (EditText)findViewById(R.id.activerole);
         register = (Button) findViewById(R.id.register_btn);
+        btnback = (Button)findViewById(R.id.btnback);
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddCook.this,ManagerHome.class);
+                startActivity(intent);
+            }
+        });
 
 
         register.setOnClickListener(new View.OnClickListener() {

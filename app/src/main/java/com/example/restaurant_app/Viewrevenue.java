@@ -1,13 +1,16 @@
 package com.example.restaurant_app;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
@@ -23,6 +26,7 @@ import com.example.restaurant_app.modelmanager.showrevenuemodel.Showrevenue;
 import com.example.restaurant_app.modelmanager.showrevenuemodel.Sumrevenue;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -36,11 +40,12 @@ public class Viewrevenue extends AppCompatActivity {
     Button btntotal,btnshowrevenue;
     TextView t1,t2;
     GridView gridView;
-    int year,month,day;
+    Button btnback;
 
     Sumrevenue sumrevenue;
     Showrevenue showrevenue = new Showrevenue();
     List<Result> results = new ArrayList<>();
+    DatePickerDialog datePickerDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,25 +59,52 @@ public class Viewrevenue extends AppCompatActivity {
         t1 = (TextView)findViewById(R.id.ttotal);
         t2 = (TextView)findViewById(R.id.t2);
         gridView = (GridView)findViewById(R.id.gridview);
+        btnback = (Button)findViewById(R.id.btnback);
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Viewrevenue.this,ManagerHome.class);
+                startActivity(intent);
+            }
+        });
 
-//        final Calendar calendar = Calendar.getInstance();
-//        et1.setOnClickListener(new View.OnClickListener() {
-//
-//            @RequiresApi(api = Build.VERSION_CODES.N)
-//            @Override
-//            public void onClick(View v) {
-//                year = calendar.get(Calendar.YEAR);
-//                day = calendar.get(Calendar.DAY_OF_MONTH);
-//                month = calendar.get(Calendar.MONTH);
-//                DatePickerDialog datePickerDialog = new DatePickerDialog(Viewrevenue.this, new DatePickerDialog.OnDateSetListener() {
-//                    @Override
-//                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-//                        et1.setText(SimpleDateFormat.getDateInstance().format(calendar.getTime()));
-//                    }
-//                },year,month,day);
-//                datePickerDialog.show();
-//            }
-//        });
+        et1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance();
+
+                int year = calendar.get(Calendar.YEAR);
+                int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+                int month = calendar.get(Calendar.MONTH);
+
+                datePickerDialog = new DatePickerDialog(Viewrevenue.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        et1.setText(year+"/"+(month+1)+"/"+dayOfMonth);
+                    }
+                },year,month,dayOfMonth);
+                datePickerDialog.show();
+            }
+        });
+
+        et2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance();
+
+                int year = calendar.get(Calendar.YEAR);
+                int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+                int month = calendar.get(Calendar.MONTH);
+
+                datePickerDialog = new DatePickerDialog(Viewrevenue.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        et2.setText(year+"/"+(month+1)+"/"+dayOfMonth);
+                    }
+                },year,month,dayOfMonth);
+                datePickerDialog.show();
+            }
+        });
 
         btntotal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,7 +211,7 @@ public class Viewrevenue extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Showrevenue> call, Throwable t) {
-                Toast.makeText(Viewrevenue.this, "Failure", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Viewrevenue.this, "Failure"+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

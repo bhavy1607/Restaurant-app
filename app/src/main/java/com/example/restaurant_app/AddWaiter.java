@@ -35,6 +35,14 @@ public class AddWaiter extends AppCompatActivity {
 
 
         backbtn = (Button) findViewById(R.id.btnback);
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddWaiter.this,ManagerHome.class);
+                startActivity(intent);
+            }
+        });
+
         logo_image = (ImageView) findViewById(R.id.logo_image);
         name = (EditText) findViewById(R.id.name);
         phone = (EditText) findViewById(R.id.phone);

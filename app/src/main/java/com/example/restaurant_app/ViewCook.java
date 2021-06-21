@@ -33,6 +33,7 @@ public class ViewCook extends AppCompatActivity {
 
     GridView gridView;
     public static String id;
+    Button btnback;
 
     Cookdetails cookdetails = new Cookdetails();
     List<com.example.restaurant_app.modelmanager.cookdetails.List> lists = new ArrayList<>();
@@ -45,6 +46,14 @@ public class ViewCook extends AppCompatActivity {
 
         gridView = (GridView)findViewById(R.id.gridview);
         id = getIntent().getStringExtra("_id");
+        btnback = (Button)findViewById(R.id.btnback);
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ViewCook.this,ManagerHome.class);
+                startActivity(intent);
+            }
+        });
 
 
         listingdata();

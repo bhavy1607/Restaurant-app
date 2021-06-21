@@ -195,7 +195,12 @@ public class ManagerHome extends AppCompatActivity {
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.putString("remember","false");
                         editor.apply();
+                        Intent intent = new Intent(ManagerHome.this,ManagerLogin.class);
+                        startActivity(intent);
                         finish();
+
+
+
                         break;
 
                 }

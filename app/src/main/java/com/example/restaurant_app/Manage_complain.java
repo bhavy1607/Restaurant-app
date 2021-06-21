@@ -32,6 +32,7 @@ public class Manage_complain extends AppCompatActivity {
 
     GridView gridView;
     public static String id;
+    Button btnback;
 
     Getcomplate getcomplate = new Getcomplate();
     List<Complaint> complaints = new ArrayList<>();
@@ -43,6 +44,14 @@ public class Manage_complain extends AppCompatActivity {
         setContentView(R.layout.activity_manage_complain);
 
         gridView = (GridView)findViewById(R.id.gridview);
+        btnback = (Button)findViewById(R.id.btnback);
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Manage_complain.this,ManagerHome.class);
+                startActivity(intent);
+            }
+        });
 
         Showcomplain();
     }

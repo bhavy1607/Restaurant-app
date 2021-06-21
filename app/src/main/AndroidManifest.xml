@@ -14,8 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Restaurant_App"
         android:usesCleartextTraffic="true"
-        tools:ignore="UnusedAttribute">
-        <activity android:name=".WaiterUpdateDetails"></activity>
+        tools:ignore="AllowBackup,UnusedAttribute">
+        <activity android:name=".WaiterUpdateDetails"/>
         <activity android:name=".CategoryItem" />
         <activity android:name=".deleteCook" />
         <activity android:name=".TableWiseItemList" />

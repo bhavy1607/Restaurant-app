@@ -38,6 +38,7 @@ public class ViewOrderHistory extends AppCompatActivity {
     GridView gridView;
     Toolbar toolbar;
     public static String id;
+    Button btnback;
 
     Orderdetails orderdetails = new Orderdetails();
     List<Order> orders = new ArrayList<>();
@@ -51,6 +52,14 @@ public class ViewOrderHistory extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         gridView = (GridView) findViewById(R.id.gridview);
+        btnback = (Button)findViewById(R.id.btnback);
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ViewOrderHistory.this,ManagerHome.class);
+                startActivity(intent);
+            }
+        });
 
         listingdata();
     }

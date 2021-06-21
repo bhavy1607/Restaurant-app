@@ -42,7 +42,7 @@ public class Categories extends AppCompatActivity {
     int SELECT_PHOTO = 1;
     Uri uri;
     EditText et1,et2;
-    Button btnadd;
+    Button btnadd,btnback;
     GridView gridView;
     ImageView imageView;
     public static String id;
@@ -50,7 +50,8 @@ public class Categories extends AppCompatActivity {
 
     ShowCategories showCategories = new ShowCategories();
     List<Categorypost> categoryposts = new ArrayList<>();
-    private int i;
+
+    private int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,14 @@ public class Categories extends AppCompatActivity {
         et1 = (EditText)findViewById(R.id.et1);
       //  et2 = (EditText)findViewById(R.id.et2);
         imageView = (ImageView)findViewById(R.id.imageview);
+        btnback = (Button)findViewById(R.id.btnback);
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Categories.this,ManagerHome.class);
+                startActivity(intent);
+            }
+        });
         id = getIntent().getStringExtra("_id");
 
         btnadd = (Button)findViewById(R.id.btnadd);
@@ -177,10 +186,11 @@ public class Categories extends AppCompatActivity {
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    deleteCategory();
                     Toast.makeText(context, "Deleted succesfully..", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Categories.this, ManagerHome.class);
                     startActivity(intent);
+                    deleteCategory();
+
                 }
             });
             cardView = convertView.findViewById(R.id.cardview);
@@ -248,7 +258,7 @@ public class Categories extends AppCompatActivity {
         Retrofit retrofit = RetrofitClient.getInstance();
         RetrofitInterface retrofitInterface1 = retrofit.create(RetrofitInterface.class);
 
-        String get = categoryposts.get(i).getId();
+        String get = categoryposts.get(position).getId();
 
         Call<Categorydelete> call = retrofitInterface1.deletecategory(get);
 

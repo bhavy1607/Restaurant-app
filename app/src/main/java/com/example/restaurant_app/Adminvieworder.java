@@ -39,12 +39,11 @@ public class Adminvieworder extends AppCompatActivity {
     Toolbar toolbar;
     public static String id;
 
-
-
     Orderdetails orderdetails = new Orderdetails();
     List<Order> orders = new ArrayList<>();
 
-    // Button backbtn;
+     Button backbtn;
+     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,14 +56,14 @@ public class Adminvieworder extends AppCompatActivity {
 
         listingdata();
 
-//        backbtn = (Button)findViewById(R.id.btnback);
-//        backbtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(Adminvieworder.this, AdminHome.class);
-//                startActivity(intent);
-//            }
-//        });
+        backbtn = (Button)findViewById(R.id.btnback);
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Adminvieworder.this, AdminHome.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

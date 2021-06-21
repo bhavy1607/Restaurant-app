@@ -1,4 +1,3 @@
-
 package com.example.restaurant_app.modelmanager.booktable;
 
 import com.google.gson.annotations.Expose;
