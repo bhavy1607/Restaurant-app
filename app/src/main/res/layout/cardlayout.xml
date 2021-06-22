@@ -85,20 +85,20 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-
     <Button
         android:id="@+id/btndelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DEL"
-        android:layout_marginLeft="200dp"/>
+        android:layout_marginLeft="170dp"/>
 
-        <Button
+            <Button
             android:id="@+id/btnupdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Update"
-            android:layout_marginLeft="10dp"/>
+
+            />
 
     </LinearLayout>
 </LinearLayout>

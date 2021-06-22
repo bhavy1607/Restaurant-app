@@ -1,4 +1,3 @@
-
 package com.example.restaurant_app.modelmanager.getOrderItem;
 
 import com.google.gson.annotations.Expose;
@@ -31,7 +30,7 @@ public class ProductId {
     private String description;
     @SerializedName("originalPrice")
     @Expose
-    private Integer originalPrice;
+    private Double originalPrice;
     @SerializedName("offerPrice")
     @Expose
     private Double offerPrice;
@@ -104,11 +103,11 @@ public class ProductId {
         this.description = description;
     }
 
-    public Integer getOriginalPrice() {
+    public Double getOriginalPrice() {
         return originalPrice;
     }
 
-    public void setOriginalPrice(Integer originalPrice) {
+    public void setOriginalPrice(Double originalPrice) {
         this.originalPrice = originalPrice;
     }
 

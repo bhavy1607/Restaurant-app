@@ -3,6 +3,8 @@ package com.example.restaurant_app.Retrofit;
 import com.example.restaurant_app.ForgotResult;
 import com.example.restaurant_app.LoginResult;
 import com.example.restaurant_app.Menu;
+import com.example.restaurant_app.modelmanager.AllLogin.Alllogin;
+import com.example.restaurant_app.modelmanager.AllLogin.Bodylogin;
 import com.example.restaurant_app.modelmanager.AllRegister.Bodyregister;
 import com.example.restaurant_app.modelmanager.AllRegister.cook;
 import com.example.restaurant_app.modelmanager.Availableitem.Availableitem;
@@ -87,8 +89,8 @@ public interface RetrofitInterface {
     Call<Void> executeAddManagerRegister(@Body HashMap<String, String> map);
 
     //manager login
-    @POST("/manage/login")
-    Call<LoginResult> executeManagerLogin(@Body HashMap<String, String> map);
+    @POST("/all/login")
+    Call<Alllogin> executeManagerLogin(@Body Bodylogin bodylogin);
 
     //User Forgot password
     @POST("/auth/forgot")

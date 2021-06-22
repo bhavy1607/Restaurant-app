@@ -13,10 +13,10 @@
         android:orientation="horizontal">
 
     <LinearLayout
-        android:layout_width="90dp"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         >
 
         <TextView
@@ -48,7 +48,7 @@
         android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         >
 
         <LinearLayout
@@ -86,12 +86,12 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_below="@+id/linear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+<!--    <LinearLayout-->
+<!--        android:layout_below="@+id/linear"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        >-->
 
     <Button
         android:id="@+id/btnreply"
@@ -99,7 +99,8 @@
         android:layout_height="wrap_content"
         android:text="Reply "
         android:layout_below="@+id/linear"
-        android:layout_marginLeft="200dp"
+        android:layout_marginLeft="160dp"
+
         />
 
         <Button
@@ -108,8 +109,10 @@
             android:layout_height="wrap_content"
             android:text="Set Discount "
             android:layout_below="@+id/linear"
+            android:layout_marginLeft="250dp"
+
 
             />
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
 </RelativeLayout>

@@ -12,13 +12,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurant_app.Retrofit.RetrofitClient;
 import com.example.restaurant_app.Retrofit.RetrofitInterface;
-
-import java.util.HashMap;
+import com.example.restaurant_app.modelmanager.AllLogin.Alllogin;
+import com.example.restaurant_app.modelmanager.AllLogin.Bodylogin;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,9 +37,6 @@ public class ManagerLogin extends AppCompatActivity {
         setContentView(R.layout.manager_login);
 
 
-        Retrofit retrofitClient = RetrofitClient.getInstance();
-        retrofitInterface = retrofitClient.create(RetrofitInterface.class);
-
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
         login_btn =(Button) findViewById(R.id.login_btn);
@@ -54,8 +50,8 @@ public class ManagerLogin extends AppCompatActivity {
             startActivity(intent);
         }else if(checkbox.equals("false")){
             Toast.makeText(ManagerLogin.this, "Please Sign in...", Toast.LENGTH_SHORT).show();
-
         }
+
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,32 +62,43 @@ public class ManagerLogin extends AppCompatActivity {
                     Toast.makeText(ManagerLogin.this, "Please Enter Password", Toast.LENGTH_SHORT).show();
                 }
 
-                HashMap<String, String> map = new HashMap<>();
 
-                map.put("email", email.getText().toString());
-                map.put("password",password.getText().toString());
 
-                Call<LoginResult> call = retrofitInterface.executeManagerLogin(map);
+                Retrofit retrofitClient = RetrofitClient.getInstance();
+                retrofitInterface = retrofitClient.create(RetrofitInterface.class);
+//                HashMap<String, String> map = new HashMap<>();
+//
+//                map.put("email", email.getText().toString());
+//                map.put("password",password.getText().toString());
 
-                call.enqueue(new Callback<LoginResult>() {
+                String mess = email.getText().toString();
+                String mess1 = password.getText().toString();
+
+                Bodylogin bodylogin = new Bodylogin();
+                bodylogin.setEmail(mess);
+                bodylogin.setPassword(mess1);
+
+                Call<Alllogin> call = retrofitInterface.executeManagerLogin(bodylogin);
+
+                call.enqueue(new Callback<Alllogin>() {
                     @Override
-                    public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+                    public void onResponse(Call<Alllogin> call, Response<Alllogin> response) {
 
-                        if (response.code() == 200) {
+                        if (response.isSuccessful()) {
 
-                            LoginResult result = response.body();
+                            //LoginResult result = response.body();
 
-                            AlertDialog.Builder builder1 = new AlertDialog.Builder(ManagerLogin.this);
-                            builder1.setTitle(result.getEmail());
-                            builder1.setMessage(result.getPassword());
-                            builder1.show();
-                            Toast.makeText(ManagerLogin.this, "Login Success",
-                                    Toast.LENGTH_LONG).show();
+//                            AlertDialog.Builder builder1 = new AlertDialog.Builder(ManagerLogin.this);
+//                            builder1.setTitle(result.getEmail());
+//                            builder1.setMessage(result.getPassword());
+//                            builder1.show();
+//                            Toast.makeText(ManagerLogin.this, "Login Success",
+//                                    Toast.LENGTH_LONG).show();
 
                             Intent intent = new Intent(ManagerLogin.this, ManagerHome.class);
                             startActivity(intent);
 
-                        } else if (response.code() == 401) {
+                        } else {
                             Toast.makeText(ManagerLogin.this, "Wrong Credentials",
                                     Toast.LENGTH_LONG).show();
                         }
@@ -99,7 +106,7 @@ public class ManagerLogin extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<LoginResult> call, Throwable t) {
+                    public void onFailure(Call<Alllogin> call, Throwable t) {
                         Toast.makeText(ManagerLogin.this, "Please! Check Network of Your Device",
                                 Toast.LENGTH_LONG).show();
                     }

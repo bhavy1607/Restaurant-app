@@ -50,33 +50,32 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp">
+        android:layout_margin="5dp">
 
         <LinearLayout
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="170dp"
-                android:layout_height="200dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:id="@+id/image"
-                android:background="@drawable/ic_launcher_background"
                 />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="150dp"
                 android:orientation="vertical"
-                android:padding="10dp">
+                android:padding="5dp">
 
                 <Button
                     android:id="@+id/btnadd"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_margin="10dp"
+                    android:layout_margin="5dp"
                     android:text="ADD +"/>
 
 
@@ -85,7 +84,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:layout_margin="10dp"
+                    android:layout_margin="5dp"
                     android:layout_gravity="center"/>
 
                 <TextView

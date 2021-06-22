@@ -199,10 +199,7 @@ public class ManagerHome extends AppCompatActivity {
                         startActivity(intent);
                         finish();
 
-
-
                         break;
-
                 }
                 return true;
             }

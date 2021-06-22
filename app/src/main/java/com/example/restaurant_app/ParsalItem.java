@@ -41,7 +41,7 @@ public class ParsalItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parsal_item);
 
-        id = getIntent().getStringExtra("_id");
+        id = getIntent().getStringExtra("_id"   );
         gridView = (GridView)findViewById(R.id.gridview);
 
         parsalitem();

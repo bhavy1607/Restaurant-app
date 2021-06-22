@@ -32,6 +32,7 @@ public class ViewParsal extends AppCompatActivity {
 
     GridView gridView;
     public static String id;
+    Button btnback;
 
     Parsalorder parsalorder = new Parsalorder();
     List<Order> orders = new ArrayList<>();
@@ -42,6 +43,14 @@ public class ViewParsal extends AppCompatActivity {
         setContentView(R.layout.activity_view_parsal);
 
         gridView = (GridView)findViewById(R.id.gridview);
+        btnback = (Button)findViewById(R.id.btnback);
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ViewParsal.this,ManagerHome.class);
+                startActivity(intent);
+            }
+        });
 
         parsaldata();
 
@@ -129,7 +138,7 @@ public class ViewParsal extends AppCompatActivity {
             tname.setText(orders.get(position).getName());
             temail.setText(orders.get(position).getEmail());
             tpayment.setText(orders.get(position).getPaymentMethod());
-            ttotal.setText(orders.get(position).getGrandTotal()+"");
+            ttotal.setText(orders.get(position).getGrandTotal()+""+" ₹");
 
             return convertView;
         }

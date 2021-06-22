@@ -3,9 +3,10 @@ package com.example.restaurant_app;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -29,6 +31,8 @@ import com.example.restaurant_app.modelmanager.showCategories.Categorypost;
 import com.example.restaurant_app.modelmanager.showCategories.ShowCategories;
 import com.squareup.picasso.Picasso;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +46,7 @@ public class Categories extends AppCompatActivity {
     int SELECT_PHOTO = 1;
     Uri uri;
     EditText et1,et2;
-    Button btnadd,btnback;
+    Button btnadd,btnback,btnshowimage;
     GridView gridView;
     ImageView imageView;
     public static String id;
@@ -59,8 +63,18 @@ public class Categories extends AppCompatActivity {
         setContentView(R.layout.activity_categories);
 
         et1 = (EditText)findViewById(R.id.et1);
-      //  et2 = (EditText)findViewById(R.id.et2);
+       // et2 = (EditText)findViewById(R.id.et2);
         imageView = (ImageView)findViewById(R.id.imageview);
+        btnshowimage = (Button)findViewById(R.id.btnshowimage);
+        btnshowimage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent  intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent,SELECT_PHOTO);
+            }
+        });
+
         btnback = (Button)findViewById(R.id.btnback);
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +123,22 @@ public class Categories extends AppCompatActivity {
 //            }
 //        }
 //    }
+
+  @Override
+  protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    if(requestCode == SELECT_PHOTO && resultCode == RESULT_OK && data != null && data.getData() != null){
+        uri = data.getData();
+        try {
+            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),uri);
+            imageView.setImageBitmap(bitmap);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
 
 
     private void showcategories(){
@@ -220,16 +250,18 @@ public class Categories extends AppCompatActivity {
         RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
 
         String categoryname = et1.getText().toString();
-        Drawable img = getResources().getDrawable(R.drawable.i_1);
-        String pathimage = img.toString();
-
-        Uri path = Uri.parse("android.resource://com.example.restaurant_app/" +R.drawable.i_1);
-        String imgpath = path.toString();
+        String image = imageView.getDrawable().toString();
+//        Drawable img = getResources().getDrawable(R.drawable.i_1);
+//        String pathimage = img.toString();
+//
+//        Uri path = Uri.parse("android.resource://com.example.restaurant_app/" +R.drawable.i_1);
+//        String imgpath = path.toString();
 
         Body body = new Body();
 
         body.setCategoryname(categoryname);
-        body.setImageUrl(imgpath);
+        body.setImageUrl(image);
+      //  body.setImageUrl(imgpath);
 
 
         Call<Createcategories> call = retrofitInterface.AddCategory(body);
@@ -279,6 +311,5 @@ public class Categories extends AppCompatActivity {
                 Toast.makeText(Categories.this, "Failure", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }

@@ -29,7 +29,7 @@ public class Item {
     private Integer priority;
     @SerializedName("categoryId")
     @Expose
-    private CategoryId categoryId;
+    private Object categoryId;
     @SerializedName("productPrice")
     @Expose
     private Integer productPrice;
@@ -93,11 +93,11 @@ public class Item {
         this.priority = priority;
     }
 
-    public CategoryId getCategoryId() {
+    public Object getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(CategoryId categoryId) {
+    public void setCategoryId(Object categoryId) {
         this.categoryId = categoryId;
     }
 
